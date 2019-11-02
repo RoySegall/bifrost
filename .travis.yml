@@ -1,0 +1,14 @@
+language: python
+python: "3.6"
+
+install:
+  - pip install -r requirements.txt
+  - mysql -e 'CREATE DATABASE bifrost;'
+  - cp bifrost/local_settings.travis.py bifrost/local_settings.py
+
+services:
+  - mysql
+
+script:
+  - python manage.py migrate
+  - python manage.py test
