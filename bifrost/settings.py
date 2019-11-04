@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bifrost_timeline.apps.BifrostTimelineConfig'
+    'bifrost_timeline.apps.BifrostTimelineConfig',
+    'bifrost_events.apps.BifrostEventsConfig',
 ]
 
 MIDDLEWARE = [

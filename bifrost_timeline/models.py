@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Timeline(models.Model):
-    title = models.TextField(max_length=255)
+    title = models.CharField(max_length=255)
     starting_date = models.DateTimeField()
     ending_date = models.DateTimeField()
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
