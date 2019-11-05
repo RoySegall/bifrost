@@ -5,6 +5,9 @@ from bifrost_timeline.models import Timeline
 
 
 class TestCreateTimeline(TestCase):
+    """
+    Testing the timeline model.
+    """
 
     def setUp(self):
         self.user = User.objects.create(username='dummy', password='dummy_password')
