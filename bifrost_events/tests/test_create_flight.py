@@ -4,9 +4,9 @@ from datetime import datetime, timedelta
 from bifrost_timeline.models import Timeline
 
 
-class TestCreateTimeline(TestCase):
+class TestCreateFlight(TestCase):
     """
-    Testing the timeline model.
+    Testing the flight model.
     """
 
     def setUp(self):
@@ -17,10 +17,18 @@ class TestCreateTimeline(TestCase):
             starting_date=datetime.now(),
             ending_date=datetime.now() + timedelta(days=7))
 
-    def test_user_timeline_relationship(self):
+    def test_create_flight(self):
         """
-        Testing the timeline and the user relationship works.
+        Testing the creation of a flight.
 
         todo: move logic to service and test that one.
         """
-        self.assertEquals(self.user.timeline_set.first(), self.timeline)
+        self.fail()
+
+    def test_create_flight_with_connection(self):
+        """
+        Testing that a flight with a connection is working OK.
+
+        todo: move logic to service and test that one.
+        """
+        self.fail()
