@@ -12,13 +12,13 @@ class EventBase(models.Model):
 
     title = models.CharField(max_length=255)
     starting_date = models.DateTimeField()
-    ending_date = models.DateTimeField()
+    ending_date = models.DateTimeField(null=True, blank=True)
     timeline = models.ForeignKey(Timeline, on_delete=models.CASCADE, null=True)
     # todo: add geolocation field.
 
 
 class Flight(EventBase):
     origin = models.CharField(max_length=255)
-    destination = models.SlugField(unique=True)
+    destination = models.CharField(max_length=255)
     extra_info = models.TextField()
     connection_flight = models.ForeignKey('Flight', on_delete=models.CASCADE, null=True, blank=True)
