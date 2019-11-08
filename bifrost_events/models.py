@@ -37,6 +37,5 @@ class PickingCar(EventBase):
 
 
 class MeetingConjunction(EventBase):
-    members = models.CharField(max_length=255)
-    type = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    members = models.ManyToManyField(User)
     location = models.CharField(max_length=255)

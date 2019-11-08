@@ -7,9 +7,19 @@ from bifrost_timeline.models import Timeline
 class BaseTestUtils(TestCase):
 
     def simple_setup(self):
-        self.user = User.objects.create(username='dummy', password='dummy_password')
+        self.user = self.create_user()
         self.timeline = Timeline.objects.create(
             title='First timeline',
             user=self.user,
             starting_date=datetime.now(),
             ending_date=datetime.now() + timedelta(days=7))
+
+    def create_user(self, username='dummy') -> User:
+        """
+        Creating a user.
+
+        :param username: The username. Default to 'dummy'.
+
+        :return: The user object we just created.
+        """
+        return User.objects.create(username=username, password='dummy_password')
