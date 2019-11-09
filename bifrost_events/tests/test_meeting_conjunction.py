@@ -11,7 +11,7 @@ class TestMeetingConjunction(BaseTestUtils):
         self.alice = self.create_user('Alice')
         self.bob = self.create_user('Bob')
 
-    def test_first(self):
+    def test_create_meeting_conjunction(self):
         """
         Testing the creation of a meeting conjunction.
 
