@@ -1,22 +1,15 @@
-from django.contrib.auth.models import User
-from django.test import TestCase
-from datetime import datetime, timedelta
+from datetime import datetime
+from bifrost.src.TestUtils.common_test_utils import BaseTestUtils
 from bifrost_events.models import Flight
-from bifrost_timeline.models import Timeline
 
 
-class TestCreateFlight(TestCase):
+class TestFlightEvent(BaseTestUtils):
     """
     Testing the flight model.
     """
 
     def setUp(self):
-        self.user = User.objects.create(username='dummy', password='dummy_password')
-        self.timeline = Timeline.objects.create(
-            title='First timeline',
-            user=self.user,
-            starting_date=datetime.now(),
-            ending_date=datetime.now() + timedelta(days=7))
+        self.simple_setup()
 
     def test_create_flight(self):
         """

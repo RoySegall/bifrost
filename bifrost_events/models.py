@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from bifrost_timeline.models import Timeline
 
@@ -22,3 +23,19 @@ class Flight(EventBase):
     destination = models.CharField(max_length=255)
     extra_info = models.TextField()
     connection_flight = models.ForeignKey('Flight', on_delete=models.CASCADE, null=True, blank=True)
+
+
+class Accommodation(EventBase):
+    hotel_name = models.CharField(max_length=255)
+    room = models.CharField(max_length=255)
+
+
+class PickingCar(EventBase):
+    agency = models.CharField(max_length=255)
+    type = models.CharField(max_length=255)
+    license_number = models.CharField(max_length=255)
+
+
+class MeetingConjunction(EventBase):
+    members = models.ManyToManyField(User)
+    location = models.CharField(max_length=255)

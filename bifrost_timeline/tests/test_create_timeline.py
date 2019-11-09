@@ -1,21 +1,13 @@
-from django.contrib.auth.models import User
-from django.test import TestCase
-from datetime import datetime, timedelta
-from bifrost_timeline.models import Timeline
+from bifrost.src.TestUtils.common_test_utils import BaseTestUtils
 
 
-class TestCreateTimeline(TestCase):
+class TestCreateTimeline(BaseTestUtils):
     """
     Testing the timeline model.
     """
 
     def setUp(self):
-        self.user = User.objects.create(username='dummy', password='dummy_password')
-        self.timeline = Timeline.objects.create(
-            title='First timeline',
-            user=self.user,
-            starting_date=datetime.now(),
-            ending_date=datetime.now() + timedelta(days=7))
+        self.simple_setup()
 
     def test_user_timeline_relationship(self):
         """
