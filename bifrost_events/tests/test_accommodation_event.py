@@ -22,5 +22,7 @@ class TestAccommodationEvent(BaseTestUtils):
             room='213',
         )
 
-        self.assertEquals(self.user.timeline_set.first().accommodation_set.first(), accommodation)
-
+        self.assertEquals(
+            self.user.timeline_set.first().accommodation_set.first(),
+            accommodation
+        )

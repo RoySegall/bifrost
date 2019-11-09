@@ -26,7 +26,8 @@ class TestMeetingConjunction(BaseTestUtils):
 
         meeting_conjunction.members.add(self.alice, self.bob)
 
-        referenced_conjunctions = self.user.timeline_set.first().meetingconjunction_set.first()
+        referenced_conjunctions = self.user.timeline_set.first()\
+            .meetingconjunction_set.first()
 
         self.assertEquals(referenced_conjunctions, meeting_conjunction)
         self.assertTrue(self.alice in referenced_conjunctions.members.all())

@@ -26,7 +26,10 @@ class TestFlightEvent(BaseTestUtils):
             extra_info='Keep calm'
         )
 
-        self.assertEquals(self.user.timeline_set.first().flight_set.first(), flight)
+        self.assertEquals(
+            self.user.timeline_set.first().flight_set.first(),
+            flight
+        )
 
     def test_create_flight_with_connection(self):
         """
