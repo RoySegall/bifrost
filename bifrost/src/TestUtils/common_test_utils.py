@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
 from datetime import datetime, timedelta
+
+from bifrost_location.models import Location
 from bifrost_timeline.models import Timeline
 
 
@@ -25,4 +27,15 @@ class BaseTestUtils(TestCase):
         return User.objects.create(
             username=username,
             password='dummy_password'
+        )
+
+    def create_location(self):
+        """
+        Creating a dummy event and returning it.
+        """
+        return Location.objects.create(
+            title='Dummy location',
+            address='Awesome streat',
+            lat=35.2658,
+            long=35.9956
         )
