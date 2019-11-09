@@ -15,4 +15,4 @@ class TestCreateTimeline(BaseTestUtils):
 
         todo: move logic to service and test that one.
         """
-        self.assertNotEquals(self.user.timeline_set.first(), self.timeline)
+        self.assertEquals(self.user.timeline_set.first(), self.timeline)
