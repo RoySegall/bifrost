@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from bifrost_location.models import Location
 from bifrost_timeline.models import Timeline
 
 
@@ -15,7 +16,11 @@ class EventBase(models.Model):
     starting_date = models.DateTimeField()
     ending_date = models.DateTimeField(null=True, blank=True)
     timeline = models.ForeignKey(Timeline, on_delete=models.CASCADE, null=True)
-    # todo: add geolocation field.
+    location = models.ForeignKey(
+        Location,
+        on_delete=models.DO_NOTHING,
+        null=True
+    )
 
 
 class Flight(EventBase):
@@ -43,4 +48,3 @@ class PickingCar(EventBase):
 
 class MeetingConjunction(EventBase):
     members = models.ManyToManyField(User)
-    location = models.CharField(max_length=255)

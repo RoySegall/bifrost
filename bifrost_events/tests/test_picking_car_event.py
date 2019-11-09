@@ -21,6 +21,7 @@ class TestPickingCar(BaseTestUtils):
             agency="Hertz",
             type="BMW",
             license_number="OutOfTime",
+            location=self.create_location()
         )
 
         self.assertEquals(

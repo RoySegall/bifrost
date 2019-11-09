@@ -21,7 +21,7 @@ class TestMeetingConjunction(BaseTestUtils):
             title='Dummy flight',
             starting_date=datetime.now(),
             timeline=self.timeline,
-            location='JFK airport',
+            location=self.create_location()
         )
 
         meeting_conjunction.members.add(self.alice, self.bob)
