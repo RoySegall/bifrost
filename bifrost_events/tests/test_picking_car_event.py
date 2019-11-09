@@ -23,5 +23,6 @@ class TestPickingCar(BaseTestUtils):
             license_number="OutOfTime",
         )
 
-        self.assertEquals(picking_car, self.user.timeline_set.first().pickingcar_set.first())
-
+        self.assertEquals(
+            picking_car, self.user.timeline_set.first().pickingcar_set.first()
+        )

@@ -13,6 +13,6 @@ services:
   - mysql
 
 script:
-  - pycodestyle  .
+  - pycodestyle  . --exclude=settings.py,migrations
   - python manage.py migrate
   - python manage.py test

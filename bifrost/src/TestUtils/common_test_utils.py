@@ -22,4 +22,7 @@ class BaseTestUtils(TestCase):
 
         :return: The user object we just created.
         """
-        return User.objects.create(username=username, password='dummy_password')
+        return User.objects.create(
+            username=username,
+            password='dummy_password'
+        )
