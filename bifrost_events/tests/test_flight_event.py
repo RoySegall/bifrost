@@ -23,7 +23,8 @@ class TestFlightEvent(BaseTestUtils):
             timeline=self.timeline,
             origin='House of cats',
             destination='Another house of cats',
-            extra_info='Keep calm'
+            extra_info='Keep calm',
+            location=self.create_location()
         )
 
         self.assertEquals(
