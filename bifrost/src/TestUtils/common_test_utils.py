@@ -31,7 +31,7 @@ class BaseTestUtils(TestCase):
 
     def create_location(self):
         """
-        Creating a dummy event and returning it.
+        Creating a dummy location and returning it.
         """
         return Location.objects.create(
             title='Dummy location',
