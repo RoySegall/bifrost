@@ -1,12 +1,12 @@
 from bifrost.src.ioc.Base import ServiceBase
 
 
-class FlightService(ServiceBase):
+class Service(ServiceBase):
 
     def info(self):
         return {
-            'name': 'Flight service',
-            'description': 'Manage flights',
+            'name': 'Accommodation service',
+            'description': 'Manage accommodations',
         }
 
     def create(self):

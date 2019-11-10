@@ -1,5 +1,5 @@
 from bifrost.signals import ServiceContainerInit
-from bifrost_events.Services import FlightService
+from bifrost_events.Services import Flight, Accommodation, PickingCar, MeetingConjunction
 
 
 class Container:
@@ -42,5 +42,29 @@ class Container:
         Container.services[service_name] = reference
 
     @staticmethod
-    def flight_service() -> FlightService:
+    def flight_service() -> Flight.Service:
+        """
+        Get the flight service.
+        """
         return Container.get_service('flight_service')
+
+    @staticmethod
+    def accommodation_service() -> Accommodation.Service:
+        """
+        Get the accommodation service.
+        """
+        return Container.get_service('accommodation_service')
+
+    @staticmethod
+    def picking_car_service() -> PickingCar.Service:
+        """
+        Get the picking car service.
+        """
+        return Container.get_service('picking_car_service')
+
+    @staticmethod
+    def meeting_conjunction_service() -> MeetingConjunction.Service:
+        """
+        Get the meeting conjunction service.
+        """
+        return Container.get_service('meeting_conjunction_service')
