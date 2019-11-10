@@ -1,4 +1,4 @@
-from bifrost.src.TestUtils.common_test_utils import BaseTestUtils
+from bifrost.src.CommonTestUtils import BaseTestUtils
 
 
 class TestCreateTimeline(BaseTestUtils):

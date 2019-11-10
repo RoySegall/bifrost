@@ -1,5 +1,5 @@
 from datetime import datetime
-from bifrost.src.TestUtils.common_test_utils import BaseTestUtils
+from bifrost.src.CommonTestUtils import BaseTestUtils
 from bifrost_events.models import Flight
 
 
