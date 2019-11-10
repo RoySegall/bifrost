@@ -1,5 +1,6 @@
 from bifrost.signals import ServiceContainerInit
-from bifrost_events.Services import Flight, Accommodation, PickingCar, MeetingConjunction
+from bifrost_events.Services import Flight, Accommodation, PickingCar, \
+    MeetingConjunction
 
 
 class Container:
@@ -9,11 +10,11 @@ class Container:
     @staticmethod
     def reset_services():
         """
-        Starting the service container. The service container initialise process
-        have a couple of steps:
+        Starting the service container. The service container initialise
+        process have a couple of steps:
             1. Send signal that the service container is starting.
-            2. Collection definitions of references for services provided by the
-                packages.
+            2. Collection definitions of references for services provided by
+                the packages.
         :return:
         """
         service_init = ServiceContainerInit()
