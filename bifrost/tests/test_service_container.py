@@ -1,6 +1,6 @@
 from django.test import TestCase
-
 from bifrost.src.ioc.ServiceContainer import Container
+from bifrost_events.Services.FlightService import FlightService
 
 
 class TestServiceContainer(TestCase):
@@ -11,6 +11,8 @@ class TestServiceContainer(TestCase):
         other packages.
         """
 
-        container = Container()
+        Container.reset_services()
+        flight = FlightService()
 
-        self.assertIsNotNone(container.services)
+        self.assertEquals(Container.services['flight_service'], FlightService)
+        self.assertEquals(Container.flight_service().info(), flight.info())

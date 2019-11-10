@@ -1,14 +1,18 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
 from datetime import datetime, timedelta
-
 from bifrost_location.models import Location
 from bifrost_timeline.models import Timeline
+from bifrost.src.ioc.ServiceContainer import Container
 
 
 class BaseTestUtils(TestCase):
 
     def simple_setup(self):
+        # Reset container.
+        Container.reset_services()
+
+        # Set up models.
         self.user = self.create_user()
         self.timeline = Timeline.objects.create(
             title='First timeline',

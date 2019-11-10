@@ -1,11 +1,13 @@
+from bifrost.signals import ServiceContainerInit
+from bifrost_events.Services import FlightService
+
+
 class Container:
 
     services = {}
 
-    def __init__(self):
-        self.reset_services()
-
-    def reset_services(self):
+    @staticmethod
+    def reset_services():
         """
         Starting the service container. The service container initialise process
         have a couple of steps:
@@ -14,9 +16,11 @@ class Container:
                 packages.
         :return:
         """
-        pass
+        service_init = ServiceContainerInit()
+        service_init.notify_listeners()
 
-    def get_service(self, service_name):
+    @staticmethod
+    def get_service(service_name):
         """
         Get a service from the container by name.
 
@@ -24,9 +28,10 @@ class Container:
 
         :return: The service object.
         """
-        pass
+        return Container.services[service_name]()
 
-    def set_service(self, service_name, reference):
+    @staticmethod
+    def set_service(service_name, reference):
         """
         Set a service. You might want to use it when building the container
         manually in testing or when we need to swap services during tests.
@@ -34,4 +39,8 @@ class Container:
         :param service_name: The service name.
         :param reference: The service reference.
         """
-        pass
+        Container.services[service_name] = reference
+
+    @staticmethod
+    def flight_service() -> FlightService:
+        return Container.get_service('flight_service')
