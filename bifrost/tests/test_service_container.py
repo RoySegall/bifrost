@@ -1,10 +1,16 @@
-import unittest
+from django.test import TestCase
+
+from bifrost.src.ioc.ServiceContainer import Container
 
 
-class MyTestCase(unittest.TestCase):
-    def test_something(self):
-        self.assertEqual(True, False)
+class TestServiceContainer(TestCase):
 
+    def test_service_container_init(self):
+        """
+        Testing the service container is initialize and we pulling services of
+        other packages.
+        """
 
-if __name__ == '__main__':
-    unittest.main()
+        container = Container()
+
+        self.assertIsNotNone(container.services)
