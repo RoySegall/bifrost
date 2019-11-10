@@ -13,4 +13,3 @@ def send_mail_on_publish(sender, **kwargs):
     Container.set_service(
         'meeting_conjunction_service', MeetingConjunction.Service
     )
-
