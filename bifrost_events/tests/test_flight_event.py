@@ -1,6 +1,7 @@
 from datetime import datetime
 from bifrost.src.CommonTestUtils import BaseTestUtils
 from bifrost_events.models import Flight
+from bifrost.src.ioc.ServiceContainer import Container
 
 
 class TestFlightEvent(BaseTestUtils):
@@ -17,7 +18,7 @@ class TestFlightEvent(BaseTestUtils):
 
         todo: move logic to service and test that one.
         """
-        flight = Flight.objects.create(
+        flight = Container.flight_service().create(
             title='Dummy flight',
             starting_date=datetime.now(),
             timeline=self.timeline,

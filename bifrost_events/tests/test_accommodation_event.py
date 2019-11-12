@@ -1,6 +1,6 @@
 from bifrost.src.CommonTestUtils import BaseTestUtils
-from bifrost_events.models import Accommodation
 from datetime import datetime
+from bifrost.src.ioc.ServiceContainer import Container
 
 
 class TestAccommodationEvent(BaseTestUtils):
@@ -11,10 +11,8 @@ class TestAccommodationEvent(BaseTestUtils):
     def test_accommodation_event_creation(self):
         """
         Testing the creation of accommodation event.
-
-        todo: move to a service container.
         """
-        accommodation = Accommodation.objects.create(
+        accommodation = Container.accommodation_service().create(
             title='Dummy flight',
             starting_date=datetime.now(),
             timeline=self.timeline,

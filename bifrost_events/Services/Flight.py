@@ -1,4 +1,5 @@
 from bifrost.src.ioc.Base import ServiceBase
+from bifrost_events.models import Flight
 
 
 class Service(ServiceBase):
@@ -9,5 +10,13 @@ class Service(ServiceBase):
             'description': 'Manage flights',
         }
 
-    def create(self):
-        pass
+    def create(self, **kwargs):
+        """
+        Creating a flight service.
+
+        :param kwargs: Arguments to pass to the flight model.
+
+        :return: A flight service.
+        """
+        return Flight.objects.create(**kwargs)
+
