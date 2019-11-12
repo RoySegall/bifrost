@@ -6,7 +6,7 @@ from bifrost_events.Services import Flight, Accommodation, \
 
 
 @receiver(init_service)
-def send_mail_on_publish(sender, **kwargs):
+def declare_services(sender, **kwargs):
     Container.set_service('flight_service', Flight.Service)
     Container.set_service('accommodation_service', Accommodation.Service)
     Container.set_service('picking_car_service', PickingCar.Service)

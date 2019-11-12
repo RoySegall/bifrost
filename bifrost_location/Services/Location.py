@@ -14,7 +14,7 @@ class Service(ServiceBase):
         """
         Creating location record in the DB.
 
-        :param kwargs: Arguments of the accommodation model.
+        :param kwargs: Arguments of the location model.
 
         :return: The accommodation service.
         """

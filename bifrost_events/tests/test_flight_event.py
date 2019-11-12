@@ -15,8 +15,6 @@ class TestFlightEvent(BaseTestUtils):
     def test_create_flight(self):
         """
         Testing the creation of a flight.
-
-        todo: move logic to service and test that one.
         """
         flight = Container.flight_service().create(
             title='Dummy flight',

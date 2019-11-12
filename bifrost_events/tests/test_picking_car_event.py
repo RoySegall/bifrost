@@ -12,8 +12,6 @@ class TestPickingCar(BaseTestUtils):
     def test_picking_car_event(self):
         """
         Testing the car picking event.
-
-        todo: move the logic to a service.
         """
         picking_car = Container.picking_car_service().create(
             title='Dummy flight',
