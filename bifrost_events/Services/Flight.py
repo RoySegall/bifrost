@@ -19,4 +19,3 @@ class Service(ServiceBase):
         :return: A flight service.
         """
         return Flight.objects.create(**kwargs)
-
