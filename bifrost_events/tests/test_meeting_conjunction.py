@@ -1,6 +1,6 @@
 from datetime import datetime
-from bifrost.src.TestUtils.common_test_utils import BaseTestUtils
-from bifrost_events.models import MeetingConjunction
+from bifrost.src.CommonTestUtils import BaseTestUtils
+from bifrost.src.ioc.ServiceContainer import Container
 
 
 class TestMeetingConjunction(BaseTestUtils):
@@ -14,17 +14,15 @@ class TestMeetingConjunction(BaseTestUtils):
     def test_create_meeting_conjunction(self):
         """
         Testing the creation of a meeting conjunction.
-
-        todo: move to a service container.
         """
-        meeting_conjunction = MeetingConjunction.objects.create(
+
+        meeting_conjunction = Container.meeting_conjunction_service().create(
+            members=(self.alice, self.bob),
             title='Dummy flight',
             starting_date=datetime.now(),
             timeline=self.timeline,
             location=self.create_location()
         )
-
-        meeting_conjunction.members.add(self.alice, self.bob)
 
         referenced_conjunctions = self.user.timeline_set.first()\
             .meetingconjunction_set.first()
