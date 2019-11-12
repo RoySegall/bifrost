@@ -1,6 +1,7 @@
 from bifrost.signals import ServiceContainerInit
 from bifrost_events.Services import Flight, Accommodation, PickingCar, \
     MeetingConjunction
+from bifrost_location.Services import Location
 
 
 class Container:
@@ -69,3 +70,10 @@ class Container:
         Get the meeting conjunction service.
         """
         return Container.get_service('meeting_conjunction_service')
+
+    @staticmethod
+    def location_service() -> Location.Service:
+        """
+        Get the location service.
+        """
+        return Container.get_service('location_service')

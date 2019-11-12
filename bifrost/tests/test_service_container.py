@@ -2,6 +2,7 @@ from django.test import TestCase
 from bifrost.src.ioc.ServiceContainer import Container
 from bifrost_events.Services import Flight, Accommodation, \
     PickingCar, MeetingConjunction
+from bifrost_location.Services import Location
 
 
 class TestServiceContainer(TestCase):
@@ -17,6 +18,7 @@ class TestServiceContainer(TestCase):
         accommodation = Accommodation.Service()
         picking_car = PickingCar.Service()
         meeting_conjunction = MeetingConjunction.Service()
+        location = Location.Service()
 
         # Checking flight service.
         self.assertEquals(Container.services['flight_service'], Flight.Service)
@@ -47,6 +49,17 @@ class TestServiceContainer(TestCase):
         self.assertEquals(
             Container.meeting_conjunction_service().info(),
             meeting_conjunction.info()
+        )
+
+        # Testing location service.
+        self.assertEquals(
+            Container.services['location_service'],
+            Location.Service
+        )
+
+        self.assertEquals(
+            Container.location_service().info(),
+            location.info()
         )
 
     def test_swap_service(self):

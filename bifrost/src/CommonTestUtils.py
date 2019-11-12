@@ -33,7 +33,7 @@ class BaseTestUtils(TestCase):
             password='dummy_password'
         )
 
-    def create_location(self):
+    def create_location(self) -> Location:
         """
         Creating a dummy location and returning it.
         """
