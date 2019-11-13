@@ -37,10 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
     'bifrost_timeline.apps.BifrostTimelineConfig',
     'bifrost_events.apps.BifrostEventsConfig',
     'bifrost_location.apps.BifrostLocationConfig',
 ]
+
+
+
+
+GRAPHENE = {
+    'SCHEMA': 'bifrost.schema.schema'# Where your Graphene schema lives
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
