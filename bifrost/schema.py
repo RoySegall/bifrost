@@ -16,6 +16,7 @@ class Timeline(DjangoObjectType):
 class User(DjangoObjectType):
     class Meta:
         model = UserModel
+        fields = ['username', 'id', 'email']
 
 
 class Flight(DjangoObjectType):
@@ -44,34 +45,98 @@ class Location(DjangoObjectType):
 
 
 class Query(graphene.ObjectType):
-    timeline = graphene.List(Timeline)
-    user = graphene.List(User)
-    flight = graphene.List(Flight)
-    accommodation = graphene.List(Accommodation)
-    picking_car = graphene.List(PickingCar)
-    meeting_conjunction = graphene.List(MeetingConjunction)
-    location = graphene.List(Location)
+    timelines = graphene.List(Timeline)
+    timeline = graphene.Field(Timeline, id=graphene.Int())
 
-    def resolve_timeline(self, info):
-        return TimelineModel.objects.all()
+    user = graphene.List(User)
+
+    flights = graphene.List(Flight)
+    flight = graphene.Field(Flight, id=graphene.Int())
+
+    accommodations = graphene.List(Accommodation)
+    accommodation = graphene.Field(Accommodation, id=graphene.Int())
+
+    picking_cars = graphene.List(PickingCar)
+    picking_car = graphene.Field(PickingCar, id=graphene.Int())
+
+    meeting_conjunctions = graphene.List(MeetingConjunction)
+    meeting_conjunction = graphene.Field(MeetingConjunction, id=graphene.Int())
+
+    locations = graphene.List(Location)
+    location = graphene.List(Location, id=graphene.Int())
+
+    def resolve_timelines(self, info):
+        user = info.context.user
+
+        # Get the timeline by the current user.
+        return TimelineModel.objects.filter(user=user.id).all()
+
+    def resolve_timeline(self, info, **kwargs):
+        user = info.context.user
+        id = kwargs.get('id')
+
+        # Get the timeline by the current user.
+        return TimelineModel.objects.filter(user=user.id, id=id).first()
 
     def resolve_user(self, info):
-        return UserModel.objects.all()
+        user = info.context.user
 
-    def resolve_flight(self, info):
-        return FlightModel.objects.all()
+        return UserModel.objects.get(pk=user.id)
 
-    def resolve_accomodation(self, info):
-        return AccommodationModel.objects.all()
+    def resolve_flights(self, info):
+        user = info.context.user
 
-    def resolve_picking_car(self, info):
-        return PickingCarModel.objects.all()
+        return FlightModel.objects.filter(timeline__user=user.id).all()
 
-    def resolve_meeting_cojnunction(self, info):
-        return MeetingConjunctionModel.objects.all()
+    def resolve_flight(self, info, **kwargs):
+        user = info.context.user
+        id = kwargs.get('id')
 
-    def resolve_location(self, info):
-        return LocationModel.objects.all()
+        return FlightModel.objects.filter(timeline__user=user.id, id=id).first()
+
+    def resolve_accomodations(self, info):
+        user = info.context.user
+
+        return AccommodationModel.objects.filter(timeline__user=user.id).all()
+
+    def resolve_accomodation(self, info, **kwargs):
+        user = info.context.user
+        id = kwargs.get('id')
+
+        return AccommodationModel.objects.filter(timeline__user=user.id, id=id).first()
+
+    def resolve_picking_cars(self, info):
+        user = info.context.user
+
+        return PickingCarModel.objects.filter(timeline__user=user.id).all()
+
+    def resolve_picking_car(self, info, **kwargs):
+        user = info.context.user
+        id = kwargs.get('id')
+
+        return PickingCarModel.objects.filter(timeline__user=user.id, id=id).first()
+
+    def resolve_meeting_cojnunctions(self, info):
+        user = info.context.user
+
+        return MeetingConjunctionModel.objects.filter(timeline__user=user.id).all()
+
+    def resolve_meeting_cojnunction(self, info, **kwargs):
+        user = info.context.user
+        id = kwargs.get('id')
+
+        return MeetingConjunctionModel.objects.filter(timeline__user=user.id, id=id).first()
+
+    def resolve_locations(self, info):
+        user = info.context.user
+
+        return LocationModel.objects.filter(timeline__user=user.id).all()
+
+    def resolve_location(self, info, **kwargs):
+        user = info.context.user
+        id = kwargs.get('id')
+
+        return LocationModel.objects.filter(timeline__user=user.id, id=id).first()
 
 
 schema = graphene.Schema(query=Query)
