@@ -47,7 +47,9 @@ class BifrostEventsGraphql(graphene.ObjectType):
         user = info.context.user
         id = kwargs.get('id')
 
-        return FlightModel.objects.filter(timeline__user=user.id, id=id).first()
+        return FlightModel.objects.filter(
+            timeline__user=user.id, id=id
+        ).first()
 
     def resolve_accomodations(self, info):
         user = info.context.user
