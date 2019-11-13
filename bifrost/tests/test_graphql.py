@@ -19,8 +19,16 @@ class TestGraphQL(BaseTestUtils):
         Preparing the trip for a given user: timeline, flight etc. etc.
         """
 
+        timeline = self.create_timeline(user)
+
+        # todo: create the records in the DB.
         return {
-            'user': user
+            'timeline': timeline,
+            'picking_car': None,
+            'flight': None,
+            'connection_flight': None,
+            'meeting_conjunction': None,
+            'accommodation': None,
         }
 
     def test_complete_trip_view(self):
