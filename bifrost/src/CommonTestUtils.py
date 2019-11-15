@@ -16,7 +16,6 @@ class BaseTestUtils(TestCase):
         self.user = self.create_user()
         self.timeline = self.create_timeline(self.user)
 
-    def create_user(self, username='dummy') -> User:
     def create_user(self, username='dummy', password='dummy_password') -> User:
         """
         Creating a user.
