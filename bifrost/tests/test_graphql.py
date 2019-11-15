@@ -245,9 +245,6 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
 
         self.assertEquals(
             response,
-            {
-                'timeline': {'id': str(timeline.id),
-                'title': timeline.title}
-            }
+            {'timeline': {'id': str(timeline.id), 'title': timeline.title}}
         )
 
