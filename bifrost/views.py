@@ -10,6 +10,7 @@ class HomeView(TemplateView):
     def get(self, request, *args, **kwargs):
 
         if request.user.is_anonymous:
+            # Anonymous user, redirect to login.
             return HttpResponseRedirect(reverse('login'))
 
         context = {
