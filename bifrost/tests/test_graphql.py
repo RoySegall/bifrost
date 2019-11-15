@@ -247,4 +247,3 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             response,
             {'timeline': {'id': str(timeline.id), 'title': timeline.title}}
         )
-
