@@ -232,7 +232,8 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             )
 
         self._client = self.login('first_user')
-        response = get_timeline_by_id(str(self.second_user_trip['timeline'].id))
+        timeline = self.second_user_trip['timeline']
+        response = get_timeline_by_id(str(timeline.id))
         response = json.loads(response.content)['data']
 
         self.assertEquals(response, {'timeline': None})
@@ -244,6 +245,9 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
 
         self.assertEquals(
             response,
-            {'timeline': {'id': str(timeline.id), 'title': timeline.title}}
+            {
+                'timeline': {'id': str(timeline.id),
+                'title': timeline.title}
+            }
         )
 
