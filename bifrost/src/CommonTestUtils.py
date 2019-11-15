@@ -17,17 +17,18 @@ class BaseTestUtils(TestCase):
         self.timeline = self.create_timeline(self.user)
 
     def create_user(self, username='dummy') -> User:
+    def create_user(self, username='dummy', password='dummy_password') -> User:
         """
         Creating a user.
 
         :param username: The username. Default to 'dummy'.
+        :param password: The username password. Default to dummy password.
 
         :return: The user object we just created.
         """
-        return User.objects.create(
-            username=username,
-            password='dummy_password'
-        )
+        user = User.objects.create_user(username=username, password=password)
+
+        return user
 
     def create_timeline(self, user) -> Timeline:
         """
@@ -56,3 +57,14 @@ class BaseTestUtils(TestCase):
             lat=35.2658,
             long=35.9956
         )
+
+    def login(self, username, password='dummy_password'):
+        """
+        Login the user.
+
+        :param username: The username.
+        :param password: The password.
+
+        """
+        self.client.login(username=username, password=password)
+        return self.client
