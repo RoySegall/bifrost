@@ -7,6 +7,9 @@ import json
 
 
 class TestGraphQL(BaseTestUtils, GraphQLTestCase):
+    """
+    Testing GraphQL integration.
+    """
 
     GRAPHQL_SCHEMA = schema
 
@@ -147,13 +150,13 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
         """
         self.assertEquals(len(response['timelines']), 1)
 
-        # First, check the timeline values.
+        # Check the timeline.
         timeline = response['timelines'][0]
 
         self.assertEquals(timeline['title'], user_trip['timeline'].title)
         self.assertEquals(int(timeline['id']), user_trip['timeline'].id)
 
-        # Second check the flight and the connection.
+        # Check the flight and the connection.
         flight = timeline['flightSet']
 
         self.assertEquals(int(flight[0]['id']), user_trip['flight'].id)
@@ -169,6 +172,30 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             user_trip['connection_flight'].title
         )
 
+        # Check accommodations.
+        accommodation = timeline['accommodationSet']
+        self.assertEquals(
+            int(accommodation[0]['id']),
+            user_trip['accommodation'].id
+        )
+        self.assertEquals(
+            accommodation[0]['title'],
+            user_trip['accommodation'].title
+        )
+
+        # Check meeting conjunction.
+        meeting_conjunction = timeline['meetingconjunctionSet']
+        self.assertEquals(
+            int(meeting_conjunction[0]['id']),
+            user_trip['meeting_conjunction'].id
+        )
+
+        members = meeting_conjunction[0]['members']
+        alice = {'id': str(self.alice.id), 'username': self.alice.username}
+        bob = {'id': str(self.bob.id), 'username': self.bob.username}
+        self.assertTrue(alice in members)
+        self.assertTrue(bob in members)
+
     def test_complete_trip_view(self):
         """
         Testing we can view the trip.
@@ -181,13 +208,42 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
         # Now, check with teh first user.
         self._client = self.login('first_user')
         response = self.send_timelines_query()
-
         self.assertResponseValue(response, self.first_user_trip)
 
-        print(response)
+        # Now, check the second user
+        self._client = self.login('second_user')
+        response = self.send_timelines_query()
+        self.assertResponseValue(response, self.second_user_trip)
 
-    def _test_view_trip_by_allowed_users(self):
+    def test_view_trip_by_allowed_users(self):
         """
         Testing a user can access it's own trip and not other user's trips.
         """
-        pass
+        def get_timeline_by_id(timeline_id):
+            return self.query(
+                '''
+                {
+                    timeline(id: ''' + timeline_id + ''') {
+                        title,
+                        id
+                    }
+                }
+                '''
+            )
+
+        self._client = self.login('first_user')
+        response = get_timeline_by_id(str(self.second_user_trip['timeline'].id))
+        response = json.loads(response.content)['data']
+
+        self.assertEquals(response, {'timeline': None})
+
+        # Testing with the other the correct user.
+        timeline = self.first_user_trip['timeline']
+        response = get_timeline_by_id(str(timeline.id))
+        response = json.loads(response.content)['data']
+
+        self.assertEquals(
+            response,
+            {'timeline': {'id': str(timeline.id), 'title': timeline.title}}
+        )
+
