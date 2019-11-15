@@ -18,4 +18,3 @@ class HomeView(TemplateView):
         }
 
         return render_to_response(self.template_name, context)
-
