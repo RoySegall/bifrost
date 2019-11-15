@@ -12,7 +12,5 @@ class TestCreateTimeline(BaseTestUtils):
     def test_user_timeline_relationship(self):
         """
         Testing the timeline and the user relationship works.
-
-        todo: move logic to service and test that one.
         """
         self.assertEquals(self.user.timeline_set.first(), self.timeline)
