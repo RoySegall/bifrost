@@ -27,6 +27,12 @@ class Flight(EventBase):
     origin = models.CharField(max_length=255)
     destination = models.CharField(max_length=255)
     extra_info = models.TextField()
+    timeline = models.ForeignKey(
+        Timeline,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
     connection_flight = models.ForeignKey(
         'Flight',
         on_delete=models.CASCADE,

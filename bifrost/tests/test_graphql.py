@@ -1,9 +1,8 @@
 from datetime import datetime
-from django.test import Client
-from bifrost.src.CommonTestUtils import BaseTestUtils
+from bifrost.schema import schema
 from bifrost.src.ioc.ServiceContainer import Container
 from graphene_django.utils.testing import GraphQLTestCase
-from bifrost.schema import schema
+from bifrost.src.CommonTestUtils import BaseTestUtils
 import json
 
 
@@ -12,8 +11,7 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
     GRAPHQL_SCHEMA = schema
 
     def setUp(self):
-        super(BaseTestUtils, self).setUpClass()
-        Container.reset_services()
+        self.simple_setup()
 
         self.location = self.create_location()
 
@@ -47,7 +45,6 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
         connection_flight = Container.flight_service().create(
             title=f'Connection dummy flight {user.username}',
             starting_date=datetime.now(),
-            timeline=timeline,
             origin='House of cats',
             destination='Another house of cats',
             extra_info='Keep calm',
@@ -62,7 +59,7 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             destination='Another house of cats',
             extra_info='Keep calm',
             location=self.location,
-            flight=connection_flight
+            connection_flight=connection_flight
         )
 
         meeting_conjunction = Container.meeting_conjunction_service().create(
@@ -90,25 +87,104 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             'accommodation': accommodation,
         }
 
-    def test_complete_trip_view(self):
+    def send_timelines_query(self):
         """
-        Testing we can view the trip.
-        """
-        self._client = self.login('first_user')
+        Sending query for timeline.
 
+        :return: The response from the server.
+        """
         response = self.query(
             '''
-            query {
+            {
                 timelines {
                     id
+                    title,
+                    flightSet {
+                      id,
+                      title,
+                      location {
+                        title,
+                        id
+                      },
+                      connectionFlight {
+                        id,
+                        title
+                      }
+                    },
+                    accommodationSet {
+                      id,
+                      title
+                    },
+                    pickingcarSet {
+                      id,
+                      title
+                    },
+                    meetingconjunctionSet {
+                      id
+                      members {
+                        id
+                        username
+                      }
+                    }
+                    user {
+                      id
+                    }
                 }
             }
             '''
         )
 
-        content = json.loads(response.content)
+        return json.loads(response.content)['data']
 
-        print(content)
+    def assertResponseValue(self, response, user_trip):
+        """
+        Asserting the response we got from the query.
+
+        :param response: The response we got.
+        :param user_trip: The objects we set for the user's trip.
+
+        :return:
+        """
+        self.assertEquals(len(response['timelines']), 1)
+
+        # First, check the timeline values.
+        timeline = response['timelines'][0]
+
+        self.assertEquals(timeline['title'], user_trip['timeline'].title)
+        self.assertEquals(int(timeline['id']), user_trip['timeline'].id)
+
+        # Second check the flight and the connection.
+        flight = timeline['flightSet']
+
+        self.assertEquals(int(flight[0]['id']), user_trip['flight'].id)
+        self.assertEquals(flight[0]['title'], user_trip['flight'].title)
+
+        connection_flight = flight[0]['connectionFlight']
+        self.assertEquals(
+            int(connection_flight['id']),
+            user_trip['connection_flight'].id
+        )
+        self.assertEquals(
+            connection_flight['title'],
+            user_trip['connection_flight'].title
+        )
+
+    def test_complete_trip_view(self):
+        """
+        Testing we can view the trip.
+        """
+        # First, check with anonymous.
+        anonymous_query = self.send_timelines_query()
+
+        self.assertEquals(anonymous_query, {'timelines': []})
+
+        # Now, check with teh first user.
+        self._client = self.login('first_user')
+        response = self.send_timelines_query()
+
+        self.assertResponseValue(response, self.first_user_trip)
+
+        print(response)
 
     def _test_view_trip_by_allowed_users(self):
         """
