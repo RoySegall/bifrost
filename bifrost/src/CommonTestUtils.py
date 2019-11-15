@@ -64,6 +64,7 @@ class BaseTestUtils(TestCase):
         :param username: The username.
         :param password: The password.
 
+        :return: A client object after login.
         """
         self.client.login(username=username, password=password)
         return self.client

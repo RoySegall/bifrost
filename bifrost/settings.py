@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 
 
 GRAPHENE = {
-    'SCHEMA': 'bifrost.schema.schema'# Where your Graphene schema lives
+    'SCHEMA': 'bifrost.schema.schema'
 }
 
 MIDDLEWARE = [

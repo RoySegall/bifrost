@@ -145,8 +145,6 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
 
         :param response: The response we got.
         :param user_trip: The objects we set for the user's trip.
-
-        :return:
         """
         self.assertEquals(len(response['timelines']), 1)
 
