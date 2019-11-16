@@ -8,8 +8,8 @@ class TestHomePage(BaseTestUtils):
 
     def test_authentication_redirect(self):
         """
-        Testing when an anonymous user access the front page it will redirect to
-        the front page.
+        Testing when an anonymous user access the front page it will redirect
+        to the front page.
         """
         response = self.client.get('')
         self.assertEquals(response.status_code, 302)
