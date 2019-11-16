@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "style:compile": "node-sass --output-style compressed --output=. styles/main.scss",
-    "style:watch": "node-sass --watch --output=. styles/main.scss"
+    "style:compile": "node-sass --output-style compressed --output=. sass/main.scss",
+    "style:watch": "node-sass --watch --output=. sass/main.scss"
   },
   "author": "RoySegall",
   "license": "MIT",
