@@ -8,6 +8,12 @@ body {
 h1 {
   color: #f0134d; }
 
+a {
+  color: black; }
+  a:hover {
+    color: #40bfc1;
+    text-decoration: none; }
+
 .wrapper {
   background: white;
   padding: 1em;
@@ -19,3 +25,18 @@ h1 {
     padding-right: 1.5em; }
     .wrapper .header .menu i {
       color: #ff6f5e; }
+
+.login {
+  width: 75vh;
+  margin: 0 auto;
+  margin-top: 20vh; }
+  .login .login-fields {
+    padding-top: 1em; }
+    .login .login-fields .label {
+      font-size: 1.25em;
+      font-weight: bold; }
+    .login .login-fields input {
+      border: 1px solid #ff6f5e;
+      padding: .5em;
+      background: white;
+      width: 25vh; }
