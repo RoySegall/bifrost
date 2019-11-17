@@ -1,0 +1,17 @@
+{
+  "name": "bifrost",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "style:compile": "node-sass --output-style compressed --output=css css/sass/main.scss",
+    "style:watch": "node-sass --watch --output=css css/sass/main.scss"
+  },
+  "author": "RoySegall",
+  "license": "MIT",
+  "dependencies": {
+    "babel-standalone": "^6.26.0",
+    "node-sass": "^4.13.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
