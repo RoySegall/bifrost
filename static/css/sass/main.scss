@@ -30,6 +30,9 @@ i.loading {
   background: white;
   padding: 1em;
   border: solid 1px $orange;
+  width: 100vh;
+  margin: 0 auto;
+
 
   .header {
 
@@ -50,24 +53,13 @@ i.loading {
   }
 }
 
-.login {
-  width: 75vh;
-  margin: 0 auto;
-  margin-top: 20vh;
-
-  .login-fields {
-    padding-top: 1em;
-
-    .label {
-      font-size: 1.25em;
-      font-weight: bold;
-    }
-
-    input {
-      border: 1px solid $orange;
-      padding: .5em;
-      background: white;
-      width: 25vh;
-    }
-  }
+.yes {
+  color: $green3;
 }
+
+.no {
+  color: $red1
+}
+
+@import 'login.scss';
+@import 'home.scss';

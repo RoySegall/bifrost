@@ -21,7 +21,9 @@ i.loading {
 .wrapper {
   background: white;
   padding: 1em;
-  border: solid 1px #ff6f5e; }
+  border: solid 1px #ff6f5e;
+  width: 100vh;
+  margin: 0 auto; }
   .wrapper .header hr {
     background: #40bfc1; }
   .wrapper .header .menu {
@@ -32,9 +34,13 @@ i.loading {
       padding-right: .25em;
       padding-left: .25em; }
 
+.yes {
+  color: #00a312; }
+
+.no {
+  color: #f0134d; }
+
 .login {
-  width: 75vh;
-  margin: 0 auto;
   margin-top: 20vh; }
   .login .login-fields {
     padding-top: 1em; }
@@ -46,3 +52,23 @@ i.loading {
       padding: .5em;
       background: white;
       width: 25vh; }
+
+.timeline-wrapper {
+  padding: .5em;
+  margin-left: 1em;
+  background: #faeee7;
+  border: solid 1px #ff6f5e; }
+  .timeline-wrapper .timeline-link {
+    font-size: 1.5em; }
+  .timeline-wrapper ul {
+    padding: 0;
+    margin-top: .5em;
+    margin-bottom: .5em; }
+  .timeline-wrapper .extra-info .title {
+    text-decoration: underline; }
+  .timeline-wrapper .extra-info ul {
+    padding: 0;
+    margin-top: .5em;
+    margin-bottom: .5em; }
+    .timeline-wrapper .extra-info ul li {
+      list-style-type: none; }
