@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "style:compile": "node-sass --output-style compressed --output=css css/sass/main.scss",
-    "style:watch": "node-sass --watch --output=css css/sass/main.scss"
+    "style:watch": "node-sass --watch --output=css css/sass/main.scss",
+    "test": "jest"
   },
   "author": "RoySegall",
   "license": "MIT",
@@ -13,5 +14,12 @@
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-typescript": "^7.7.2",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0"
   }
 }
