@@ -21,6 +21,11 @@ a {
   }
 }
 
+i.loading {
+  font-size: 5em;
+  color: $green2;
+}
+
 .wrapper {
   background: white;
   padding: 1em;
@@ -38,6 +43,8 @@ a {
 
       i {
         color: $orange;
+        padding-right: .25em;
+        padding-left: .25em;
       }
     }
   }
