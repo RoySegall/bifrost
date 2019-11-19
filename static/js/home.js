@@ -1,3 +1,7 @@
+function Home() {
+    return <div>Hello!</div>
+}
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -28,13 +32,13 @@ class App extends React.Component {
             },
             body: JSON.stringify({
                 query: `
-                query { 
+                query {
                     timelines {
-                        id, 
+                        id,
                         title,
-                        startingDate, 
+                        startingDate,
                         endingDate,
-                        
+
                         flightSet {
                             connectionFlight {
                                 id
@@ -47,9 +51,9 @@ class App extends React.Component {
                                 id
                         },
                         meetingconjunctionSet {
-                            id 
+                            id
                         }
-                    }, 
+                    },
                 }`,
             }),
         });
@@ -67,10 +71,6 @@ class App extends React.Component {
 
         return <Timelines timelines={this.state.timelines} />
     }
-}
-
-function YesNo(flagValue) {
-    return flagValue ? <span className="yes">Yes</span> : <span className="no">No</span>
 }
 
 /**
@@ -122,41 +122,7 @@ const hasMeetMembers = (meeting) => {
     return meeting.length;
 };
 
-/**
- * Generating a single entry in the timeline.
- *
- * @param data
- *  List of timelines.
- * @returns
- *  The list of timelines.
- *
- * @constructor
- */
-function Timelines(data) {
-    const {timelines} = data;
 
-    return timelines.map((timeline, key) => {
-        return <div className="row" key={key}>
-            <section className="timeline-wrapper">
-                <div className="col-12">
-                    <a href={"/timeline/" + timeline.id} className="timeline-link">{timeline.title}</a>
-                </div>
-
-                <div className="col-12">
-                    <ul className="list-inline">
-                        <li className="list-inline-item"><i className="fal fa-plane-departure"></i> <b>{timeline.startingDate}</b> | </li>
-                        <li className="list-inline-item"><i className="fal fa-plane-arrival"></i> <b>{timeline.endingDate}</b></li>
-                    </ul>
-                </div>
-
-                <div className="col-12 extra-info">
-                    <span className="title">Extra info:</span>
-                    {extraInfo(timeline)}
-                </div>
-            </section>
-        </div>
-    });
-}
 
 /**
  * Generating the extra data of a timeline.
@@ -175,8 +141,3 @@ function extraInfo(timeline) {
         <li className="list-inline-item"><i className="fal fa-user-friends"></i> Meeting other - {YesNo(hasMeetMembers(timeline.meetingconjunctionSet))}</li>
     </ul>
 }
-
-ReactDOM.render(
-    <App/>,
-    document.getElementById('root')
-);
