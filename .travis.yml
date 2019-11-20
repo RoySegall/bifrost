@@ -1,9 +1,6 @@
 language: python
 python: "3.7"
 
-before_install:
-  - pip install pycodestyle
-
 env:
   - SCRIPT=travis/linter.sh
     INSTALL=travis/python_setup.sh
@@ -11,11 +8,11 @@ env:
   - SCRIPT=travis/unitest.sh
     INSTALL=travis/python_setup.sh 1
 
-install:
-  - bash $INSTALL
-
 services:
   - mysql
+
+install:
+  - bash $INSTALL
 
 script:
   - bash $SCRIPT
