@@ -46,6 +46,7 @@ function Timelines(data) {
 const hasConnectionFlight = (flights) => {
     let connectionFlightExists = false;
 
+    // eslint-disable-next-line
     flights.map(flight => {
         // The first flight has a connection flight. That's enough for us.
         if (flight.connectionFlight !== undefined) {
