@@ -12,7 +12,7 @@ env:
     INSTALL=travis/python_setup.sh 1
 
 install:
-  - echo $BEFORE
+  - echo $INSTALL
 
 services:
   - mysql
