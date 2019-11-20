@@ -6,12 +6,12 @@ env:
     INSTALL=travis/python_setup.sh
 
   - SCRIPT=travis/unitest.sh
-    INSTALL=travis/python_setup.sh 1
+    INSTALL=travis/python_setup.sh
 
 services:
   - mysql
 
-install:
+before_script:
   - bash $INSTALL
 
 script:
