@@ -5,8 +5,8 @@ before_install:
   - pip install pycodestyle
 
 env:
-  - SCRIPT=travis/linter.sh
-  - SCRIPT=travis/unitest.sh
+  - SCRIPT=travis/linter.sh, BEFORE=pip_install.sh
+  - SCRIPT=travis/unitest.sh, BEFORE=pip_install.sh
 
 install:
   - pip install -r requirements.txt
@@ -17,4 +17,5 @@ services:
   - mysql
 
 script:
+  - echo $BEFORE
   - bash $SCRIPT
