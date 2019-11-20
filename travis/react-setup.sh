@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-cd statatic
+cd static
 npm install
