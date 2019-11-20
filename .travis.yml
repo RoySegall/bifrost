@@ -6,18 +6,16 @@ before_install:
 
 env:
   - SCRIPT=travis/linter.sh
-    BEFORE=pip_install.sh
+    INSTALL=travis/python_setup.sh
+
   - SCRIPT=travis/unitest.sh
-    BEFORE=pip_install.sh
+    INSTALL=travis/python_setup.sh 1
 
 install:
-  - pip install -r requirements.txt
-  - mysql -e 'CREATE DATABASE bifrost;'
-  - cp bifrost/local_settings.travis.py bifrost/local_settings.py
+  - echo $BEFORE
 
 services:
   - mysql
 
 script:
-  - echo $BEFORE
   - bash $SCRIPT
