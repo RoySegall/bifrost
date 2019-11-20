@@ -9,7 +9,7 @@ env:
     INSTALL=travis/python-setup.sh
 
   - SCRIPT=travis/react-unittest.sh
-  - INSTALL=travis/react-setup.sh
+    INSTALL=travis/react-setup.sh
 
 services:
   - mysql
