@@ -136,4 +136,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
+CORS_ALLOW_CREDENTIALS = True
+CSRF_TRUSTED_ORIGINS = ['*']
+CORS_ORIGIN_WHITELIST = ['*']
+
 from .local_settings import *

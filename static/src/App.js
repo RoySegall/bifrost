@@ -21,17 +21,13 @@ export default class App extends React.Component {
     render() {
         if (this.state.isLoggedIn) {
             return (
-                <div className="App">
-                    <Header/>
-                    <Home/>
-                </div>
+                <>
+                    <Header />
+                    <Home />
+                </>
             );
         }
 
-        return (
-            <div className="App">
-                <Login />
-            </div>
-        )
+        return <Login />
     }
 }

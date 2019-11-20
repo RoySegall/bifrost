@@ -12,6 +12,10 @@ h1 {
   color: $red1;
 }
 
+hr {
+  background: $blue1;
+}
+
 a {
   color: black;
 
@@ -35,10 +39,6 @@ i.loading {
 
 
   .header {
-
-    hr {
-      background: $blue1;
-    }
 
     .menu {
       font-size: 2em;
