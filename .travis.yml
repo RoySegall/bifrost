@@ -2,11 +2,14 @@ language: python
 python: "3.7"
 
 env:
-  - SCRIPT=travis/linter.sh
-    INSTALL=travis/python_setup.sh
+  - SCRIPT=travis/python-linter.sh
+    INSTALL=travis/python-setup.sh
 
-  - SCRIPT=travis/unitest.sh
-    INSTALL=travis/python_setup.sh
+  - SCRIPT=travis/python-unitest.sh
+    INSTALL=travis/python-setup.sh
+
+  - SCRIPT=travis/react-unittest.sh
+  - INSTALL=travis/react-setup.sh
 
 services:
   - mysql
