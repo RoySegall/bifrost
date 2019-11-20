@@ -1,5 +1,6 @@
 import React from 'react';
 import Timelines from './Timelines'
+import axios from 'axios';
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -15,50 +16,44 @@ export default class Home extends React.Component {
         await this.fetchData()
     }
 
-    getCookie(name) {
-        const r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
-        return r ? r[1] : null;
-    };
-
     fetchData = async () => {
         this.setState({loading: true});
-
-        // const response = await fetch('graphql/', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'X-CSRFToken': this.getCookie('csrftoken'),
-        //     },
-        //     body: JSON.stringify({
-        //         query: `
-        //         query {
-        //             timelines {
-        //                 id,
-        //                 title,
-        //                 startingDate,
-        //                 endingDate,
-        //
-        //                 flightSet {
-        //                     connectionFlight {
-        //                         id
-        //                     }
-        //                 },
-        //                 pickingcarSet {
-        //                         id
-        //                 },
-        //                 accommodationSet {
-        //                         id
-        //                 },
-        //                 meetingconjunctionSet {
-        //                     id
-        //                 }
-        //             },
-        //         }`,
-        //     }),
-        // });
-
-        // const results = await response.json();
-        // this.setState({loading: false, timelines: results.data.timelines})
+        let token = window.localStorage.getItem('token');
+        const response = await axios({
+            method: 'post',
+            url: `${process.env.REACT_APP_BACKEND}/graphql/`,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Token ${token}`,
+            },
+            data: {
+                query: `
+                    query {
+                        timelines {
+                            id,
+                            title,
+                            startingDate,
+                            endingDate,
+    
+                            flightSet {
+                                connectionFlight {
+                                    id
+                                }
+                            },
+                            pickingcarSet {
+                                    id
+                            },
+                            accommodationSet {
+                                    id
+                            },
+                            meetingconjunctionSet {
+                                id
+                            }
+                        },
+                    }`,
+            }
+        });
+        this.setState({loading: false, timelines: response.data.data.timelines})
     };
 
     render() {
@@ -67,7 +62,6 @@ export default class Home extends React.Component {
                 <i className="loading fad fa-spinner fa-spin"></i>
             </div>
         }
-
         return <Timelines timelines={this.state.timelines} />
     }
 }

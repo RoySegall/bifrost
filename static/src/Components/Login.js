@@ -1,6 +1,7 @@
 import React from 'react';
-import FormError from './FormError'
 import axios from 'axios';
+import FormError from './FormError'
+
 
 export default class Login extends React.Component {
 
@@ -13,7 +14,7 @@ export default class Login extends React.Component {
             errors: {
                 type: null,
                 message: '',
-            }
+            },
         };
     }
 
@@ -24,6 +25,11 @@ export default class Login extends React.Component {
     setError(error) {
         this.setIcon('fal fa-times text-danger');
         this.setState({errors: {type: 'danger', message: error}});
+    }
+
+    setSuccess(message) {
+        this.setIcon('fal fa-check text-success');
+        this.setState({errors: {type: 'success', message: message}});
     }
 
     resetError() {
@@ -46,13 +52,22 @@ export default class Login extends React.Component {
 
         this.setIcon('fas fa-spinner fa-spin');
 
-        axios.post(process.env.REACT_APP_BACKEND, {})
+        axios.post(`${process.env.REACT_APP_BACKEND}/auth/login`, {
+            username: this.state.username,
+            password: this.state.password,
+        })
             .then(resp => {
+                this.setSuccess('You are now logged!');
                 this.setIcon('fal fa-check text-success');
+                localStorage.setItem('token', resp.data.token);
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 1500);
             })
             .catch(error => {
+                console.log(error.response.data.error)
                 this.setIcon('fal fa-check text-success');
-                this.setError('Something went wrong');
+                this.setError(`Something went wrong: ${error.response.data.error}`);
             })
     }
 
@@ -84,7 +99,7 @@ export default class Login extends React.Component {
                         onChange={(event) => {this.setState({password: event.currentTarget.value})}}
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-group actions">
                     <button
                         type="submit"
                         className="btn btn-primary"

@@ -47,20 +47,25 @@ i.loading {
 
 .login form {
   margin: auto 0; }
-
-.login input {
-  border: 1px solid black;
-  background: white;
-  width: 40vh;
-  padding: 1em;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-radius: 0; }
-  .login input:focus {
-    transition-duration: .5s;
-    box-shadow: none;
-    border-color: #bebf30; }
+  .login form input {
+    border: 1px solid black;
+    background: white;
+    width: 40vh;
+    padding: 1em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    margin: 0 auto; }
+    .login form input:focus {
+      transition-duration: .5s;
+      box-shadow: none;
+      border-color: #bebf30; }
+  .login form .actions {
+    text-align: center; }
+    .login form .actions button {
+      padding: .5em 2em;
+      font-size: 1.25em; }
 
 .timeline-wrapper {
   padding: .5em;
