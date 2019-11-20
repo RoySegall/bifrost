@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from graphene_django.views import GraphQLView
-from bifrost.views import HomeView
+from .views import HomeView
 
 urlpatterns = [
     path('admin/', admin.site.urls),

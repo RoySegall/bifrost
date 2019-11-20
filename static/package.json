@@ -1,28 +1,36 @@
 {
-  "name": "bifrost",
-  "version": "1.0.0",
-  "description": "",
-  "scripts": {
-    "style:compile": "node-sass --output-style compressed --output=css css/sass/main.scss",
-    "style:watch": "node-sass --watch --output=css css/sass/main.scss",
-    "test": "jest"
-  },
-  "author": "RoySegall",
-  "license": "MIT",
+  "name": "bifrost-front",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "babel-standalone": "^6.26.0",
+    "axios": "^0.19.0",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.2.0"
   },
-  "devDependencies": {
-    "@babel/core": "^7.7.2",
-    "@babel/plugin-proposal-class-properties": "^7.7.0",
-    "@babel/preset-env": "^7.7.1",
-    "@babel/preset-react": "^7.7.0",
-    "@babel/preset-typescript": "^7.7.2",
-    "babel-jest": "^24.9.0",
-    "jest": "^24.9.0",
-    "react-test-renderer": "^16.12.0"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "style:compile": "node-sass --output-style compressed --output=public/css public/css/sass/main.scss",
+    "style:watch": "node-sass --watch --output=public/css public/css/sass/main.scss"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.views.generic import TemplateView
-from django.urls import reverse
+from django.conf import settings
 
 
 class HomeView(TemplateView):
@@ -9,9 +9,9 @@ class HomeView(TemplateView):
 
     def get(self, request, *args, **kwargs):
 
-        if request.user.is_anonymous:
-            # Anonymous user, redirect to login.
-            return HttpResponseRedirect(reverse('login'))
+        if settings.DEBUG:
+            # We in debug. Go to the app.
+            return HttpResponseRedirect('http://localhost:3000')
 
         context = {
             'title': 'Welcome',
