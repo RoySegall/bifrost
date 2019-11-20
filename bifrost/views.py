@@ -1,27 +1,16 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render_to_response
-from django.views.generic import TemplateView
-from django.conf import settings
+from bifrost.settings import FRONT_ADDRESS
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
+from django.views.generic.base import View
 
 
-class HomeView(TemplateView):
+class HomeView(View):
     template_name = "home.html"
 
     def get(self, request, *args, **kwargs):
-
-        if settings.DEBUG:
-            # We in debug. Go to the app.
-            return HttpResponseRedirect('http://localhost:3000')
-
-        context = {
-            'title': 'Welcome',
-            'name': request.user.username
-        }
-
-        return render_to_response(self.template_name, context)
+        return HttpResponseRedirect(FRONT_ADDRESS)
 
 
 class Login(ObtainAuthToken):

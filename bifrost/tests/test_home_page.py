@@ -1,3 +1,5 @@
+from rest_framework.authtoken.models import Token
+from rest_framework.test import APIClient
 from bifrost.src.CommonTestUtils import BaseTestUtils
 
 
@@ -8,17 +10,10 @@ class TestHomePage(BaseTestUtils):
 
     def test_authentication_redirect(self):
         """
-        Testing when an anonymous user access the front page it will redirect
-        to the front page.
+        Testing the we redirect the user to the front app.
         """
         response = self.client.get('')
         self.assertEquals(response.status_code, 302)
-
-        response = self.client.get('', follow=True)
-        self.assertIn('Login', response.rendered_content)
-        self.assertIn('Username', response.rendered_content)
-        self.assertIn('Password', response.rendered_content)
-        self.assertIn('Log me in!', response.rendered_content)
 
     def test_login(self):
         """
@@ -26,7 +21,10 @@ class TestHomePage(BaseTestUtils):
         """
 
         data = {'username': self.user.username, 'password': 'dummy_password'}
-        response = self.client.post('/auth/login/', data, follow=True)
 
-        decoded = response.content.decode("utf-8")
-        self.assertIn(f'Welcome, {self.user.username}', decoded)
+        client = APIClient()
+        response = client.post('/auth/login', data, follow=True)
+
+        token = Token.objects.get(user=self.user.id)
+
+        self.assertEquals(token.key, response.json()['token'])
