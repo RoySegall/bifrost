@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-pwd
+cd statatic
+npm install
