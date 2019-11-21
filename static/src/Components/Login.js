@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import FormError from './FormError'
+import FormError from './FormError';
 
 
 export default class Login extends React.Component {
