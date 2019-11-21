@@ -11,6 +11,9 @@ env:
   - SCRIPT=travis/react-unittest.sh
     INSTALL=travis/react-setup.sh
 
+  - SCRIPT=travis/react-linter.sh
+    INSTALL=travis/react-setup.sh
+
 services:
   - mysql
 
