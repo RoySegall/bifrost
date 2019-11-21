@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing the header component 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-6"
+    >
+      <h1>
+        Welcome, dummy
+      </h1>
+    </div>
+    <div
+      className="col-6 menu text-right"
+    >
+      <ul
+        className="list-inline"
+      >
+        <li
+          className="list-inline-item"
+        >
+          <i
+            className="fal fa-user-cog"
+          />
+           
+          <a
+            href="/settings"
+          >
+            Settings
+          </a>
+        </li>
+        |
+        <li
+          className="list-inline-item"
+        >
+          <i
+            className="fal fa-sign-out"
+          />
+           
+          <a
+            href="auth/logout"
+          >
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr />
+</header>
+`;
