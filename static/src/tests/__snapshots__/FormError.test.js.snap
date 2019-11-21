@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing the form error component. 1`] = `null`;
+
+exports[`Testing the form error component. 2`] = `
+<div
+  className="alert alert-danger"
+  role="alert"
+>
+  This an error
+</div>
+`;
+
+exports[`Testing the form error component. 3`] = `
+<div
+  className="alert alert-success"
+  role="alert"
+>
+  This a success message
+</div>
+`;

@@ -25,7 +25,7 @@ SECRET_KEY = '$9i(os!q9zqbo4dvi1x0xp(34=2ao_hj^ycuusks72)@odfy7k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
     'graphene_django',
+    'rest_framework.authtoken',
     'bifrost_timeline.apps.BifrostTimelineConfig',
     'bifrost_events.apps.BifrostEventsConfig',
     'bifrost_location.apps.BifrostLocationConfig',
@@ -52,13 +55,22 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'bifrost.middelware.BiforstAuth',
 ]
 
 ROOT_URLCONF = 'bifrost.urls'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
+
 
 TEMPLATES = [
     {
@@ -135,5 +147,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+CSRF_TRUSTED_ORIGINS = ['*']
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = ['*']
+FRONT_ADDRESS = "http://localhost:3000"
 
 from .local_settings import *

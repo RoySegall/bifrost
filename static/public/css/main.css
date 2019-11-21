@@ -1,0 +1,88 @@
+body {
+  font-family: 'Rubik', sans-serif;
+  background: #f6f6f6;
+  font-size: 16px;
+  padding-top: 1em;
+  padding-left: 1em; }
+
+h1 {
+  color: #f0134d; }
+
+hr {
+  background: #40bfc1; }
+
+a {
+  color: black; }
+  a:hover {
+    color: #40bfc1;
+    text-decoration: none; }
+
+i.loading {
+  font-size: 5em;
+  color: #69d16d; }
+
+.wrapper {
+  background: white;
+  padding: 1em;
+  border: solid 1px #ff6f5e;
+  width: 100vh;
+  margin: 0 auto; }
+  .wrapper .header .menu {
+    font-size: 2em;
+    padding-right: 1.5em; }
+    .wrapper .header .menu i {
+      color: #ff6f5e;
+      padding-right: .25em;
+      padding-left: .25em; }
+
+.yes {
+  color: #00a312; }
+
+.no {
+  color: #f0134d; }
+
+.login .icon {
+  text-align: center;
+  font-size: 5em; }
+
+.login form {
+  margin: auto 0; }
+  .login form input {
+    border: 1px solid black;
+    background: white;
+    width: 40vh;
+    padding: 1em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    margin: 0 auto; }
+    .login form input:focus {
+      transition-duration: .5s;
+      box-shadow: none;
+      border-color: #bebf30; }
+  .login form .actions {
+    text-align: center; }
+    .login form .actions button {
+      padding: .5em 2em;
+      font-size: 1.25em; }
+
+.timeline-wrapper {
+  padding: .5em;
+  margin-left: 1em;
+  background: #faeee7;
+  border: solid 1px #ff6f5e; }
+  .timeline-wrapper .timeline-link {
+    font-size: 1.5em; }
+  .timeline-wrapper ul {
+    padding: 0;
+    margin-top: .5em;
+    margin-bottom: .5em; }
+  .timeline-wrapper .extra-info .title {
+    text-decoration: underline; }
+  .timeline-wrapper .extra-info ul {
+    padding: 0;
+    margin-top: .5em;
+    margin-bottom: .5em; }
+    .timeline-wrapper .extra-info ul li {
+      list-style-type: none; }

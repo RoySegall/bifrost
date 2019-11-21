@@ -1,0 +1,8 @@
+.login .label {
+  font-size: 1.25em;
+  font-weight: bold; }
+
+.login input {
+  padding: .5em;
+  background: white;
+  width: 25vh; }

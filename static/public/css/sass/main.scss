@@ -12,6 +12,10 @@ h1 {
   color: $red1;
 }
 
+hr {
+  background: $blue1;
+}
+
 a {
   color: black;
 
@@ -21,16 +25,20 @@ a {
   }
 }
 
+i.loading {
+  font-size: 5em;
+  color: $green2;
+}
+
 .wrapper {
   background: white;
   padding: 1em;
   border: solid 1px $orange;
+  width: 100vh;
+  margin: 0 auto;
+
 
   .header {
-
-    hr {
-      background: $blue1;
-    }
 
     .menu {
       font-size: 2em;
@@ -38,29 +46,20 @@ a {
 
       i {
         color: $orange;
+        padding-right: .25em;
+        padding-left: .25em;
       }
     }
   }
 }
 
-.login {
-  width: 75vh;
-  margin: 0 auto;
-  margin-top: 20vh;
-
-  .login-fields {
-    padding-top: 1em;
-
-    .label {
-      font-size: 1.25em;
-      font-weight: bold;
-    }
-
-    input {
-      border: 1px solid $orange;
-      padding: .5em;
-      background: white;
-      width: 25vh;
-    }
-  }
+.yes {
+  color: $green3;
 }
+
+.no {
+  color: $red1
+}
+
+@import 'login.scss';
+@import 'home.scss';

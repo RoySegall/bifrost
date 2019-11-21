@@ -1,20 +1,24 @@
 language: python
 python: "3.7"
 
-before_install:
-  - pip install pycodestyle
-
 env:
-  - SCRIPT=travis/linter.sh
-  - SCRIPT=travis/unitest.sh
+  - SCRIPT=travis/python-linter.sh
+    INSTALL=travis/python-setup.sh
 
-install:
-  - pip install -r requirements.txt
-  - mysql -e 'CREATE DATABASE bifrost;'
-  - cp bifrost/local_settings.travis.py bifrost/local_settings.py
+  - SCRIPT=travis/python-unitest.sh
+    INSTALL=travis/python-setup.sh
+
+  - SCRIPT=travis/react-unittest.sh
+    INSTALL=travis/react-setup.sh
+
+  - SCRIPT=travis/react-linter.sh
+    INSTALL=travis/react-setup.sh
 
 services:
   - mysql
+
+before_script:
+  - bash $INSTALL
 
 script:
   - bash $SCRIPT

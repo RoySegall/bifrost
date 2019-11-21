@@ -1,0 +1,33 @@
+.timeline-wrapper {
+  padding: .5em;
+  margin-left: 1em;
+  background: $background3;
+  border: solid 1px $orange;
+
+  .timeline-link {
+    font-size: 1.5em;
+  }
+
+  ul {
+    padding: 0;
+    margin-top: .5em;
+    margin-bottom: .5em;
+  }
+
+  .extra-info {
+
+    .title {
+      text-decoration: underline;
+    }
+
+    ul {
+      padding: 0;
+      margin-top: .5em;
+      margin-bottom: .5em;
+
+      li {
+        list-style-type: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing the login component 1`] = `
+<div
+  className="login"
+>
+  <div
+    className="icon"
+  >
+    <i
+      className="fal fa-sign-in"
+    />
+  </div>
+  <form>
+    <div
+      className="form-group"
+    >
+      <input
+        aria-describedby="emailHelp"
+        className="form-control"
+        id="username"
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="Enter username"
+        type="text"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <input
+        className="form-control"
+        id="password"
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="Enter password"
+        type="password"
+      />
+    </div>
+    <div
+      className="form-group actions"
+    >
+      <button
+        className="btn btn-primary"
+        onClick={[Function]}
+        type="submit"
+      >
+        Log me in!
+      </button>
+    </div>
+  </form>
+</div>
+`;
