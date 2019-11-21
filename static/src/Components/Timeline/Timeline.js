@@ -80,21 +80,9 @@ class Timeline extends React.Component {
         };
 
         const response = await request(params)();
-        this.setState({timeline: this.orderTimeline(response.data.data.timeline)})
+        this.setState({timeline: orderTimeline(response.data.data.timeline)})
     }
 
-    orderTimeline(timeline) {
-        // Get the endpoint we need to start the timeline.
-        const startTime = null;
-
-        // Go over the items and sort them in a {timestamp:event-data} so we
-        // could sort them by their time.
-
-        // Go over the events, and place events at the end of the
-
-        console.log(timeline);
-        return timeline;
-    }
 
     switchFilter(filter) {
         this.setState({activeFilter: filter});
@@ -111,7 +99,8 @@ class Timeline extends React.Component {
     render() {
         return <div className="trip">
             <h2>
-                {this.state.timeline.title}, starts at: {this.state.timeline.startingDate}
+                {this.state.timeline.title}, starts
+                at: {this.state.timeline.startingDate}
             </h2>
 
             <div className="row filters">
@@ -137,24 +126,32 @@ class Timeline extends React.Component {
                 </div>
             </div>
 
-            <div className="row">
-                <div className="col-9">
-                    <div className="events-viewer">
-                        <a href='#' onClick={(event) => {
-                            event.preventDefault();
-                            this.setEventView(1);
-                        }}>event</a>
+            <div className="row events">
+                <div className="col-8">
+                    <div className="list">
+                        {
+                            this.state.timeline.events ?
+                                this.state.timeline.events.map((item, key) => {
+                                    return <div key={key}>
+                                        <a href='#' onClick={(event) => {
+                                            event.preventDefault();
+                                            this.setEventView(key);
+                                        }}>{item['title']}</a>
+                                    </div>
+                                })
+                                : null
+                        }
                     </div>
                 </div>
 
                 {
-                    this.state.activeEvent ?
-                        <div className="col-3">
+                    this.state.activeEvent !== null ?
+                        <div className="col-4">
                             <a href="#" onClick={event => {
                                 event.preventDefault();
                                 this.hideExtra();
-                            }}>Close</a><br />
-                            asd
+                            }}>Close</a><br/>
+                            {this.state.timeline.events[this.state.activeEvent]['title']}
                         </div> :
                         null
                 }
@@ -162,6 +159,39 @@ class Timeline extends React.Component {
             </div>
         </div>
     }
+}
+
+function orderTimeline(timeline) {
+    // Get the endpoint we need to start the timeline.
+    const startTime = null;
+
+    // Go over the items and sort them in a {timestamp:event-data} so we
+    // could sort them by their time.
+
+    // Go over the events, and place events at the end of the
+
+    return {
+        title: timeline.title,
+        startingDate: timeline.startingDate,
+        events: [
+            {type: 'flightSet', title: 'Flight to no were'},
+            {type: 'pickingcarSet', title: 'Picking a car'},
+            {type: 'accommodationSet', title: 'sleeping some where'},
+            {type: 'meetingconjunctionSet', title: 'sleeping some where'},
+            {type: 'flightSet', title: 'Flight to no were'},
+            {type: 'pickingcarSet', title: 'Picking a car'},
+            {type: 'accommodationSet', title: 'sleeping some where'},
+            {type: 'meetingconjunctionSet', title: 'sleeping some where'},
+            {type: 'flightSet', title: 'Flight to no were'},
+            {type: 'pickingcarSet', title: 'Picking a car'},
+            {type: 'accommodationSet', title: 'sleeping some where'},
+            {type: 'meetingconjunctionSet', title: 'sleeping some where'},
+            {type: 'flightSet', title: 'Flight to no were'},
+            {type: 'pickingcarSet', title: 'Picking a car'},
+            {type: 'accommodationSet', title: 'sleeping some where'},
+            {type: 'meetingconjunctionSet', title: 'sleeping some where'},
+        ]
+    };
 }
 
 export default withRouter(Timeline);
