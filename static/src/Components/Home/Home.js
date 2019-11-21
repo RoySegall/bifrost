@@ -1,6 +1,6 @@
 import React from 'react';
 import Timelines from './Timelines'
-import axios from 'axios';
+import request from '../../Services/axios';
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -18,41 +18,35 @@ export default class Home extends React.Component {
 
     fetchData = async () => {
         this.setState({loading: true});
-        let token = window.localStorage.getItem('token');
-        const response = await axios({
-            method: 'post',
-            url: `${process.env.REACT_APP_BACKEND}/graphql/`,
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Token ${token}`,
-            },
-            data: {
-                query: `
-                    query {
-                        timelines {
-                            id,
-                            title,
-                            startingDate,
-                            endingDate,
-    
-                            flightSet {
-                                connectionFlight {
-                                    id
-                                }
-                            },
-                            pickingcarSet {
-                                    id
-                            },
-                            accommodationSet {
-                                    id
-                            },
-                            meetingconjunctionSet {
+
+        const params = {
+            graphql: `
+                query {
+                    timelines {
+                        id,
+                        title,
+                        startingDate,
+                        endingDate,
+
+                        flightSet {
+                            connectionFlight {
                                 id
                             }
                         },
-                    }`,
-            }
-        });
+                        pickingcarSet {
+                                id
+                        },
+                        accommodationSet {
+                                id
+                        },
+                        meetingconjunctionSet {
+                            id
+                        }
+                    },
+                }`
+        };
+
+        const response = await request(params)();
         this.setState({loading: false, timelines: response.data.data.timelines})
     };
 
