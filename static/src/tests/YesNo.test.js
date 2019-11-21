@@ -18,14 +18,14 @@ afterEach(() => {
   container = null;
 });
 
-it("Calling the yes no with true", () => {
+test("Calling the yes no with true", () => {
   act(() => {
     render(YesNo(true), container);
   });
   expect(container.textContent).toBe("Yes");
 });
 
-it("Calling the yes no with true", () => {
+test("Calling the yes no with true", () => {
   act(() => {
     render(YesNo(false), container);
   });

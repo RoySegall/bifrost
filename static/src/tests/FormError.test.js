@@ -2,7 +2,7 @@ import React from "react";
 import FormError from '../Components/FormError';
 import renderer from 'react-test-renderer';
 
-it('renders correctly', () => {
+test('Testing the form error component.', () => {
   const emptyFormError = renderer
     .create(<FormError />)
     .toJSON();
