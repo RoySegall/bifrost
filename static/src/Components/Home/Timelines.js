@@ -1,5 +1,5 @@
 import React from 'react';
-import YesNo from '../YesNo'
+import YesNo from '../YesNo';
 
 /**
  * Generating a single entry in the timeline.
