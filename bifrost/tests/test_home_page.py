@@ -10,7 +10,7 @@ class TestHomePage(BaseTestUtils):
 
     def test_authentication_redirect(self):
         """
-        Testing the we redirect the user to the front app.
+        Testing we redirect the user to the front app.
         """
         response = self.client.get('')
         self.assertEquals(response.status_code, 302)
