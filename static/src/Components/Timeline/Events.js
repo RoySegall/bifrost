@@ -7,7 +7,7 @@ export default class Events extends React.Component {
 
         this.state = {
             events: props['events'],
-            activeEvent: null
+            activeEvent: 1
         };
     }
 
@@ -70,7 +70,7 @@ export default class Events extends React.Component {
     }
 
     List(events) {
-        const col = this.state.activeEvent === null ? 'col-12' : 'col-6';
+        const col = this.state.activeEvent === null ? 'col-12 full-event' : 'col-6';
         return <div className={"slow-transition " + col}>
             <div className="list">
                 {
@@ -90,14 +90,33 @@ export default class Events extends React.Component {
             return <></>;
         }
 
+        const event = this.state.events[this.state.activeEvent];
+
         const onClick = (event) => {
             event.preventDefault();
             this.hideExtra();
         };
 
-        return <div className="col-4">
-            <a href="#" onClick={(event) => onClick(event)}>Close</a><br/>
-            {this.state.events[this.state.activeEvent]['title']}
+        return <div className="col-6">
+
+            <div className={"event-view-wrapper " + event['type']}>
+                <div className="actions">
+                    <a href="#" onClick={(event) => onClick(event)}>
+                        <i className="fal fa-times"></i>
+                    </a><br/>
+                </div>
+
+                <div className="row">
+                    <div className="col-12">
+                        <h3>{event['title']}</h3>
+                    </div>
+
+                    <div className="map">
+                        <img className="img-fluid" src={process.env.PUBLIC_URL + '/mps.png'} />
+                    </div>
+                </div>
+
+            </div>
         </div>
     }
 

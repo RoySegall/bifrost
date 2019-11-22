@@ -132,6 +132,9 @@ i.loading {
       .trip .filters ul li i {
         font-size: 1em; }
 
+.trip .full-event .event {
+  border-right: dashed 2px #40bfc1; }
+
 .trip .events .event-separator hr {
   width: 75vh;
   background: #bebf30; }
@@ -146,9 +149,14 @@ i.loading {
     display: none; }
   .trip .events .list .event {
     margin-bottom: 1.5em;
-    padding-top: 0;
+    padding-top: .25em;
     margin-left: .5em;
-    border-left: solid 1px #40bfc1; }
+    padding-right: .25em;
+    border-left: dashed 2px #40bfc1;
+    background: #eff0f5;
+    width: 99%; }
+    .trip .events .list .event a:hover {
+      color: #416dea; }
     .trip .events .list .event .head hr {
       width: 95%;
       background: black; }
@@ -157,10 +165,40 @@ i.loading {
     .trip .events .list .event .body p {
       padding-top: 1em; }
     .trip .events .list .event.flightSet {
-      background: blue; }
+      border-color: #2ca8ff; }
     .trip .events .list .event.pickingcarSet {
-      background: yellow; }
+      border-color: #ffb236; }
     .trip .events .list .event.accommodationSet {
-      background: red; }
+      border-color: #ff3636; }
     .trip .events .list .event.meetingconjunctionSet {
-      background: green; }
+      border-color: #18ce0f; }
+
+.trip .event-view-wrapper {
+  border-right: dashed 3px;
+  background: #eff0f5;
+  padding: 0.25em;
+  height: 100%; }
+  .trip .event-view-wrapper .actions {
+    position: absolute;
+    top: 5px;
+    right: 25px;
+    z-index: 1; }
+    .trip .event-view-wrapper .actions .fa-times {
+      color: #f0134d;
+      font-size: 1.5em; }
+  .trip .event-view-wrapper h3 {
+    font-size: 2em; }
+  .trip .event-view-wrapper .map {
+    text-align: center;
+    padding-top: 1em; }
+    .trip .event-view-wrapper .map img {
+      border: #ff6f5e solid 1px;
+      width: 90%; }
+  .trip .event-view-wrapper.flightSet {
+    border-color: #2ca8ff; }
+  .trip .event-view-wrapper.pickingcarSet {
+    border-color: #ffb236; }
+  .trip .event-view-wrapper.accommodationSet {
+    border-color: #ff3636; }
+  .trip .event-view-wrapper.meetingconjunctionSet {
+    border-color: #18ce0f; }

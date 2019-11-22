@@ -1,3 +1,21 @@
+@mixin event_borders() {
+  &.flightSet {
+    border-color: $event-flight;
+  }
+
+  &.pickingcarSet {
+    border-color: $event-car;
+  }
+
+  &.accommodationSet {
+    border-color: $event-accommodation;
+  }
+
+  &.meetingconjunctionSet {
+    border-color: $event-meeting;
+  }
+}
+
 .trip {
 
   .slow-transition {
@@ -60,6 +78,12 @@
     }
   }
 
+  .full-event {
+    .event {
+      border-right: dashed 2px $blue1;
+    }
+  }
+
   .events {
 
     .event-separator {
@@ -83,9 +107,16 @@
 
       .event {
         margin-bottom: 1.5em;
-        padding-top: 0;
+        padding-top: .25em;
         margin-left: .5em;
-        border-left: solid 1px $blue1;
+        padding-right: .25em;
+        border-left: dashed 2px $blue1;
+        background: $event-background;
+        width: 99%;
+
+        a:hover {
+          color: $filter-normal-background;
+        }
 
         .head {
 
@@ -93,7 +124,6 @@
             width: 95%;
             background: black;
           }
-
         }
 
         .body {
@@ -106,22 +136,43 @@
           }
         }
 
-        &.flightSet {
-          background: blue;
-        }
-
-        &.pickingcarSet {
-          background: yellow;
-        }
-
-        &.accommodationSet {
-          background: red;
-        }
-
-        &.meetingconjunctionSet {
-          background: green;
-        }
+        @include event_borders();
       }
     }
+  }
+
+  .event-view-wrapper {
+    border-right: dashed 3px;
+    background: $event-background;
+    padding: 0.25em;
+    height: 100%;
+
+    .actions {
+      position: absolute;
+      top: 5px;
+      right: 25px;
+      z-index: 1;
+
+      .fa-times {
+        color: $red1;
+        font-size: 1.5em;
+      }
+    }
+
+    h3 {
+      font-size: 2em;
+    }
+
+    .map {
+      text-align: center;
+      padding-top: 1em;
+
+      img {
+        border: $orange solid 1px;
+        width: 90%;
+      }
+    }
+
+    @include event_borders();
   }
 }
