@@ -194,6 +194,8 @@ i.loading {
     .trip .event-view-wrapper .map img {
       border: #ff6f5e solid 1px;
       width: 90%; }
+  .trip .event-view-wrapper .metadata {
+    padding-top: .5em; }
   .trip .event-view-wrapper.flightSet {
     border-color: #2ca8ff; }
   .trip .event-view-wrapper.pickingcarSet {

@@ -173,6 +173,10 @@
       }
     }
 
+    .metadata {
+      padding-top: .5em;
+    }
+
     @include event_borders();
   }
 }
