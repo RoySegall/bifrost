@@ -87,6 +87,9 @@ i.loading {
     .timeline-wrapper .extra-info ul li {
       list-style-type: none; }
 
+.trip .slow-transition {
+  transition: .75s; }
+
 .trip h2 {
   padding-bottom: .25em;
   font-size: 2.5em; }
@@ -128,3 +131,36 @@ i.loading {
         background: #feee7d; }
       .trip .filters ul li i {
         font-size: 1em; }
+
+.trip .events .event-separator hr {
+  width: 75vh;
+  background: #bebf30; }
+
+.trip .events .list {
+  height: 70vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none; }
+  .trip .events .list::-webkit-scrollbar {
+    display: none; }
+  .trip .events .list .event {
+    margin-bottom: 1.5em;
+    padding-top: 0;
+    margin-left: .5em;
+    border-left: solid 1px #40bfc1; }
+    .trip .events .list .event .head hr {
+      width: 95%;
+      background: black; }
+    .trip .events .list .event .body .title {
+      font-size: 1.25em; }
+    .trip .events .list .event .body p {
+      padding-top: 1em; }
+    .trip .events .list .event.flightSet {
+      background: blue; }
+    .trip .events .list .event.pickingcarSet {
+      background: yellow; }
+    .trip .events .list .event.accommodationSet {
+      background: red; }
+    .trip .events .list .event.meetingconjunctionSet {
+      background: green; }

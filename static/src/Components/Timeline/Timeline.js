@@ -36,9 +36,6 @@ class Timeline extends React.Component {
                             endingDate
                             location {
                               id
-                              lat
-                              long
-                              title
                             }
                             
                             connectionFlight {
@@ -107,19 +104,22 @@ function orderTimeline(timeline) {
             {type: 'flightSet', title: 'Flight to no were'},
             {type: 'pickingcarSet', title: 'Picking a car'},
             {type: 'accommodationSet', title: 'sleeping some where'},
-            {type: 'meetingconjunctionSet', title: 'sleeping some where'},
+            {type: 'meetingconjunctionSet', title: 'meeting memebers'},
+
             {type: 'flightSet', title: 'Flight to no were'},
             {type: 'pickingcarSet', title: 'Picking a car'},
             {type: 'accommodationSet', title: 'sleeping some where'},
-            {type: 'meetingconjunctionSet', title: 'sleeping some where'},
+            {type: 'meetingconjunctionSet', title: 'meeting memebers'},
+
             {type: 'flightSet', title: 'Flight to no were'},
             {type: 'pickingcarSet', title: 'Picking a car'},
             {type: 'accommodationSet', title: 'sleeping some where'},
-            {type: 'meetingconjunctionSet', title: 'sleeping some where'},
+            {type: 'meetingconjunctionSet', title: 'meeting memebers'},
+
             {type: 'flightSet', title: 'Flight to no were'},
             {type: 'pickingcarSet', title: 'Picking a car'},
             {type: 'accommodationSet', title: 'sleeping some where'},
-            {type: 'meetingconjunctionSet', title: 'sleeping some where'},
+            {type: 'meetingconjunctionSet', title: 'meeting memebers'},
         ]
     };
 }

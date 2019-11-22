@@ -1,5 +1,9 @@
 .trip {
 
+  .slow-transition {
+    transition: .75s;
+  }
+
   h2 {
     padding-bottom: .25em;
     font-size: 2.5em;
@@ -51,6 +55,71 @@
 
         i {
           font-size: 1em;
+        }
+      }
+    }
+  }
+
+  .events {
+
+    .event-separator {
+      hr {
+        width: 75vh;
+        background: $yellow2;
+      }
+    }
+
+    .list {
+      height: 70vh;
+      overflow-y: scroll;
+      overflow-x: hidden;
+
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .event {
+        margin-bottom: 1.5em;
+        padding-top: 0;
+        margin-left: .5em;
+        border-left: solid 1px $blue1;
+
+        .head {
+
+          hr {
+            width: 95%;
+            background: black;
+          }
+
+        }
+
+        .body {
+          .title {
+            font-size: 1.25em;
+          }
+
+          p {
+            padding-top: 1em;
+          }
+        }
+
+        &.flightSet {
+          background: blue;
+        }
+
+        &.pickingcarSet {
+          background: yellow;
+        }
+
+        &.accommodationSet {
+          background: red;
+        }
+
+        &.meetingconjunctionSet {
+          background: green;
         }
       }
     }
