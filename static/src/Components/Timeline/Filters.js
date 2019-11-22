@@ -8,11 +8,11 @@ export default class Filters extends React.Component {
 
         this.state = {
             filters: [
-                {'key': 'all', title: 'All'},
-                {'key': 'pickingcarSet:', title: 'Picking car'},
-                {'key': 'flightSet', title: 'Flight'},
-                {'key': 'accommodationSet', title: 'Accommodation'},
-                {'key': 'meetingconjunctionSet', title: 'Meet employees'},
+                {'key': 'all', title: 'All events', icon: 'fal fa-calendar-alt', first: true},
+                {'key': 'pickingcarSet:', title: 'Picking car', icon: 'fal fa-car'},
+                {'key': 'flightSet', title: 'Flight', icon: 'fal fa-plane'},
+                {'key': 'accommodationSet', title: 'Accommodation', icon: 'fal fa-hotel'},
+                {'key': 'meetingconjunctionSet', title: 'Meet employees', icon: 'fal fa-user-friends'},
             ],
             activeFilter: 'all',
         };
@@ -26,27 +26,24 @@ export default class Filters extends React.Component {
         return this.state.filters.map((item, key) => {
 
             const active = this.state.activeFilter === item['key'] ? 'selected' : '';
+            const first = item['first'] ? 'first' : '';
 
             return <li
                 key={key}
-                className={"list-inline-item filter " + active}
+                className={`list-inline-item filter ${active} ${first}`}
                 onClick={() => this.switchFilter(item['key'])}>
-                {item['title']}
+                <span><i className={item['icon']}></i> {item['title']}</span>
             </li>
         })
     }
 
     render() {
-        return <div className="row filters">
-            <div className="col-1">
-                <b>Filter by:</b>
+        return <div className="row">
+
+            <div className="col-12 filters">
+                <ul className="filters float-left">{this.List()}</ul>
             </div>
 
-            <div className="col-10">
-                <ul className="filters float-left">
-                    {this.List()}
-                </ul>
-            </div>
         </div>
     }
 
