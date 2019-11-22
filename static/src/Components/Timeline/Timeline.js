@@ -2,6 +2,7 @@ import React from 'react';
 import {withRouter} from "react-router-dom";
 import request from '../../Services/axios'
 import Events from './Events';
+import Filters from "./Filters";
 
 
 class Timeline extends React.Component {
@@ -11,15 +12,6 @@ class Timeline extends React.Component {
 
         this.state = {
             timeline: {},
-            filters: {
-                all: 'All',
-                pickingcarSet: 'Picking car',
-                flightSet: 'Flight',
-                accommodationSet: 'Accommodation',
-                meetingconjunctionSet: 'Meet employees',
-            },
-            activeFilter: 'all',
-            activeEvent: null
         };
     }
 
@@ -84,11 +76,6 @@ class Timeline extends React.Component {
         this.setState({timeline: orderTimeline(response.data.data.timeline)})
     }
 
-
-    switchFilter(filter) {
-        this.setState({activeFilter: filter});
-    }
-
     render() {
 
         if (!this.state.timeline.events) {
@@ -101,29 +88,7 @@ class Timeline extends React.Component {
                 at: {this.state.timeline.startingDate}
             </h2>
 
-            <div className="row filters">
-                <div className="col-1">
-                    <b>Filter by:</b>
-                </div>
-
-                <div className="col-10">
-                    <ul className="filters float-left">
-                        {Object.keys(this.state.filters).map((item, key) => {
-                            const title = this.state.filters[item];
-
-                            const className = this.state.activeFilter === item ? 'selected' : '';
-
-                            return <li
-                                key={key}
-                                className={"list-inline-item filter " + className}
-                                onClick={() => this.switchFilter(item)}>
-                                {title}
-                            </li>
-                        })}
-                    </ul>
-                </div>
-            </div>
-
+            <Filters />
             <Events events={this.state.timeline.events} />
         </div>
     }
