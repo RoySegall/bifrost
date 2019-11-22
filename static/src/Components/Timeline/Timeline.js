@@ -3,6 +3,7 @@ import {withRouter} from "react-router-dom";
 import request from '../../Services/axios'
 import Events from './Events';
 import Filters from "./Filters";
+import Head from "./Head"
 
 
 class Timeline extends React.Component {
@@ -83,11 +84,7 @@ class Timeline extends React.Component {
         }
 
         return <div className="trip">
-            <h2>
-                {this.state.timeline.title}, starts
-                at: {this.state.timeline.startingDate}
-            </h2>
-
+            <Head {...this.state.timeline} />
             <Filters />
             <Events events={this.state.timeline.events} />
         </div>
