@@ -1,6 +1,7 @@
 import React from 'react';
 import {withRouter} from "react-router-dom";
 import request from '../../Services/axios'
+import Events from './Events';
 
 
 class Timeline extends React.Component {
@@ -88,15 +89,12 @@ class Timeline extends React.Component {
         this.setState({activeFilter: filter});
     }
 
-    setEventView(id) {
-        this.setState({activeEvent: id})
-    }
-
-    hideExtra() {
-        this.setState({activeEvent: null})
-    }
-
     render() {
+
+        if (!this.state.timeline.events) {
+            return <></>;
+        }
+
         return <div className="trip">
             <h2>
                 {this.state.timeline.title}, starts
@@ -126,37 +124,7 @@ class Timeline extends React.Component {
                 </div>
             </div>
 
-            <div className="row events">
-                <div className="col-8">
-                    <div className="list">
-                        {
-                            this.state.timeline.events ?
-                                this.state.timeline.events.map((item, key) => {
-                                    return <div key={key}>
-                                        <a href='#' onClick={(event) => {
-                                            event.preventDefault();
-                                            this.setEventView(key);
-                                        }}>{item['title']}</a>
-                                    </div>
-                                })
-                                : null
-                        }
-                    </div>
-                </div>
-
-                {
-                    this.state.activeEvent !== null ?
-                        <div className="col-4">
-                            <a href="#" onClick={event => {
-                                event.preventDefault();
-                                this.hideExtra();
-                            }}>Close</a><br/>
-                            {this.state.timeline.events[this.state.activeEvent]['title']}
-                        </div> :
-                        null
-                }
-
-            </div>
+            <Events events={this.state.timeline.events} />
         </div>
     }
 }
