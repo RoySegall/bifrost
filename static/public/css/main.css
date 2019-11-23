@@ -147,6 +147,12 @@ i.loading {
   -ms-overflow-style: none; }
   .trip .events .list::-webkit-scrollbar {
     display: none; }
+  .trip .events .list .day-header {
+    margin: 0 auto 1em;
+    padding-bottom: .25em;
+    font-size: 1.5em;
+    border-bottom: dashed 2px #ce0fc5;
+    text-align: center; }
   .trip .events .list .event {
     margin-bottom: 1.5em;
     padding-top: .25em;
@@ -157,9 +163,24 @@ i.loading {
     width: 99%; }
     .trip .events .list .event a:hover {
       color: #416dea; }
+    .trip .events .list .event.flightSet hr {
+      background: #2ca8ff; }
+    .trip .events .list .event.flightSet .fal {
+      color: #2ca8ff; }
+    .trip .events .list .event.pickingcarSet hr {
+      border-color: #ffb236; }
+    .trip .events .list .event.pickingcarSet .fal {
+      color: #ffb236; }
+    .trip .events .list .event.accommodationSet hr {
+      border-color: #ff3636; }
+    .trip .events .list .event.accommodationSet .fal {
+      color: #ff3636; }
+    .trip .events .list .event.meetingconjunctionSet hr {
+      border-color: #18ce0f; }
+    .trip .events .list .event.meetingconjunctionSet .fal {
+      color: #18ce0f; }
     .trip .events .list .event .head hr {
-      width: 95%;
-      background: black; }
+      width: 95%; }
     .trip .events .list .event .body .title {
       font-size: 1.25em; }
     .trip .events .list .event .body p {
@@ -195,7 +216,10 @@ i.loading {
       border: #ff6f5e solid 1px;
       width: 90%; }
   .trip .event-view-wrapper .metadata {
-    padding-top: .5em; }
+    padding-top: .5em;
+    padding-bottom: .25em; }
+  .trip .event-view-wrapper .body p {
+    padding-bottom: .25em; }
   .trip .event-view-wrapper.flightSet {
     border-color: #2ca8ff; }
   .trip .event-view-wrapper.pickingcarSet {

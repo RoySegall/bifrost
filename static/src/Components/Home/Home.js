@@ -1,6 +1,7 @@
 import React from 'react';
 import Timelines from './Timelines'
 import request from '../../Services/axios';
+import {Loading} from '../../Fonts';
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -52,9 +53,7 @@ export default class Home extends React.Component {
 
     render() {
         if (this.state.loading) {
-            return <div className="text-center">
-                <i className="loading fad fa-spinner fa-spin"></i>
-            </div>
+            return <div className="text-center">{Loading()}</div>
         }
         return <Timelines timelines={this.state.timelines} />
     }

@@ -1,4 +1,5 @@
 import React from 'react';
+import {X} from '../../Fonts'
 
 export default class Events extends React.Component {
 
@@ -7,7 +8,7 @@ export default class Events extends React.Component {
 
         this.state = {
             events: props['events'],
-            activeEvent: 1
+            activeEvent: null,
         };
     }
 
@@ -75,6 +76,13 @@ export default class Events extends React.Component {
             <div className="list">
                 {
                     events.map((item, key) => {
+
+                        if (item['type'] === 'day') {
+                            return <div className="row" key={key}>
+                                <div className="col-6 day-header">{item['title']}</div>
+                            </div>;
+                        }
+
                         return <div key={key} className={"row event " + item['type']}>
                             {this.eventHead()}
                             {this.eventBody(item, key)}
@@ -102,7 +110,7 @@ export default class Events extends React.Component {
             <div className={"event-view-wrapper " + event['type']}>
                 <div className="actions">
                     <a href="#" onClick={(event) => onClick(event)}>
-                        <i className="fal fa-times"></i>
+                        {X()}
                     </a><br/>
                 </div>
 
@@ -116,7 +124,11 @@ export default class Events extends React.Component {
                     </div>
 
                     <div className="col-12 metadata">
-                        Location: <b>location title</b>, at <b>June 25th 14:00</b>
+                        Location: <b>location title</b>, at <b>June 25th 14:00</b>.
+                        &nbsp;Starts at: <b>Foo</b> &nbsp;and ends at: <b>Bar</b>.
+                    </div>
+
+                    <div className="col-12 body">
 
                         <p>
                             Lorem Ipsum is simply dummy text of the printing and

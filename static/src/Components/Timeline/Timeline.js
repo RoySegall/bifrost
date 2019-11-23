@@ -101,21 +101,25 @@ function orderTimeline(timeline) {
         title: timeline.title,
         startingDate: timeline.startingDate,
         events: [
+            {type: 'day', title: 'Today'},
             {type: 'flightSet', title: 'Flight to no were'},
             {type: 'pickingcarSet', title: 'Picking a car'},
             {type: 'accommodationSet', title: 'sleeping some where'},
             {type: 'meetingconjunctionSet', title: 'meeting memebers'},
 
+            {type: 'day', title: 'Tomorrow, June 25th'},
             {type: 'flightSet', title: 'Flight to no were'},
             {type: 'pickingcarSet', title: 'Picking a car'},
             {type: 'accommodationSet', title: 'sleeping some where'},
             {type: 'meetingconjunctionSet', title: 'meeting memebers'},
 
+            {type: 'day', title: 'Wednesday, June 27th'},
             {type: 'flightSet', title: 'Flight to no were'},
             {type: 'pickingcarSet', title: 'Picking a car'},
             {type: 'accommodationSet', title: 'sleeping some where'},
             {type: 'meetingconjunctionSet', title: 'meeting memebers'},
 
+            {type: 'day', title: 'Thursday, June 28th'},
             {type: 'flightSet', title: 'Flight to no were'},
             {type: 'pickingcarSet', title: 'Picking a car'},
             {type: 'accommodationSet', title: 'sleeping some where'},
