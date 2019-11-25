@@ -4,7 +4,7 @@ import request from '../../Services/axios'
 import Events from './Events';
 import Filters from "./Filters";
 import Head from "./Head"
-
+import * as moment from 'moment';
 
 class Timeline extends React.Component {
 
@@ -82,15 +82,51 @@ class Timeline extends React.Component {
 
         return <div className="trip">
             <Head {...this.state.timeline} />
-            <Filters />
-            <Events events={this.state.timeline.events} />
+            <Filters/>
+            <Events events={this.state.timeline.events}/>
         </div>
     }
 }
 
 function orderTimeline(timeline) {
     // Get the endpoint we need to start the timeline.
-    const startTime = null;
+    const timelineInfo = {
+        title: timeline.title,
+        startingDate: timeline.startingDate,
+        // todo: change to days.
+        events: [],
+    };
+
+    const events = {};
+
+    ['accommodationSet', 'flightSet', 'meetingconjunctionSet', 'pickingcarSet']
+        .map(type => {
+            timeline[type].map(event => {
+                const startingDate = moment(event['startingDate']).utc(false);
+                const format = 'D-M-YY';
+                const day = startingDate.format(format);
+
+                // Check first if we have the day key or not.
+                if (Object.keys(events).indexOf(day) === -1) {
+                    events[day] = {
+                        timestamp: moment(day, format).utc(false).unix(),
+                        events: [],
+                    };
+                }
+
+                event['endingDate'] = moment(event['endingDate']).utc(false).unix();
+                event['startingDate'] = moment(event['startingDate']).utc(false).unix();
+
+                // Go over the event date and start to push events.
+                events[day]['events'].push(event);
+            });
+        });
+
+    // Sort the events and then sort the days.
+
+    console.log(events);
+
+    return timelineInfo;
 
     // Go over the items and sort them in a {timestamp:event-data} so we
     // could sort them by their time.
