@@ -115,7 +115,9 @@ function orderTimeline(timeline) {
                 }
 
                 event['endingDate'] = moment(event['endingDate']).utc(false).unix();
+                event['startingDate_original'] = event['startingDate'];
                 event['startingDate'] = moment(event['startingDate']).utc(false).unix();
+                event['type'] = type;
 
                 // Go over the event date and start to push events.
                 events[day]['events'].push(event);
@@ -123,45 +125,29 @@ function orderTimeline(timeline) {
         });
 
     // Sort the events and then sort the days.
+    const ordered = {};
+    Object.keys(events).sort((a, b) => {
+        if (events[a].timestamp > events[b].timestamp) {
+            return 1;
+        }
+        if (events[a].timestamp < events[b].timestamp) {
+            return -1;
+        }
+        return 0;
+    }).forEach(function (key) {
+        ordered[key] = events[key].events.sort((a, b) => {
+            if (a.startingDate > b.startingDate) {
+                return 1;
+            }
+            if (a.startingDate < b.startingDate) {
+                return -1;
+            }
+            return 0;
+        });
 
-    console.log(events);
+    });
 
     return timelineInfo;
-
-    // Go over the items and sort them in a {timestamp:event-data} so we
-    // could sort them by their time.
-
-    // Go over the events, and place events at the end of the
-
-    return {
-        title: timeline.title,
-        startingDate: timeline.startingDate,
-        events: [
-            {type: 'day', title: 'Today'},
-            {type: 'flightSet', title: 'Flight to no were'},
-            {type: 'pickingcarSet', title: 'Picking a car'},
-            {type: 'accommodationSet', title: 'sleeping some where'},
-            {type: 'meetingconjunctionSet', title: 'meeting memebers'},
-
-            {type: 'day', title: 'Tomorrow, June 25th'},
-            {type: 'flightSet', title: 'Flight to no were'},
-            {type: 'pickingcarSet', title: 'Picking a car'},
-            {type: 'accommodationSet', title: 'sleeping some where'},
-            {type: 'meetingconjunctionSet', title: 'meeting memebers'},
-
-            {type: 'day', title: 'Wednesday, June 27th'},
-            {type: 'flightSet', title: 'Flight to no were'},
-            {type: 'pickingcarSet', title: 'Picking a car'},
-            {type: 'accommodationSet', title: 'sleeping some where'},
-            {type: 'meetingconjunctionSet', title: 'meeting memebers'},
-
-            {type: 'day', title: 'Thursday, June 28th'},
-            {type: 'flightSet', title: 'Flight to no were'},
-            {type: 'pickingcarSet', title: 'Picking a car'},
-            {type: 'accommodationSet', title: 'sleeping some where'},
-            {type: 'meetingconjunctionSet', title: 'meeting memebers'},
-        ]
-    };
 }
 
 export default withRouter(Timeline);
