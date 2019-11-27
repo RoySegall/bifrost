@@ -88,7 +88,7 @@ i.loading {
       list-style-type: none; }
 
 .trip .slow-transition {
-  transition: .75s; }
+  transition: .5s; }
 
 .trip h2 {
   padding-bottom: .25em;
@@ -163,6 +163,9 @@ i.loading {
     width: 99%; }
     .trip .events .list .event a:hover {
       color: #416dea; }
+    .trip .events .list .event .fal {
+      padding-top: .25em;
+      font-size: 1.5em; }
     .trip .events .list .event.flightSet hr {
       background: #2ca8ff; }
     .trip .events .list .event.flightSet .fal {

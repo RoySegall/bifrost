@@ -20,8 +20,9 @@
 .trip {
 
   .slow-transition {
-    transition: .75s;
+    transition: .5s;
   }
+
 
   h2 {
     padding-bottom: .25em;
@@ -126,6 +127,11 @@
 
         a:hover {
           color: $filter-normal-background;
+        }
+
+        .fal {
+          padding-top: .25em;
+          font-size: 1.5em;
         }
 
         &.flightSet {

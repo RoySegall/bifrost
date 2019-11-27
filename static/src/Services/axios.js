@@ -7,11 +7,11 @@ function request(params = {}) {
 
     instance.interceptors.request.use(function (config) {
 
-        if (params['graphql'] != undefined) {
+        if (params['graphql'] !== undefined) {
             config['method'] = 'post';
             config['url'] = 'graphql/';
 
-            if (config['data'] == undefined) {
+            if (config['data'] === undefined) {
                 config['data'] = {};
             }
 

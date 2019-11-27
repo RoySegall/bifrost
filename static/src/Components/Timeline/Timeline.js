@@ -58,6 +58,7 @@ class Timeline extends React.Component {
                         },
                         meetingconjunctionSet {
                             id
+                            title
                             startingDate
                             members {
                               id
@@ -115,7 +116,6 @@ function orderTimeline(timeline) {
                 }
 
                 event['endingDate'] = moment(event['endingDate']).utc(false).unix();
-                event['startingDate_original'] = event['startingDate'];
                 event['startingDate'] = moment(event['startingDate']).utc(false).unix();
                 event['type'] = type;
 
@@ -146,6 +146,8 @@ function orderTimeline(timeline) {
         });
 
     });
+
+    timelineInfo.events = ordered;
 
     return timelineInfo;
 }

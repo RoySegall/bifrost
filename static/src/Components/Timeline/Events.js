@@ -1,5 +1,5 @@
 import React from 'react';
-import {X} from '../../Fonts'
+import {X, Car, Hotel, Plane, Friends} from '../../Fonts'
 
 export default class Events extends React.Component {
 
@@ -12,48 +12,60 @@ export default class Events extends React.Component {
         };
     }
 
-    setEventView(id) {
-        if (this.state.activeEvent === id) {
-            this.hideExtra();
-            return;
+    setEventView(selectedEvent) {
+        if (this.state.activeEvent) {
+            if (
+                this.state.activeEvent['day'] === selectedEvent['day'] &&
+                this.state.activeEvent['key'] === selectedEvent['key']
+            ) {
+                this.hideExtra();
+                return;
+            }
         }
 
-        this.setState({activeEvent: id})
+        this.setState({activeEvent: selectedEvent})
     }
 
     hideExtra() {
         this.setState({activeEvent: null})
     }
 
-    eventHead() {
+    eventHead(event) {
+
+        const icons = {
+            accommodationSet: Hotel(),
+            flightSet: Plane(),
+            meetingconjunctionSet: Friends(),
+            pickingcarSet: Car(),
+        };
+
+        const icon = icons[event['type']];
+
         return <div className="col-12">
             <div className="row head">
-                <div className="col-6"><i className="fal fa-hotel"></i></div>
-                <div className="col-6 text-right">Today at
-                    15:00
-                </div>
+                <div className="col-6">{icon}</div>
+                <div className="col-6 text-right">{event['startingDate']}</div>
                 <hr/>
             </div>
         </div>
     }
 
-    eventBody(item, key) {
-        const onClick = (event, key) => {
+    eventBody(event, day, key) {
+        const onClick = (event, day, key) => {
             event.preventDefault();
-            this.setEventView(key);
+            this.setEventView({day, key});
         };
 
         return <div className="col-12">
             <div className="row body">
                 <div className="col-6">
-                    <a href='#' className="title"
-                       onClick={(event) => onClick(event, key)}>
-                        {item['title']}
+                    <a href='#' className="title" onClick={(event) => onClick(event, day, key)}>
+                        {event['title']}
                     </a>
                 </div>
 
                 <div className="col-6 text-right">
-                    Ends at: Today, 15:30
+                    Ends at: {event['endingDate']}
                 </div>
 
                 <div className="col-12">
@@ -70,22 +82,25 @@ export default class Events extends React.Component {
         </div>
     }
 
-    List(events) {
+    List(days) {
         const col = this.state.activeEvent === null ? 'col-12 full-event' : 'col-6';
         return <div className={"slow-transition " + col}>
             <div className="list">
                 {
-                    events.map((item, key) => {
+                    Object.keys(days).map(day => {
+                        const events = days[day].map((event, key) => {
+                            return <div key={event['id'] + "-" + event['type']} className={"row event " + event['type']}>
+                                {this.eventHead(event)}
+                                {this.eventBody(event, day, key)}
+                            </div>
+                        });
 
-                        if (item['type'] === 'day') {
-                            return <div className="row" key={key}>
-                                <div className="col-6 day-header">{item['title']}</div>
-                            </div>;
-                        }
-
-                        return <div key={key} className={"row event " + item['type']}>
-                            {this.eventHead()}
-                            {this.eventBody(item, key)}
+                        return <div key={day + "-list"}>
+                            <div className="row" key={day}>
+                                <div
+                                    className="col-6 day-header">{day}</div>
+                            </div>
+                            {events}
                         </div>
                     })
                 }
@@ -98,14 +113,15 @@ export default class Events extends React.Component {
             return <></>;
         }
 
-        const event = this.state.events[this.state.activeEvent];
+        const activeEvent = this.state.activeEvent;
+        const event = this.state.events[activeEvent['day']][activeEvent['key']];
 
         const onClick = (event) => {
             event.preventDefault();
             this.hideExtra();
         };
 
-        return <div className="col-6">
+        return <div className="col-6 hidden">
 
             <div className={"event-view-wrapper " + event['type']}>
                 <div className="actions">
@@ -120,12 +136,15 @@ export default class Events extends React.Component {
                     </div>
 
                     <div className="map">
-                        <img className="img-fluid" src={process.env.PUBLIC_URL + '/mps.png'} />
+                        <img className="img-fluid"
+                             src={process.env.PUBLIC_URL + '/mps.png'}/>
                     </div>
 
                     <div className="col-12 metadata">
-                        Location: <b>location title</b>, at <b>June 25th 14:00</b>.
-                        &nbsp;Starts at: <b>Foo</b> &nbsp;and ends at: <b>Bar</b>.
+                        Location: <b>location title</b>, at <b>June 25th
+                        14:00</b>.
+                        &nbsp;Starts at: <b>Foo</b> &nbsp;and ends
+                        at: <b>Bar</b>.
                     </div>
 
                     <div className="col-12 body">
