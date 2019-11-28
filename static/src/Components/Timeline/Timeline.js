@@ -37,6 +37,8 @@ class Timeline extends React.Component {
                             endingDate
                             location {
                               id
+                              title,
+                              address
                             }
                             
                             connectionFlight {
@@ -48,12 +50,19 @@ class Timeline extends React.Component {
                             id
                             startingDate
                             endingDate
+                            location {
+                              id
+                              title,
+                              address
+                            }
                         },
                         accommodationSet {
                             id
                             title
                             location {
-                                id
+                              id
+                              title,
+                              address
                             },
                             startingDate
                             endingDate
@@ -70,6 +79,8 @@ class Timeline extends React.Component {
                             }
                             location {
                               id
+                              title,
+                              address
                             }
                         }
                     },

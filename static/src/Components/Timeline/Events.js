@@ -1,6 +1,10 @@
 import React from 'react';
 import {X, Car, Hotel, Plane, Friends} from '../../Fonts'
-import {dateFormatOnlyHour, dateFormatWithHour} from '../../Services/consts'
+import {
+    dateFormat,
+    dateFormatOnlyHour,
+    dateFormatWithHour
+} from '../../Services/consts'
 import * as moment from 'moment';
 
 export default class Events extends React.Component {
@@ -94,14 +98,7 @@ export default class Events extends React.Component {
                 </div>
 
                 <div className="col-12">
-                    <p>Lorem Ipsum is simply dummy text of
-                        the
-                        printing and typesetting industry.
-                        Lorem
-                        Ipsum has been the industry's
-                        standard
-                        dummy text ever since the 1500s,
-                    </p>
+                    <p>TBDs</p>
                 </div>
             </div>
         </div>
@@ -166,28 +163,18 @@ export default class Events extends React.Component {
                     </div>
 
                     <div className="col-12 metadata">
-                        Location: <b>location title</b>, at <b>June 25th
-                        14:00</b>.
-                        &nbsp;Starts at: <b>Foo</b> &nbsp;and ends
-                        at: <b>Bar</b>.
+                        <span>
+                            Location: <b>{event['location']['title']}</b>,
+                            at <b>{moment.unix(event['startingDate']).format(dateFormat)}</b>,&nbsp;
+                        </span>
+                        <span>
+                            Starts at <b>{moment.unix(event['endingDate']).format(dateFormatOnlyHour)}</b> and
+                            ends at: <b>{this.refactorEndDate(event['startingDate'], event['endingDate'])}</b>
+                        </span>
                     </div>
 
-                    <div className="col-12 body">
+                    <div className="col-12">
 
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book. It has
-                            survived not only five centuries, but also the leap
-                            into electronic typesetting, remaining essentially
-                            unchanged. It was popularised in the 1960s with the
-                            release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing
-                            software like Aldus PageMaker including versions of
-                            Lorem Ipsum.
-                        </p>
                         <p>
                             Lorem Ipsum is simply dummy text of the printing and
                             typesetting industry. Lorem Ipsum has been the
