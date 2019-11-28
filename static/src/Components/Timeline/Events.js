@@ -113,7 +113,7 @@ export default class Events extends React.Component {
             <div className="list">
                 {
                     Object.keys(days).map(day => {
-                        const events = days[day].map((event, key) => {
+                        const events = days[day]['events'].map((event, key) => {
                             return <div key={event['id'] + "-" + event['type']} className={"row event " + event['type']}>
                                 {this.eventHead(event)}
                                 {this.eventBody(event, day, key)}
@@ -123,7 +123,7 @@ export default class Events extends React.Component {
                         return <div key={day + "-list"}>
                             <div className="row" key={day}>
                                 <div
-                                    className="col-6 day-header">{day}</div>
+                                    className="col-6 day-header">{days[day]['label']}</div>
                             </div>
                             {events}
                         </div>
@@ -139,7 +139,7 @@ export default class Events extends React.Component {
         }
 
         const activeEvent = this.state.activeEvent;
-        const event = this.state.events[activeEvent['day']][activeEvent['key']];
+        const event = this.state.events[activeEvent['day']]['events'][activeEvent['key']];
 
         const onClick = (event) => {
             event.preventDefault();
@@ -210,7 +210,6 @@ export default class Events extends React.Component {
     }
 
     render() {
-
         return <div className="row events">
             <div className="col-12 event-separator">
                 <hr/>

@@ -5,7 +5,7 @@ import Events from './Events';
 import Filters from "./Filters";
 import Head from "./Head"
 import * as moment from 'moment';
-import {dateFormat} from '../../Services/consts';
+import {dateFormat, dateFormatWithDay} from '../../Services/consts';
 
 class Timeline extends React.Component {
 
@@ -44,7 +44,10 @@ class Timeline extends React.Component {
                             }
                         },
                         pickingcarSet {
-                                id
+                            title
+                            id
+                            startingDate
+                            endingDate
                         },
                         accommodationSet {
                             id
@@ -113,6 +116,7 @@ function orderTimeline(timeline) {
                     events[day] = {
                         timestamp: moment(day, dateFormat).utc(false).unix(),
                         events: [],
+                        label: startingDate.format(dateFormatWithDay)
                     };
                 }
 
@@ -127,7 +131,7 @@ function orderTimeline(timeline) {
         });
 
     // Sort the events and then sort the days.
-    const ordered = {};
+    const ordered = {'events': [], 'label': ''};
     Object.keys(events).sort((a, b) => {
         if (events[a].timestamp > events[b].timestamp) {
             return 1;
@@ -137,7 +141,7 @@ function orderTimeline(timeline) {
         }
         return 0;
     }).forEach(function (key) {
-        ordered[key] = events[key].events.sort((a, b) => {
+        ordered[key] = {'label': '', 'events': events[key].events.sort((a, b) => {
             if (a.startingDate > b.startingDate) {
                 return 1;
             }
@@ -145,11 +149,10 @@ function orderTimeline(timeline) {
                 return -1;
             }
             return 0;
-        });
-
+        })};
     });
 
-    timelineInfo.events = ordered;
+    timelineInfo.events = events;
 
     return timelineInfo;
 }
