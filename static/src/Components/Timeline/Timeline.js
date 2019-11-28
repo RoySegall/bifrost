@@ -5,6 +5,7 @@ import Events from './Events';
 import Filters from "./Filters";
 import Head from "./Head"
 import * as moment from 'moment';
+import {dateFormat} from '../../Services/consts';
 
 class Timeline extends React.Component {
 
@@ -60,6 +61,7 @@ class Timeline extends React.Component {
                             id
                             title
                             startingDate
+                            endingDate
                             members {
                               id
                             }
@@ -104,16 +106,16 @@ function orderTimeline(timeline) {
         .map(type => {
             timeline[type].map(event => {
                 const startingDate = moment(event['startingDate']).utc(false);
-                const format = 'D-M-YY';
-                const day = startingDate.format(format);
+                const day = startingDate.format(dateFormat);
 
                 // Check first if we have the day key or not.
                 if (Object.keys(events).indexOf(day) === -1) {
                     events[day] = {
-                        timestamp: moment(day, format).utc(false).unix(),
+                        timestamp: moment(day, dateFormat).utc(false).unix(),
                         events: [],
                     };
                 }
+
 
                 event['endingDate'] = moment(event['endingDate']).utc(false).unix();
                 event['startingDate'] = moment(event['startingDate']).utc(false).unix();

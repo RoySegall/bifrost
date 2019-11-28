@@ -1,5 +1,7 @@
 import React from 'react';
 import {X, Car, Hotel, Plane, Friends} from '../../Fonts'
+import {dateFormatOnlyHour, dateFormatWithHour} from '../../Services/consts'
+import * as moment from 'moment';
 
 export default class Events extends React.Component {
 
@@ -30,6 +32,29 @@ export default class Events extends React.Component {
         this.setState({activeEvent: null})
     }
 
+    /**
+     * This will refactor the end date by given laws: if the end date is in the
+     * same day as the starting date only the hours will be displayed. If the
+     * end date is in another day then we will display the full date.
+     *
+     * @param startDate
+     *  The starting date of the event.
+     * @param endDate
+     *  The ending date.
+     * @returns {string}
+     *  The end date by laws.
+     */
+    refactorEndDate(startDate, endDate) {
+        const startingFrom = moment.unix(startDate);
+        const endingFromUnix = moment.unix(endDate);
+
+        if (endingFromUnix.diff(startingFrom, "days") > 0) {
+            return endingFromUnix.format(dateFormatWithHour);
+        }
+
+        return endingFromUnix.format(dateFormatOnlyHour);
+    }
+
     eventHead(event) {
 
         const icons = {
@@ -44,7 +69,7 @@ export default class Events extends React.Component {
         return <div className="col-12">
             <div className="row head">
                 <div className="col-6">{icon}</div>
-                <div className="col-6 text-right">{event['startingDate']}</div>
+                <div className="col-6 text-right">{moment.unix(event['startingDate']).format(dateFormatOnlyHour)}</div>
                 <hr/>
             </div>
         </div>
@@ -65,7 +90,7 @@ export default class Events extends React.Component {
                 </div>
 
                 <div className="col-6 text-right">
-                    Ends at: {event['endingDate']}
+                    Ends at: {this.refactorEndDate(event['startingDate'], event['endingDate'])}
                 </div>
 
                 <div className="col-12">
