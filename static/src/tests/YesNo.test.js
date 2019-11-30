@@ -1,8 +1,9 @@
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
-
 import YesNo from '../Components/YesNo';
 
+
+// todo: refactor to enzyme.
 let container = null;
 beforeEach(() => {
   // setup a DOM element as a render target
