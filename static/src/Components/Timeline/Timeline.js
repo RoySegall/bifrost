@@ -86,7 +86,6 @@ class Timeline extends React.Component {
                     },
                 }`
         };
-
         const response = await request(params)();
         this.setState({timeline: orderTimeline(response.data.data.timeline)})
     }
@@ -168,4 +167,6 @@ function orderTimeline(timeline) {
     return timelineInfo;
 }
 
-export default withRouter(Timeline);
+const RouteTimeline = withRouter(Timeline);
+
+export {RouteTimeline, orderTimeline};

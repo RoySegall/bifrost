@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Components/Header'
 import Home from './Components/Home/Home'
 import Login from './Components/Login'
-import Timeline from './Components/Timeline/Timeline';
+import {RouteTimeline} from './Components/Timeline/Timeline';
 import isLoggedIn from './Services/auth'
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
@@ -29,7 +29,7 @@ export default class App extends React.Component {
         return <Router>
             <Header />
             <Switch>
-                <Route path="/timeline/:id" children={<Timeline />}>
+                <Route path="/timeline/:id" children={<RouteTimeline />}>
                 </Route>
                 <Route path="/">
                     <Home/>
