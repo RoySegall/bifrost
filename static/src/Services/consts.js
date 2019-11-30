@@ -1,6 +1,6 @@
-const dateFormat = "D-M-YY";
-const dateFormatWithHour = "D-M-YY HH:mm";
-const dateFormatWithDay = "D-M-YY, dddd";
+const dateFormat = "D-M-YYYY";
+const dateFormatWithHour = "D-M-YYYY HH:mm";
+const dateFormatWithDay = "D-M-YYYY, dddd";
 const dateFormatOnlyHour = "HH:mm";
 
 export {dateFormat, dateFormatWithHour, dateFormatOnlyHour, dateFormatWithDay};
