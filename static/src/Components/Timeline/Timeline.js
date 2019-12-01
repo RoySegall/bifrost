@@ -4,7 +4,7 @@ import request from '../../Services/axios'
 import Events from './Events';
 import Filters from "./Filters";
 import Head from "./Head"
-import * as moment from 'moment';
+import moment from 'moment'
 import {dateFormat, dateFormatWithDay} from '../../Services/consts';
 
 class Timeline extends React.Component {
@@ -87,7 +87,7 @@ class Timeline extends React.Component {
                 }`
         };
         const response = await request(params)();
-        this.setState({timeline: orderTimeline(response.data.data.timeline)})
+        this.setState({timeline: OrderTimeline(response.data.data.timeline)})
     }
 
     render() {
@@ -95,6 +95,8 @@ class Timeline extends React.Component {
         if (!this.state.timeline.events) {
             return <></>;
         }
+
+        console.log(this.state.timeline);
 
         return <div className="trip">
             <Head {...this.state.timeline} />
@@ -104,7 +106,7 @@ class Timeline extends React.Component {
     }
 }
 
-function orderTimeline(timeline) {
+const OrderTimeline = (timeline) => {
     // Get the endpoint we need to start the timeline.
     const timelineInfo = {
         title: timeline.title,
@@ -165,8 +167,8 @@ function orderTimeline(timeline) {
     timelineInfo.events = events;
 
     return timelineInfo;
-}
+};
 
 const RouteTimeline = withRouter(Timeline);
 
-export {RouteTimeline, orderTimeline};
+export {RouteTimeline, OrderTimeline};
