@@ -6,7 +6,7 @@ import {
 } from '../Services/consts';
 import * as moment from 'moment';
 
-const June2519891030 = 614773800;
+export const June2519891030 = 614773800;
 
 test("Check date dateFormat format", () => {
     expect(

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header with title and date`] = `
+<h2>
+   
+  Title for testing
+  , starts at: 
+  8-1-1970 04:46
+   
+</h2>
+`;
