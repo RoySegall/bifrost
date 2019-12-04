@@ -10,7 +10,7 @@ export default class Filters extends React.Component {
         this.state = {
             filters: [
                 {'key': 'all', title: 'All events', icon: Calendar(), first: true},
-                {'key': 'pickingcarSet:', title: 'Picking car', icon: Car()},
+                {'key': 'pickingcarSet', title: 'Picking car', icon: Car()},
                 {'key': 'flightSet', title: 'Flight', icon: Plane()},
                 {'key': 'accommodationSet', title: 'Accommodation', icon: Hotel()},
                 {'key': 'meetingconjunctionSet', title: 'Meet employees', icon: Friends()},
@@ -31,7 +31,7 @@ export default class Filters extends React.Component {
 
             return <li
                 key={key}
-                className={`list-inline-item filter ${active} ${first}`}
+                className={`list-inline-item filter ${item['key']} ${active} ${first}`}
                 onClick={() => this.switchFilter(item['key'])}>
                 <span>{item['icon']} {item['title']}</span>
             </li>

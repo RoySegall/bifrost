@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing the snapshot of the component 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-12 filters"
+  >
+    <ul
+      className="filters float-left"
+    >
+      <li
+        className="list-inline-item filter all selected first"
+        onClick={[Function]}
+      >
+        <span>
+          <i
+            className="fal fa-calendar-alt"
+          />
+           
+          All events
+        </span>
+      </li>
+      <li
+        className="list-inline-item filter pickingcarSet  "
+        onClick={[Function]}
+      >
+        <span>
+          <i
+            className="fal fa-car"
+          />
+           
+          Picking car
+        </span>
+      </li>
+      <li
+        className="list-inline-item filter flightSet  "
+        onClick={[Function]}
+      >
+        <span>
+          <i
+            className="fal fa-plane"
+          />
+           
+          Flight
+        </span>
+      </li>
+      <li
+        className="list-inline-item filter accommodationSet  "
+        onClick={[Function]}
+      >
+        <span>
+          <i
+            className="fal fa-hotel"
+          />
+           
+          Accommodation
+        </span>
+      </li>
+      <li
+        className="list-inline-item filter meetingconjunctionSet  "
+        onClick={[Function]}
+      >
+        <span>
+          <i
+            className="fal fa-user-friends"
+          />
+           
+          Meet employees
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

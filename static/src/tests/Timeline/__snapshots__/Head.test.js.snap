@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header with title and date`] = `
+exports[`Testing the output of the timeline head component 1`] = `
 <h2>
    
   Title for testing

@@ -8,7 +8,7 @@ import {June2519891030} from '../DatesConstans.test';
 configure({adapter: new Adapter()});
 
 // Snapshot of the component.
-test("Calling the yes no with true", () => {
+test("Testing the output of the timeline head component", () => {
 
     const timeline = {
         title: "Title for testing",
