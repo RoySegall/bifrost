@@ -1,4 +1,3 @@
-// Testing the list of filters and the state change.
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Filters from '../../Components/Timeline/Filters';

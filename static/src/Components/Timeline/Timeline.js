@@ -96,8 +96,6 @@ class Timeline extends React.Component {
             return <></>;
         }
 
-        console.log(this.state.timeline);
-
         return <div className="trip">
             <Head {...this.state.timeline} />
             <Filters/>

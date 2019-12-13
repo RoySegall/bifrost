@@ -88,7 +88,7 @@ export default class Events extends React.Component {
         return <div className="col-12">
             <div className="row body">
                 <div className="col-6">
-                    <a href='#' className="title" onClick={(event) => onClick(event, day, key)}>
+                    <a href='#' className={"title event-" + event['type'] + "-id-" + event['id']} onClick={(event) => onClick(event, day, key)}>
                         {event['title']}
                     </a>
                 </div>
@@ -122,7 +122,9 @@ export default class Events extends React.Component {
                                 <div
                                     className="col-6 day-header">{days[day]['label']}</div>
                             </div>
-                            {events}
+                            <div className="events-list">
+                                {events}
+                            </div>
                         </div>
                     })
                 }
@@ -143,7 +145,7 @@ export default class Events extends React.Component {
             this.hideExtra();
         };
 
-        return <div className="col-6 hidden">
+        return <div className="col-6 event-view">
 
             <div className={"event-view-wrapper " + event['type']}>
                 <div className="actions">
