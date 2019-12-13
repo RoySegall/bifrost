@@ -1,9 +1,7 @@
-// Testing hideExtra, refactorEndDate, eventHead, eventBody, EventView
-
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Events from '../../Components/Timeline/Events';
-import {configure, mount} from 'enzyme';
+import {configure, mount, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({adapter: new Adapter()});
@@ -12,28 +10,67 @@ const dummyEvents = JSON.parse('{"17-11-2019":{"timestamp":1573941600,"events":[
 
 test("Testing the setEventView function", () => {
     const component = mount(<Events events={dummyEvents}/>);
+    const spy = jest.spyOn(component.instance(), 'setEventView');
 
-    expect(component.instance().state.activeEvent).toBe(null);
+    expect(component.state('activeEvent')).toBe(null);
     expect(component.exists('.event-view')).toBe(false);
 
     // Click on the first event and make sure the state has changed.
     component.find('.title.event-flightSet-id-1').simulate('click');
-    expect(component.instance().state.activeEvent).toStrictEqual({
+    expect(component.state('activeEvent')).toStrictEqual({
         "day": "17-11-2019",
         "key": 0
     });
 
+    // Making sure the event has been triggered.
+    expect(spy).toHaveBeenCalled();
     expect(component.exists('.event-view')).toBe(true);
 
     // Click on the second event and make sure the state has changed to that event.
     component.find('.title.event-accommodationSet-id-1').simulate('click');
-    expect(component.instance().state.activeEvent).toStrictEqual({
+    expect(component.state('activeEvent')).toStrictEqual({
         "day": "17-11-2019",
         "key": 1
     });
 
     // Click on event which is already selected and make sure the state changed.
     component.find('.title.event-accommodationSet-id-1').simulate('click');
-    expect(component.instance().state.activeEvent).toBe(null);
+    expect(component.state('activeEvent')).toBe(null);
     expect(component.exists('.event-view')).toBe(false);
+});
+
+test("Testing the hideExtra event", () => {
+    const component = mount(<Events events={dummyEvents}/>);
+    const spy = jest.spyOn(component.instance(), 'hideExtra');
+
+    // Set an event to be viewed.
+    component.find('.title.event-accommodationSet-id-1').simulate('click');
+
+    // Making sure the event view exists.
+    expect(component.exists('.event-view')).toBe(true);
+
+    // Simulating the event close and making sure the event was triggered.
+    component.find('.close-event').simulate('click');
+    expect(spy).toHaveBeenCalled();
+
+    // Making sure the event view does not exists.
+    expect(component.exists('.event-view')).toBe(false);
+});
+
+test("Testing the refactorEndDate method", () => {
+    const component = mount(<Events events={dummyEvents}/>);
+    const instance = component.instance();
+
+    // Making sure that if the event is in the same day we won't display the
+    // full date.
+    expect(instance.refactorEndDate(1573970400, 1573970400 + 3600)).toBe("09:00");
+
+    // Making sure that when the event is another day we will display the full
+    // day.
+    expect(instance.refactorEndDate(1573970400, 1573970400 + (84600 * 2))).toBe("19-11-2019 07:00");
+});
+
+test("Testing the eventHead, eventBody, EventView function with snapshot", () => {
+    const EventComponent = renderer.create(<Events events={dummyEvents}/>);
+    expect(EventComponent.toJSON()).toMatchSnapshot();
 });

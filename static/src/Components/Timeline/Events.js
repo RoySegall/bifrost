@@ -149,7 +149,7 @@ export default class Events extends React.Component {
 
             <div className={"event-view-wrapper " + event['type']}>
                 <div className="actions">
-                    <a href="#" onClick={(event) => onClick(event)}>
+                    <a href="#" className="close-event" onClick={(event) => onClick(event)}>
                         {X()}
                     </a><br/>
                 </div>
