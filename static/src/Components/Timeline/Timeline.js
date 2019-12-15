@@ -5,7 +5,7 @@ import Events from './Events';
 import Filters from "./Filters";
 import Head from "./Head"
 import moment from 'moment'
-import {dateFormat, dateFormatWithDay} from '../../Services/consts';
+import {dateFormat, dateFormatWithDay, dateFromBackend, convertFromBackendToUtc} from '../../Services/consts';
 
 class Timeline extends React.Component {
 
@@ -118,21 +118,19 @@ const OrderTimeline = (timeline) => {
     ['accommodationSet', 'flightSet', 'meetingconjunctionSet', 'pickingcarSet']
         .map(type => {
             timeline[type].map(event => {
-                const startingDate = moment(event['startingDate']).utc(false);
+                const startingDate = convertFromBackendToUtc(event['startingDate']);
                 const day = startingDate.format(dateFormat);
 
                 // Check first if we have the day key or not.
                 if (Object.keys(events).indexOf(day) === -1) {
                     events[day] = {
-                        timestamp: moment(day, dateFormat).utc(false).unix(),
+                        timestamp: convertFromBackendToUtc(day, dateFormat).unix(),
                         events: [],
                         label: startingDate.format(dateFormatWithDay)
                     };
                 }
-
-
-                event['endingDate'] = moment(event['endingDate']).utc(false).unix();
-                event['startingDate'] = moment(event['startingDate']).utc(false).unix();
+                event['endingDate'] = convertFromBackendToUtc(event['endingDate']).unix();
+                event['startingDate'] = convertFromBackendToUtc(event['startingDate']).unix();
                 event['type'] = type;
 
                 // Go over the event date and start to push events.

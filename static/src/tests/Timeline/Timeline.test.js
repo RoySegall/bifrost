@@ -166,18 +166,17 @@ test('Testing OrderTimeline', () => {
     expect(Object.keys(orderedTimeline['events'])).toStrictEqual(['17-11-2019', '18-11-2019', '19-11-2019', '20-11-2019']);
 
     const firstDay = orderedTimeline['events']['17-11-2019'];
-
-    // expect(firstDay['timestamp']).toBe(1573941600);
+    expect(firstDay['timestamp']).toBe(1573948800);
     expect(firstDay['label']).toBe('17-11-2019, Sunday');
     expect(firstDay['events'][0]).toStrictEqual({
         id: "1",
         title: "Flight to london",
         connectionFlight: null,
         destination: "London",
-        endingDate: 1573984800,
+        endingDate: 1573992000,
         location: {"address": "ff", "id": "1", "title": "jfk airplain"},
         origin: "Tel aviv",
-        startingDate: 1573970400,
+        startingDate: 1573977600,
         type: "flightSet"
     });
     expect(firstDay['events'][1]).toStrictEqual({
@@ -188,8 +187,8 @@ test('Testing OrderTimeline', () => {
             title: 'Gibson hotel',
             address: 'Gibson hotel, Ireland'
         },
-        startingDate: 1574006400,
-        endingDate: 1574330400,
+        startingDate: 1574013600,
+        endingDate: 1574337600,
         hotelName: 'Gisbon',
         room: '312',
         type: 'accommodationSet'

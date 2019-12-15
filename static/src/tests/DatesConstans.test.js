@@ -2,7 +2,8 @@ import {
     dateFormat,
     dateFormatWithHour,
     dateFormatOnlyHour,
-    dateFormatWithDay
+    dateFormatWithDay,
+    convertFromBackendToUtc
 } from '../Services/consts';
 import * as moment from 'moment';
 
@@ -30,4 +31,8 @@ test("Check date dateFormatWithDay format", () => {
     expect(
         moment.unix(June2519891030).utc(false).format(dateFormatWithDay)
     ).toBe('25-6-1989, Sunday')
+});
+
+test("Check we can convert dates from the server to UTC", () => {
+    expect(convertFromBackendToUtc("2019-06-25T12:00:00").unix()).toBe(1561464000)
 });
