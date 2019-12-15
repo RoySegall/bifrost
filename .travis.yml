@@ -19,7 +19,6 @@ services:
 
 before_script:
   - bash $INSTALL
-  - export TZ=Etc/UTC
 
 script:
   - bash $SCRIPT
