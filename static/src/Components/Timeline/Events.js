@@ -49,8 +49,8 @@ export default class Events extends React.Component {
      *  The end date by laws.
      */
     refactorEndDate(startDate, endDate) {
-        const startingFrom = moment.unix(startDate);
-        const endingFromUnix = moment.unix(endDate);
+        const startingFrom = moment.unix(startDate).utc();
+        const endingFromUnix = moment.unix(endDate).utc();
 
         if (endingFromUnix.diff(startingFrom, "days") > 0) {
             return endingFromUnix.format(dateFormatWithHour);
@@ -73,7 +73,7 @@ export default class Events extends React.Component {
         return <div className="col-12">
             <div className="row head">
                 <div className="col-6">{icon}</div>
-                <div className="col-6 text-right">{moment.unix(event['startingDate']).format(dateFormatOnlyHour)}</div>
+                <div className="col-6 text-right">{moment.unix(event['startingDate']).utc().format(dateFormatOnlyHour)}</div>
                 <hr/>
             </div>
         </div>
@@ -167,10 +167,10 @@ export default class Events extends React.Component {
                     <div className="col-12 metadata">
                         <span>
                             Location: <b>{event['location']['title']}</b>,
-                            at <b>{moment.unix(event['startingDate']).format(dateFormat)}</b>,&nbsp;
+                            at <b>{moment.unix(event['startingDate']).utc().format(dateFormat)}</b>,&nbsp;
                         </span>
                         <span>
-                            Starts at <b>{moment.unix(event['endingDate']).format(dateFormatOnlyHour)}</b> and
+                            Starts at <b>{moment.unix(event['endingDate']).utc().format(dateFormatOnlyHour)}</b> and
                             ends at: <b>{this.refactorEndDate(event['startingDate'], event['endingDate'])}</b>
                         </span>
                     </div>

@@ -63,11 +63,11 @@ test("Testing the refactorEndDate method", () => {
 
     // Making sure that if the event is in the same day we won't display the
     // full date.
-    expect(instance.refactorEndDate(1573970400, 1573970400 + 3600)).toBe("09:00");
+    expect(instance.refactorEndDate(1573970400, 1573970400 + 3600)).toBe("07:00");
 
     // Making sure that when the event is another day we will display the full
     // day.
-    expect(instance.refactorEndDate(1573970400, 1573970400 + (84600 * 2))).toBe("19-11-2019 07:00");
+    expect(instance.refactorEndDate(1573970400, 1573970400 + (84600 * 2))).toBe("19-11-2019 05:00");
 });
 
 test("Testing the eventHead, eventBody, EventView function with snapshot", () => {

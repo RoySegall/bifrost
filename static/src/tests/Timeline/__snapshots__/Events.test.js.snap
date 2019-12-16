@@ -47,7 +47,7 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                 <div
                   className="col-6 text-right"
                 >
-                  08:00
+                  06:00
                 </div>
                 <hr />
               </div>
@@ -73,493 +73,7 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                   className="col-6 text-right"
                 >
                   Ends at: 
-                  12:00
-                </div>
-                <div
-                  className="col-12"
-                >
-                  <p>
-                    TBDs
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="row event accommodationSet"
-          >
-            <div
-              className="col-12"
-            >
-              <div
-                className="row head"
-              >
-                <div
-                  className="col-6"
-                >
-                  <i
-                    className="fal fa-hotel"
-                  />
-                </div>
-                <div
-                  className="col-6 text-right"
-                >
-                  18:00
-                </div>
-                <hr />
-              </div>
-            </div>
-            <div
-              className="col-12"
-            >
-              <div
-                className="row body"
-              >
-                <div
-                  className="col-6"
-                >
-                  <a
-                    className="title event-accommodationSet-id-1"
-                    href="#"
-                    onClick={[Function]}
-                  >
-                    Hotel Gibson
-                  </a>
-                </div>
-                <div
-                  className="col-6 text-right"
-                >
-                  Ends at: 
-                  21-11-2019 12:00
-                </div>
-                <div
-                  className="col-12"
-                >
-                  <p>
-                    TBDs
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div
-          className="row"
-        >
-          <div
-            className="col-6 day-header"
-          >
-            18-11-2019, Monday
-          </div>
-        </div>
-        <div
-          className="events-list"
-        >
-          <div
-            className="row event accommodationSet"
-          >
-            <div
-              className="col-12"
-            >
-              <div
-                className="row head"
-              >
-                <div
-                  className="col-6"
-                >
-                  <i
-                    className="fal fa-hotel"
-                  />
-                </div>
-                <div
-                  className="col-6 text-right"
-                >
                   10:00
-                </div>
-                <hr />
-              </div>
-            </div>
-            <div
-              className="col-12"
-            >
-              <div
-                className="row body"
-              >
-                <div
-                  className="col-6"
-                >
-                  <a
-                    className="title event-accommodationSet-id-2"
-                    href="#"
-                    onClick={[Function]}
-                  >
-                    Demo at clinic in London
-                  </a>
-                </div>
-                <div
-                  className="col-6 text-right"
-                >
-                  Ends at: 
-                  11:00
-                </div>
-                <div
-                  className="col-12"
-                >
-                  <p>
-                    TBDs
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="row event accommodationSet"
-          >
-            <div
-              className="col-12"
-            >
-              <div
-                className="row head"
-              >
-                <div
-                  className="col-6"
-                >
-                  <i
-                    className="fal fa-hotel"
-                  />
-                </div>
-                <div
-                  className="col-6 text-right"
-                >
-                  12:00
-                </div>
-                <hr />
-              </div>
-            </div>
-            <div
-              className="col-12"
-            >
-              <div
-                className="row body"
-              >
-                <div
-                  className="col-6"
-                >
-                  <a
-                    className="title event-accommodationSet-id-3"
-                    href="#"
-                    onClick={[Function]}
-                  >
-                    Lunch with John
-                  </a>
-                </div>
-                <div
-                  className="col-6 text-right"
-                >
-                  Ends at: 
-                  13:30
-                </div>
-                <div
-                  className="col-12"
-                >
-                  <p>
-                    TBDs
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="row event pickingcarSet"
-          >
-            <div
-              className="col-12"
-            >
-              <div
-                className="row head"
-              >
-                <div
-                  className="col-6"
-                >
-                  <i
-                    className="fal fa-car"
-                  />
-                </div>
-                <div
-                  className="col-6 text-right"
-                >
-                  14:00
-                </div>
-                <hr />
-              </div>
-            </div>
-            <div
-              className="col-12"
-            >
-              <div
-                className="row body"
-              >
-                <div
-                  className="col-6"
-                >
-                  <a
-                    className="title event-pickingcarSet-id-1"
-                    href="#"
-                    onClick={[Function]}
-                  >
-                    Picking car
-                  </a>
-                </div>
-                <div
-                  className="col-6 text-right"
-                >
-                  Ends at: 
-                  14:00
-                </div>
-                <div
-                  className="col-12"
-                >
-                  <p>
-                    TBDs
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="row event meetingconjunctionSet"
-          >
-            <div
-              className="col-12"
-            >
-              <div
-                className="row head"
-              >
-                <div
-                  className="col-6"
-                >
-                  <i
-                    className="fal fa-user-friends"
-                  />
-                </div>
-                <div
-                  className="col-6 text-right"
-                >
-                  19:00
-                </div>
-                <hr />
-              </div>
-            </div>
-            <div
-              className="col-12"
-            >
-              <div
-                className="row body"
-              >
-                <div
-                  className="col-6"
-                >
-                  <a
-                    className="title event-meetingconjunctionSet-id-2"
-                    href="#"
-                    onClick={[Function]}
-                  >
-                    Picking employees
-                  </a>
-                </div>
-                <div
-                  className="col-6 text-right"
-                >
-                  Ends at: 
-                  19:00
-                </div>
-                <div
-                  className="col-12"
-                >
-                  <p>
-                    TBDs
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div
-          className="row"
-        >
-          <div
-            className="col-6 day-header"
-          >
-            19-11-2019, Tuesday
-          </div>
-        </div>
-        <div
-          className="events-list"
-        >
-          <div
-            className="row event accommodationSet"
-          >
-            <div
-              className="col-12"
-            >
-              <div
-                className="row head"
-              >
-                <div
-                  className="col-6"
-                >
-                  <i
-                    className="fal fa-hotel"
-                  />
-                </div>
-                <div
-                  className="col-6 text-right"
-                >
-                  08:00
-                </div>
-                <hr />
-              </div>
-            </div>
-            <div
-              className="col-12"
-            >
-              <div
-                className="row body"
-              >
-                <div
-                  className="col-6"
-                >
-                  <a
-                    className="title event-accommodationSet-id-4"
-                    href="#"
-                    onClick={[Function]}
-                  >
-                    Demo at a clinic
-                  </a>
-                </div>
-                <div
-                  className="col-6 text-right"
-                >
-                  Ends at: 
-                  09:30
-                </div>
-                <div
-                  className="col-12"
-                >
-                  <p>
-                    TBDs
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="row event accommodationSet"
-          >
-            <div
-              className="col-12"
-            >
-              <div
-                className="row head"
-              >
-                <div
-                  className="col-6"
-                >
-                  <i
-                    className="fal fa-hotel"
-                  />
-                </div>
-                <div
-                  className="col-6 text-right"
-                >
-                  10:00
-                </div>
-                <hr />
-              </div>
-            </div>
-            <div
-              className="col-12"
-            >
-              <div
-                className="row body"
-              >
-                <div
-                  className="col-6"
-                >
-                  <a
-                    className="title event-accommodationSet-id-5"
-                    href="#"
-                    onClick={[Function]}
-                  >
-                    Driving to stonehenge
-                  </a>
-                </div>
-                <div
-                  className="col-6 text-right"
-                >
-                  Ends at: 
-                  10:00
-                </div>
-                <div
-                  className="col-12"
-                >
-                  <p>
-                    TBDs
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="row event accommodationSet"
-          >
-            <div
-              className="col-12"
-            >
-              <div
-                className="row head"
-              >
-                <div
-                  className="col-6"
-                >
-                  <i
-                    className="fal fa-hotel"
-                  />
-                </div>
-                <div
-                  className="col-6 text-right"
-                >
-                  14:00
-                </div>
-                <hr />
-              </div>
-            </div>
-            <div
-              className="col-12"
-            >
-              <div
-                className="row body"
-              >
-                <div
-                  className="col-6"
-                >
-                  <a
-                    className="title event-accommodationSet-id-6"
-                    href="#"
-                    onClick={[Function]}
-                  >
-                    Luch
-                  </a>
-                </div>
-                <div
-                  className="col-6 text-right"
-                >
-                  Ends at: 
-                  15:30
                 </div>
                 <div
                   className="col-12"
@@ -605,6 +119,492 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                   className="col-6"
                 >
                   <a
+                    className="title event-accommodationSet-id-1"
+                    href="#"
+                    onClick={[Function]}
+                  >
+                    Hotel Gibson
+                  </a>
+                </div>
+                <div
+                  className="col-6 text-right"
+                >
+                  Ends at: 
+                  21-11-2019 10:00
+                </div>
+                <div
+                  className="col-12"
+                >
+                  <p>
+                    TBDs
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          className="row"
+        >
+          <div
+            className="col-6 day-header"
+          >
+            18-11-2019, Monday
+          </div>
+        </div>
+        <div
+          className="events-list"
+        >
+          <div
+            className="row event accommodationSet"
+          >
+            <div
+              className="col-12"
+            >
+              <div
+                className="row head"
+              >
+                <div
+                  className="col-6"
+                >
+                  <i
+                    className="fal fa-hotel"
+                  />
+                </div>
+                <div
+                  className="col-6 text-right"
+                >
+                  08:00
+                </div>
+                <hr />
+              </div>
+            </div>
+            <div
+              className="col-12"
+            >
+              <div
+                className="row body"
+              >
+                <div
+                  className="col-6"
+                >
+                  <a
+                    className="title event-accommodationSet-id-2"
+                    href="#"
+                    onClick={[Function]}
+                  >
+                    Demo at clinic in London
+                  </a>
+                </div>
+                <div
+                  className="col-6 text-right"
+                >
+                  Ends at: 
+                  09:00
+                </div>
+                <div
+                  className="col-12"
+                >
+                  <p>
+                    TBDs
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="row event accommodationSet"
+          >
+            <div
+              className="col-12"
+            >
+              <div
+                className="row head"
+              >
+                <div
+                  className="col-6"
+                >
+                  <i
+                    className="fal fa-hotel"
+                  />
+                </div>
+                <div
+                  className="col-6 text-right"
+                >
+                  10:00
+                </div>
+                <hr />
+              </div>
+            </div>
+            <div
+              className="col-12"
+            >
+              <div
+                className="row body"
+              >
+                <div
+                  className="col-6"
+                >
+                  <a
+                    className="title event-accommodationSet-id-3"
+                    href="#"
+                    onClick={[Function]}
+                  >
+                    Lunch with John
+                  </a>
+                </div>
+                <div
+                  className="col-6 text-right"
+                >
+                  Ends at: 
+                  11:30
+                </div>
+                <div
+                  className="col-12"
+                >
+                  <p>
+                    TBDs
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="row event pickingcarSet"
+          >
+            <div
+              className="col-12"
+            >
+              <div
+                className="row head"
+              >
+                <div
+                  className="col-6"
+                >
+                  <i
+                    className="fal fa-car"
+                  />
+                </div>
+                <div
+                  className="col-6 text-right"
+                >
+                  12:00
+                </div>
+                <hr />
+              </div>
+            </div>
+            <div
+              className="col-12"
+            >
+              <div
+                className="row body"
+              >
+                <div
+                  className="col-6"
+                >
+                  <a
+                    className="title event-pickingcarSet-id-1"
+                    href="#"
+                    onClick={[Function]}
+                  >
+                    Picking car
+                  </a>
+                </div>
+                <div
+                  className="col-6 text-right"
+                >
+                  Ends at: 
+                  12:00
+                </div>
+                <div
+                  className="col-12"
+                >
+                  <p>
+                    TBDs
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="row event meetingconjunctionSet"
+          >
+            <div
+              className="col-12"
+            >
+              <div
+                className="row head"
+              >
+                <div
+                  className="col-6"
+                >
+                  <i
+                    className="fal fa-user-friends"
+                  />
+                </div>
+                <div
+                  className="col-6 text-right"
+                >
+                  17:00
+                </div>
+                <hr />
+              </div>
+            </div>
+            <div
+              className="col-12"
+            >
+              <div
+                className="row body"
+              >
+                <div
+                  className="col-6"
+                >
+                  <a
+                    className="title event-meetingconjunctionSet-id-2"
+                    href="#"
+                    onClick={[Function]}
+                  >
+                    Picking employees
+                  </a>
+                </div>
+                <div
+                  className="col-6 text-right"
+                >
+                  Ends at: 
+                  17:00
+                </div>
+                <div
+                  className="col-12"
+                >
+                  <p>
+                    TBDs
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          className="row"
+        >
+          <div
+            className="col-6 day-header"
+          >
+            19-11-2019, Tuesday
+          </div>
+        </div>
+        <div
+          className="events-list"
+        >
+          <div
+            className="row event accommodationSet"
+          >
+            <div
+              className="col-12"
+            >
+              <div
+                className="row head"
+              >
+                <div
+                  className="col-6"
+                >
+                  <i
+                    className="fal fa-hotel"
+                  />
+                </div>
+                <div
+                  className="col-6 text-right"
+                >
+                  06:00
+                </div>
+                <hr />
+              </div>
+            </div>
+            <div
+              className="col-12"
+            >
+              <div
+                className="row body"
+              >
+                <div
+                  className="col-6"
+                >
+                  <a
+                    className="title event-accommodationSet-id-4"
+                    href="#"
+                    onClick={[Function]}
+                  >
+                    Demo at a clinic
+                  </a>
+                </div>
+                <div
+                  className="col-6 text-right"
+                >
+                  Ends at: 
+                  07:30
+                </div>
+                <div
+                  className="col-12"
+                >
+                  <p>
+                    TBDs
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="row event accommodationSet"
+          >
+            <div
+              className="col-12"
+            >
+              <div
+                className="row head"
+              >
+                <div
+                  className="col-6"
+                >
+                  <i
+                    className="fal fa-hotel"
+                  />
+                </div>
+                <div
+                  className="col-6 text-right"
+                >
+                  08:00
+                </div>
+                <hr />
+              </div>
+            </div>
+            <div
+              className="col-12"
+            >
+              <div
+                className="row body"
+              >
+                <div
+                  className="col-6"
+                >
+                  <a
+                    className="title event-accommodationSet-id-5"
+                    href="#"
+                    onClick={[Function]}
+                  >
+                    Driving to stonehenge
+                  </a>
+                </div>
+                <div
+                  className="col-6 text-right"
+                >
+                  Ends at: 
+                  08:00
+                </div>
+                <div
+                  className="col-12"
+                >
+                  <p>
+                    TBDs
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="row event accommodationSet"
+          >
+            <div
+              className="col-12"
+            >
+              <div
+                className="row head"
+              >
+                <div
+                  className="col-6"
+                >
+                  <i
+                    className="fal fa-hotel"
+                  />
+                </div>
+                <div
+                  className="col-6 text-right"
+                >
+                  12:00
+                </div>
+                <hr />
+              </div>
+            </div>
+            <div
+              className="col-12"
+            >
+              <div
+                className="row body"
+              >
+                <div
+                  className="col-6"
+                >
+                  <a
+                    className="title event-accommodationSet-id-6"
+                    href="#"
+                    onClick={[Function]}
+                  >
+                    Luch
+                  </a>
+                </div>
+                <div
+                  className="col-6 text-right"
+                >
+                  Ends at: 
+                  13:30
+                </div>
+                <div
+                  className="col-12"
+                >
+                  <p>
+                    TBDs
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="row event accommodationSet"
+          >
+            <div
+              className="col-12"
+            >
+              <div
+                className="row head"
+              >
+                <div
+                  className="col-6"
+                >
+                  <i
+                    className="fal fa-hotel"
+                  />
+                </div>
+                <div
+                  className="col-6 text-right"
+                >
+                  14:00
+                </div>
+                <hr />
+              </div>
+            </div>
+            <div
+              className="col-12"
+            >
+              <div
+                className="row body"
+              >
+                <div
+                  className="col-6"
+                >
+                  <a
                     className="title event-accommodationSet-id-7"
                     href="#"
                     onClick={[Function]}
@@ -616,7 +616,7 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                   className="col-6 text-right"
                 >
                   Ends at: 
-                  22:00
+                  20:00
                 </div>
                 <div
                   className="col-12"
@@ -662,7 +662,7 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                 <div
                   className="col-6 text-right"
                 >
-                  10:00
+                  08:00
                 </div>
                 <hr />
               </div>
@@ -688,7 +688,7 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                   className="col-6 text-right"
                 >
                   Ends at: 
-                  14:00
+                  12:00
                 </div>
                 <div
                   className="col-12"
@@ -719,7 +719,7 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                 <div
                   className="col-6 text-right"
                 >
-                  15:00
+                  13:00
                 </div>
                 <hr />
               </div>
@@ -745,7 +745,7 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                   className="col-6 text-right"
                 >
                   Ends at: 
-                  15:00
+                  13:00
                 </div>
                 <div
                   className="col-12"

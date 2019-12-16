@@ -4,8 +4,7 @@ import request from '../../Services/axios'
 import Events from './Events';
 import Filters from "./Filters";
 import Head from "./Head"
-import moment from 'moment'
-import {dateFormat, dateFormatWithDay, dateFromBackend, convertFromBackendToUtc} from '../../Services/consts';
+import {dateFormat, dateFormatWithDay, convertFromBackendToUtc} from '../../Services/consts';
 
 class Timeline extends React.Component {
 
