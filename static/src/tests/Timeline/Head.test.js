@@ -12,7 +12,7 @@ test("Testing the output of the timeline head component", () => {
 
     const timeline = {
         title: "Title for testing",
-        startingDate: June2519891030,
+        startingDate: "2019-11-17T06:00:00",
     };
     const component = renderer.create(<Head {...timeline} />);
 
