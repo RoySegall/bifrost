@@ -103,16 +103,27 @@ class Timeline extends React.Component {
     }
 }
 
+/**
+ * Ordering the timeline by their  - day in the trip and by their time in the
+ * day which they belongs to.
+ *
+ * @param timeline
+ *  The timeline results we got from the server.
+ *
+ * @returns {{title: *, startingDate: (*|string), events: Array}}
+ *  An or dates by days in the trip.
+ *
+ * @constructor
+ */
 const OrderTimeline = (timeline) => {
     // Get the endpoint we need to start the timeline.
     const timelineInfo = {
         title: timeline.title,
         startingDate: timeline.startingDate,
-        // todo: change to days.
         events: [],
     };
 
-    const events = {};
+    const days = {};
 
     ['accommodationSet', 'flightSet', 'meetingconjunctionSet', 'pickingcarSet']
         .map(type => {
@@ -121,8 +132,8 @@ const OrderTimeline = (timeline) => {
                 const day = startingDate.format(dateFormat);
 
                 // Check first if we have the day key or not.
-                if (Object.keys(events).indexOf(day) === -1) {
-                    events[day] = {
+                if (Object.keys(days).indexOf(day) === -1) {
+                    days[day] = {
                         timestamp: convertFromBackendToUtc(day, dateFormat).unix(),
                         events: [],
                         label: startingDate.format(dateFormatWithDay)
@@ -133,22 +144,22 @@ const OrderTimeline = (timeline) => {
                 event['type'] = type;
 
                 // Go over the event date and start to push events.
-                events[day]['events'].push(event);
+                days[day]['events'].push(event);
             });
         });
 
     // Sort the events and then sort the days.
     const ordered = {'events': [], 'label': ''};
-    Object.keys(events).sort((a, b) => {
-        if (events[a].timestamp > events[b].timestamp) {
+    Object.keys(days).sort((a, b) => {
+        if (days[a].timestamp > days[b].timestamp) {
             return 1;
         }
-        if (events[a].timestamp < events[b].timestamp) {
+        if (days[a].timestamp < days[b].timestamp) {
             return -1;
         }
         return 0;
     }).forEach(function (key) {
-        ordered[key] = {'label': '', 'events': events[key].events.sort((a, b) => {
+        ordered[key] = {'label': '', 'events': days[key].events.sort((a, b) => {
             if (a.startingDate > b.startingDate) {
                 return 1;
             }
@@ -159,7 +170,7 @@ const OrderTimeline = (timeline) => {
         })};
     });
 
-    timelineInfo.events = events;
+    timelineInfo.events = days;
 
     return timelineInfo;
 };

@@ -39,9 +39,9 @@ test("Testing the setEventView function", () => {
     expect(component.exists('.event-view')).toBe(false);
 });
 
-test("Testing the hideExtra event", () => {
+test("Testing the removeEventView event", () => {
     const component = mount(<Events events={dummyEvents}/>);
-    const spy = jest.spyOn(component.instance(), 'hideExtra');
+    const spy = jest.spyOn(component.instance(), 'removeEventView');
 
     // Set an event to be viewed.
     component.find('.title.event-accommodationSet-id-1').simulate('click');

@@ -47,5 +47,4 @@ export default class Filters extends React.Component {
 
         </div>
     }
-
 }

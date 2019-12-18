@@ -18,13 +18,20 @@ export default class Events extends React.Component {
         };
     }
 
+    /**
+     * Setting which event to display in the vent view. In case we already
+     * clicked on the same event the selected event will be deselected.
+     *
+     * @param selectedEvent
+     *  The event we clicked.
+     */
     setEventView(selectedEvent) {
         if (this.state.activeEvent) {
             if (
                 this.state.activeEvent['day'] === selectedEvent['day'] &&
                 this.state.activeEvent['key'] === selectedEvent['key']
             ) {
-                this.hideExtra();
+                this.removeEventView();
                 return;
             }
         }
@@ -32,7 +39,10 @@ export default class Events extends React.Component {
         this.setState({activeEvent: selectedEvent})
     }
 
-    hideExtra() {
+    /**
+     * Setting the selected event to null which will remove the event view.
+     */
+    removeEventView() {
         this.setState({activeEvent: null})
     }
 
@@ -142,7 +152,7 @@ export default class Events extends React.Component {
 
         const onClick = (event) => {
             event.preventDefault();
-            this.hideExtra();
+            this.removeEventView();
         };
 
         return <div className="col-6 event-view">
