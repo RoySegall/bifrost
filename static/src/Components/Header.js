@@ -1,4 +1,5 @@
 import React from 'react';
+import {Configuration, Logout} from '../Fonts'
 
 function Header() {
     return <header className="header">
@@ -10,13 +11,11 @@ function Header() {
             <div className="col-6 menu text-right">
                 <ul className="list-inline">
                     <li className="list-inline-item">
-                        <i className="fal fa-user-cog"></i> <a
-                        href="/settings">Settings</a>
+                        {Configuration()} <a href="/settings">Settings</a>
                     </li>
                     |
                     <li className="list-inline-item">
-                        <i className="fal fa-sign-out"></i> <a
-                        href="auth/logout">Logout</a>
+                        {Logout()} <a href="auth/logout">Logout</a>
                     </li>
                 </ul>
             </div>

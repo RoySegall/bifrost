@@ -2,7 +2,9 @@ import React from 'react';
 import Header from './Components/Header'
 import Home from './Components/Home/Home'
 import Login from './Components/Login'
+import {RouteTimeline} from './Components/Timeline/Timeline';
 import isLoggedIn from './Services/auth'
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 export default class App extends React.Component {
 
@@ -19,15 +21,20 @@ export default class App extends React.Component {
     };
 
     render() {
-        if (this.state.isLoggedIn) {
-            return (
-                <>
-                    <Header />
-                    <Home />
-                </>
-            );
+
+        if (!this.state.isLoggedIn) {
+            return <Login/>
         }
 
-        return <Login />
+        return <Router>
+            <Header />
+            <Switch>
+                <Route path="/timeline/:id" children={<RouteTimeline />}>
+                </Route>
+                <Route path="/">
+                    <Home/>
+                </Route>
+            </Switch>
+        </Router>
     }
 }

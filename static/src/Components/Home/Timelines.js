@@ -1,5 +1,6 @@
 import React from 'react';
 import YesNo from '../YesNo';
+import { PlaneUp, PlaneDown, Excahnge, Car, Hotel, Friends } from '../../Fonts';
 
 /**
  * Generating a single entry in the timeline.
@@ -24,10 +25,10 @@ function Timelines(data) {
                 <div className="col-12">
                     <ul className="list-inline">
                         <li className="list-inline-item starting-date">
-                            <i className="fal fa-plane-departure"></i> <b>{timeline.startingDate}</b> |
+                            {PlaneUp()} <b>{timeline.startingDate}</b> |
                         </li>
                         <li className="list-inline-item ending-date">
-                            <i className="fal fa-plane-arrival"></i> <b>{timeline.endingDate}</b>
+                            {PlaneDown()} <b>{timeline.endingDate}</b>
                         </li>
                     </ul>
                 </div>
@@ -104,16 +105,16 @@ const hasMeetMembers = (meeting) => {
 function extraInfo(timeline) {
     return <ul className="list-inline">
         <li className="list-inline-item connection">
-            <i className="fal fa-exchange"></i> Connection flight - {YesNo(hasConnectionFlight(timeline.flightSet))},
+            {Excahnge()} Connection flight - {YesNo(hasConnectionFlight(timeline.flightSet))},
         </li>
         <li className="list-inline-item picking-car">
-            <i className="fal fa-car"></i> Picking car - {YesNo(hasPickingCarEvent(timeline.pickingcarSet))},
+            {Car()} Picking car - {YesNo(hasPickingCarEvent(timeline.pickingcarSet))},
         </li>
         <li className="list-inline-item accommodation">
-            <i className="fal fa-hotel"></i> Accommodation - {YesNo(hasAccommodation(timeline.accommodationSet))},
+            {Hotel()} Accommodation - {YesNo(hasAccommodation(timeline.accommodationSet))},
         </li>
         <li className="list-inline-item meeting-members">
-            <i className="fal fa-user-friends"></i> Meeting other - {YesNo(hasMeetMembers(timeline.meetingconjunctionSet))}
+            {Friends()} Meeting other - {YesNo(hasMeetMembers(timeline.meetingconjunctionSet))}
         </li>
     </ul>
 }

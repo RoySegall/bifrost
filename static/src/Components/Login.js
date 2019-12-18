@@ -65,7 +65,6 @@ export default class Login extends React.Component {
                 }, 1500);
             })
             .catch(error => {
-                console.log(error.response.data.error)
                 this.setIcon('fal fa-check text-success');
                 this.setError(`Something went wrong: ${error.response.data.error}`);
             })
