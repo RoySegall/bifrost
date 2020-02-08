@@ -42,10 +42,10 @@ INSTALLED_APPS = [
     'graphene_django',
     'rest_framework.authtoken',
     'tivol',
-    'bifrost_timeline',
-    'bifrost_events',
-    'bifrost_location',
-    'bifrost_tivol',
+    'bifrost_timeline.apps.BifrostTimelineConfig',
+    'bifrost_events.apps.BifrostEventsConfig',
+    'bifrost_location.apps.BifrostLocationConfig',
+    'bifrost_tivol.apps.BifrostTivolConfig',
 ]
 
 GRAPHENE = {
