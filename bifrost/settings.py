@@ -41,11 +41,12 @@ INSTALLED_APPS = [
     'corsheaders',
     'graphene_django',
     'rest_framework.authtoken',
-    'bifrost_timeline.apps.BifrostTimelineConfig',
-    'bifrost_events.apps.BifrostEventsConfig',
-    'bifrost_location.apps.BifrostLocationConfig',
+    'tivol',
+    'bifrost_timeline',
+    'bifrost_events',
+    'bifrost_location',
+    'bifrost_tivol',
 ]
-
 
 GRAPHENE = {
     'SCHEMA': 'bifrost.schema.schema'
@@ -91,6 +92,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'bifrost.wsgi.application'
+
+TIVOL_ENTRY_POINT = 'bifrost_tivol.tivol_migrations.entrypoint.BifrostEntryPoint'
 
 
 # Database
