@@ -1,0 +1,5 @@
+id,username,password,email,is_superuser,is_staff
+user_1,tony,ilovepeper,tony@stark.io,yes,yes
+user_2,peter,marryjane,peter@parker.co,no,no
+user_3,logan,jeangray,logan@xmen.co,no,no
+user_4,rid,thefour,rid@fastastic.four,yes,yes
