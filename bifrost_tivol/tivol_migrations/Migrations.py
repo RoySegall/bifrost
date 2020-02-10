@@ -3,7 +3,8 @@ from tivol.base_classes.migration_handler_base import MigrationHandlerBase
 from os import getcwd, path
 from django.contrib.auth.models import User
 
-from bifrost_tivol.tivol_migrations.plugins import IsSuperUser
+from bifrost_tivol.tivol_migrations.Plugins import IsSuperUserPlugin, \
+    PasswordPlugin
 
 
 class BifrostUserMigration(MigrationHandlerBase):
@@ -28,6 +29,7 @@ class BifrostUserMigration(MigrationHandlerBase):
         self.set_model_target(User)
 
         self.fields_plugins = {
-            'is_staff': [IsSuperUser],
-            'is_superuser': [IsSuperUser]
+            'password': [PasswordPlugin],
+            'is_staff': [IsSuperUserPlugin],
+            'is_superuser': [IsSuperUserPlugin]
         }
