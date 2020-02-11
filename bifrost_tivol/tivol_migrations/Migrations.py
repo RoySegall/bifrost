@@ -3,6 +3,8 @@ from tivol.base_classes.plugins import ReferencePlugin
 from tivol.base_classes.migration_handler_base import MigrationHandlerBase
 from os import getcwd, path
 from django.contrib.auth.models import User
+
+from bifrost_location.models import Location
 from bifrost_timeline.models import Timeline
 from bifrost_tivol.tivol_migrations.Plugins import IsSuperUserPlugin, \
     PasswordPlugin, DateFormatPlugin
@@ -55,3 +57,9 @@ class TimelineMigration(MigrationBase):
                 {'plugin': ReferencePlugin, 'extra_info': {'model': User}},
             ],
         }
+
+
+class LocationMigration(MigrationBase):
+
+    def init_metadata(self):
+        self.init_helper('location', 'locations.csv', Location)
