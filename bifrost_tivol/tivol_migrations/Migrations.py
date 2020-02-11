@@ -1,11 +1,12 @@
 from tivol.base_classes.mappers import CsvMapper
+from tivol.base_classes.plugins import ReferencePlugin
 from tivol.base_classes.migration_handler_base import MigrationHandlerBase
 from os import getcwd, path
 from django.contrib.auth.models import User
-
 from bifrost_timeline.models import Timeline
 from bifrost_tivol.tivol_migrations.Plugins import IsSuperUserPlugin, \
-    PasswordPlugin
+    PasswordPlugin, DateFormatPlugin
+from datetime import timedelta
 
 
 class MigrationBase(MigrationHandlerBase):
@@ -46,3 +47,11 @@ class TimelineMigration(MigrationBase):
 
     def init_metadata(self):
         self.init_helper('timeline', 'timelines.csv', Timeline)
+
+        self.fields_plugins = {
+            'starting_date': [DateFormatPlugin],
+            'ending_date': [{'plugin': DateFormatPlugin, 'extra_info': {'delta': timedelta(days=6)}}],
+            'user': [
+                {'plugin': ReferencePlugin, 'extra_info': {'model': User}},
+            ],
+        }
