@@ -1,2 +1,8 @@
 id,title,address,lat,long
-location_1,Naomi Berrie Diabetes Center,"1150 Saint Nicholas Avenue Columbia University Medical Center Russ Berrie Medical Science Pavilion, New York, NY 10032, USA",40.840962,-73.939134
+location_1,Ben Gurion Airport,"Ben Gurion Airport, Terminal 3",32.006460,34.885597
+location_2,John F. Kennedy International Airport,"Queens, NY 11430, United States",40.641352,-73.778718
+location_3,Avis Car Rental,"John F. Kennedy International Airport, 305 Federal Cir building 305, Jamaica, NY 11430, United States",40.667344,-73.803547
+location_4,Opera House Hotel,"436 E 149th St, The Bronx, NY 10455, United States",40.816647,-73.916175
+location_5,Naomi Berrie Diabetes Center,"1150 Saint Nicholas Avenue Columbia University Medical Center Russ Berrie Medical Science Pavilion, New York, NY 10032, United States",40.840962,-73.939134
+location_6,The Grange,"1635 Amsterdam Ave, New York, NY 10031, United States",40.822703,-73.949455
+location_7,Taqueria San Pedro,"3662 Broadway, New York, NY 10031, United States",40.830560,-73.947244
