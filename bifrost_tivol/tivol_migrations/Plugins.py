@@ -18,6 +18,10 @@ class PasswordPlugin(PluginBase):
 class DateFormatPlugin(PluginBase):
 
     def process(self, value, extra_info=None):
+
+        if not value:
+            return
+
         date = parse(value)
 
         if extra_info and 'delta' in extra_info:

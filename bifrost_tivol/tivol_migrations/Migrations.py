@@ -3,6 +3,8 @@ from tivol.base_classes.mappers import CsvMapper
 from tivol.base_classes.plugins import ReferencePlugin
 from tivol.base_classes.migration_handler_base import MigrationHandlerBase
 from django.contrib.auth.models import User
+
+from bifrost_events.models import Accommodation
 from bifrost_location.models import Location
 from bifrost_timeline.models import Timeline
 from bifrost_tivol.tivol_migrations import Plugins
@@ -66,3 +68,25 @@ class LocationMigration(MigrationBase):
 
     def init_metadata(self):
         self.init_helper('location', 'locations.csv', Location)
+
+
+class AccommodationMigration(MigrationBase):
+
+    def init_metadata(self):
+        self.init_helper('accommodation', 'accommodations.csv', Accommodation)
+
+        self.fields_plugins = {
+            'starting_date': [Plugins.DateFormatPlugin],
+            'ending_date': [
+                {
+                    'plugin': Plugins.DateFormatPlugin,
+                    'extra_info': {'delta': timedelta(days=6)}
+                }
+            ],
+            'timeline': [
+                {'plugin': ReferencePlugin, 'extra_info': {'model': Timeline}}
+            ],
+            'location': [
+                {'plugin': ReferencePlugin, 'extra_info': {'model': Location}}
+            ],
+        }

@@ -8,3 +8,4 @@ class BifrostEntryPoint(EntryPoint):
         self.add_migration_handler(Migrations.UserMigration)
         self.add_migration_handler(Migrations.TimelineMigration)
         self.add_migration_handler(Migrations.LocationMigration)
+        self.add_migration_handler(Migrations.AccommodationMigration)
