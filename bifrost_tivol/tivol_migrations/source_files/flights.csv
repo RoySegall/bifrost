@@ -1,0 +1,4 @@
+id,title,starting_date,ending_date,timeline,location,origin,destination,extra_info,connection_flight
+flight_01,Flight to Frankfurt,"sunday, 7am","sunday, 11am",timeline_1,location_01,Tel aviv,Frakfurt,"It's connection flight, be prepered!",
+flight_02,Flight to USA,"sunday, 2pm","monday, 5am",,location_02,Frnkfurt,New York,,flight_01
+flight_03,Flight to London,"sunday, 7am","sunday, 2pm",timeline_2,location_01,Tel Aviv,London,,
