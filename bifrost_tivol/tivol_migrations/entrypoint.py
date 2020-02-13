@@ -10,3 +10,4 @@ class BifrostEntryPoint(EntryPoint):
         self.add_migration_handler(Migrations.LocationMigration)
         self.add_migration_handler(Migrations.AccommodationMigration)
         self.add_migration_handler(Migrations.FlightMigration)
+        self.add_migration_handler(Migrations.PickingCarMigration)

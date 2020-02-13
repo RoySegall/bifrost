@@ -121,3 +121,28 @@ class FlightMigration(MigrationBase):
                 }
             ],
         }
+
+
+class PickingCarMigration(MigrationBase):
+
+    def init_metadata(self):
+        self.init_helper('picking_car', 'picking_car.csv', Flight)
+
+        self.fields_plugins = {
+            'starting_date': [Plugins.DateFormatPlugin],
+            'ending_date': [
+                {
+                    'plugin': Plugins.DateFormatPlugin,
+                    'extra_info': {'delta': timedelta(days=6)}
+                }
+            ],
+            'timeline': [
+                {
+                    'plugin': Plugins.BifrostReferencePlugin,
+                    'extra_info': {'model': Timeline}
+                }
+            ],
+            'location': [
+                {'plugin': ReferencePlugin, 'extra_info': {'model': Location}}
+            ],
+        }

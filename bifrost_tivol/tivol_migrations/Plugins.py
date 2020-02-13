@@ -5,12 +5,14 @@ from dateparser import parse
 
 class IsSuperUserPlugin(PluginBase):
 
+    # todo: move to django tivol.
     def process(self, value, extra_info=None):
         return value == 'yes'
 
 
 class PasswordPlugin(PluginBase):
 
+    # todo: move to django tivol.
     def process(self, value, extra_info=None):
         return make_password(value)
 
@@ -35,6 +37,7 @@ class BifrostReferencePlugin(ReferencePlugin):
     def process(self, value, extra_info=None, **kwargs):
 
         if not value:
+            # todo: move to django tivol.
             return
 
         return super().process(value, extra_info)
