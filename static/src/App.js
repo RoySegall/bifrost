@@ -5,7 +5,8 @@ import Login from './Components/Login'
 import {RouteTimeline} from './Components/Timeline/Timeline';
 import isLoggedIn from './Services/auth'
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import './styles/main.scss';
+import './tailwind.css';
+import './main.css';
 
 export default class App extends React.Component {
 
