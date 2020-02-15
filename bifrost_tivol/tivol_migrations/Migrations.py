@@ -207,4 +207,4 @@ class MeetingConjunctionMembersMigration(MigrationBase):
                 meeting_conjunction.members.add(user)
             meeting_conjunction.save()
 
-        return f'{self.name}: {len(rows)} migrated'
+        return f'{self.name}: {len(rows)} processed'
