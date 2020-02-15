@@ -1,3 +1,3 @@
 id,title,starting_date,ending_date,timeline,location,hotel_name,room
-accommodation_01,Hotel checkin,"Monday, 09am","Thursday, 6pm",timeline_1,location_05,Opera House Hotel,700
-accommodation_02,Hotel checkin,"Sunday, 03pm","Thursday, 6pm",timeline_2,location_13,Langham Court Hotel,601
+accommodation_01,Hotel checkin,"in 2 day 12pm","in 5 day 6pm",timeline_1,location_05,Opera House Hotel,700
+accommodation_02,Hotel checkin,"in 2 day 12pm","in 5 day 6pm",timeline_2,location_13,Langham Court Hotel,601

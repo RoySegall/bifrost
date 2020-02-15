@@ -26,9 +26,6 @@ class DateFormatPlugin(PluginBase):
 
         date = parse(value)
 
-        if extra_info and 'delta' in extra_info:
-            date = date + extra_info['delta']
-
         return date
 
 
