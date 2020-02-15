@@ -53,4 +53,4 @@ class PickingCar(EventBase):
 
 
 class MeetingConjunction(EventBase):
-    members = models.ManyToManyField(User)
+    members = models.ManyToManyField(User, blank=True)

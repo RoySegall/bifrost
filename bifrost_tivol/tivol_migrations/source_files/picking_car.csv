@@ -1,0 +1,3 @@
+id,title,starting_date,ending_date,timeline,location,agency,type,license_number
+picking_car_1,Picking car,"in 2 day 10am","in 5 day 9am",timeline_1,location_04,Avis,B.M.W,"t1"
+picking_car_2,Picking car,"in 1 day 5pm","in 5 day 7pm",timeline_2,location_10,Avis,B.M.W,"t1"

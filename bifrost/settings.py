@@ -41,11 +41,12 @@ INSTALLED_APPS = [
     'corsheaders',
     'graphene_django',
     'rest_framework.authtoken',
+    'tivol',
     'bifrost_timeline.apps.BifrostTimelineConfig',
     'bifrost_events.apps.BifrostEventsConfig',
     'bifrost_location.apps.BifrostLocationConfig',
+    'bifrost_tivol.apps.BifrostTivolConfig',
 ]
-
 
 GRAPHENE = {
     'SCHEMA': 'bifrost.schema.schema'
@@ -91,6 +92,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'bifrost.wsgi.application'
+
+TIVOL_ENTRY_POINT = 'bifrost_tivol.tivol_migrations.entrypoint.BifrostEntryPoint'
 
 
 # Database
@@ -150,7 +153,7 @@ STATICFILES_DIRS = [
 CSRF_TRUSTED_ORIGINS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_WHITELIST = ['*']
+CORS_ORIGIN_WHITELIST = ['http://*', 'https://*']
 FRONT_ADDRESS = "http://localhost:3000"
 
 from .local_settings import *
