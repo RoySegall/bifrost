@@ -1,4 +1,8 @@
-@import 'variables.scss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'variables';
 
 body {
   font-family: 'Rubik', sans-serif;
@@ -63,4 +67,4 @@ i.loading {
 
 @import 'login.scss';
 @import 'home.scss';
-@import 'trip.scss';
+@import 'trip';
