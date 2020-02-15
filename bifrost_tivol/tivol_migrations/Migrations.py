@@ -3,6 +3,8 @@ from tivol.base_classes.mappers import CsvMapper
 from tivol.base_classes.plugins import ReferencePlugin
 from tivol.base_classes.migration_handler_base import MigrationHandlerBase
 from django.contrib.auth.models import User
+from tivol.models import ContentMigrationStatus
+
 from bifrost_events.models import Accommodation, Flight, PickingCar, \
     MeetingConjunction
 from bifrost_location.models import Location
@@ -13,7 +15,7 @@ from datetime import timedelta
 
 class MigrationBase(MigrationHandlerBase):
 
-    def init_helper(self, model_name, file, model):
+    def init_helper(self, model_name, file, model=None):
         self.id = model_name
         self.name = f'{model_name.capitalize()} migration'
         self.description = f'Migrating {model_name}s into the system'
@@ -175,3 +177,34 @@ class MeetingConjunctionMigration(MigrationBase):
                 {'plugin': ReferencePlugin, 'extra_info': {'model': Location}}
             ],
         }
+
+
+class MeetingConjunctionMembersMigration(MigrationBase):
+
+    def init_metadata(self):
+        self.init_helper(
+            'members_to_conjunctions',
+            'members_to_conjunctions.csv',
+        )
+
+    def get_meeting_conjunction(self, event_ref):
+        event_ref = ContentMigrationStatus.objects.get(source_id=event_ref)
+        return MeetingConjunction.objects.get(id=event_ref.destination_id)
+
+    def get_users(self, members):
+        users_ids_queries = ContentMigrationStatus \
+            .objects \
+            .filter(source_id__in=members.split(',')) \
+            .values_list('destination_id', flat=True)
+        return User.objects.filter(id__in=users_ids_queries)
+
+    def migrate(self):
+        rows = self.source_mapper.process()
+        for row in rows:
+            meeting_conjunction = self.get_meeting_conjunction(row['event'])
+            users = self.get_users(row['members'])
+            for user in users:
+                meeting_conjunction.members.add(user)
+            meeting_conjunction.save()
+
+        return f'{self.name}: {len(rows)} migrated'
