@@ -1,3 +1,4 @@
+@import "tailwind.css";
 @import 'variables';
 
 body {
@@ -61,6 +62,6 @@ i.loading {
   color: $red1
 }
 
-@import 'login.scss';
-@import 'home.scss';
+@import 'login';
+@import 'home';
 @import 'trip';

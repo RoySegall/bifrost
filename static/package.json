@@ -14,13 +14,9 @@
     "tailwindcss": "^1.2.0"
   },
   "scripts": {
-    "tailwind": "npx tailwindcss build ./src/styles/tailwind.css -o src/tailwind.css",
-    "build:css": "node-sass --output-style compressed --output=src ./src/styles/main.scss",
-    "watch:css": "node-sass --watch --output src ./src/styles/main.scss",
-    "build": "npm-run-all tailwind build:css build-js",
-    "start": "npm-run-all -p tailwind watch:css start-js",
-    "start-js": "react-scripts start",
-    "build-js": "react-scripts build",
+    "tailwind": "npx tailwindcss build ./tailwind.css -o src/styles/tailwind.css",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "lint": "eslint src/**/*.js",
     "lint-fix": "eslint src/**/*.js --fix",
