@@ -13,11 +13,11 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
     className="slow-transition col-12 full-event"
   >
     <div
-      className="list"
+
     >
       <div>
         <div
-          className="row"
+
         >
           <div
             className="col-6 day-header"
@@ -26,19 +26,19 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
           </div>
         </div>
         <div
-          className="events-list"
+
         >
           <div
             className="row event flightSet"
           >
             <div
-              className="col-12"
+
             >
               <div
                 className="row head"
               >
                 <div
-                  className="col-6"
+
                 >
                   <i
                     className="fal fa-plane"
@@ -53,13 +53,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
               </div>
             </div>
             <div
-              className="col-12"
+
             >
               <div
                 className="row body"
               >
                 <div
-                  className="col-6"
+
                 >
                   <a
                     className="title event-flightSet-id-1"
@@ -72,11 +72,11 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                 <div
                   className="col-6 text-right"
                 >
-                  Ends at: 
+                  Ends at:
                   10:00
                 </div>
                 <div
-                  className="col-12"
+
                 >
                   <p>
                     TBDs
@@ -89,13 +89,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
             className="row event accommodationSet"
           >
             <div
-              className="col-12"
+
             >
               <div
                 className="row head"
               >
                 <div
-                  className="col-6"
+
                 >
                   <i
                     className="fal fa-hotel"
@@ -110,13 +110,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
               </div>
             </div>
             <div
-              className="col-12"
+
             >
               <div
                 className="row body"
               >
                 <div
-                  className="col-6"
+
                 >
                   <a
                     className="title event-accommodationSet-id-1"
@@ -129,11 +129,11 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                 <div
                   className="col-6 text-right"
                 >
-                  Ends at: 
+                  Ends at:
                   21-11-2019 10:00
                 </div>
                 <div
-                  className="col-12"
+
                 >
                   <p>
                     TBDs
@@ -146,7 +146,7 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
       </div>
       <div>
         <div
-          className="row"
+
         >
           <div
             className="col-6 day-header"
@@ -155,19 +155,19 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
           </div>
         </div>
         <div
-          className="events-list"
+
         >
           <div
             className="row event accommodationSet"
           >
             <div
-              className="col-12"
+
             >
               <div
                 className="row head"
               >
                 <div
-                  className="col-6"
+
                 >
                   <i
                     className="fal fa-hotel"
@@ -182,13 +182,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
               </div>
             </div>
             <div
-              className="col-12"
+
             >
               <div
                 className="row body"
               >
                 <div
-                  className="col-6"
+
                 >
                   <a
                     className="title event-accommodationSet-id-2"
@@ -201,11 +201,11 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                 <div
                   className="col-6 text-right"
                 >
-                  Ends at: 
+                  Ends at:
                   09:00
                 </div>
                 <div
-                  className="col-12"
+
                 >
                   <p>
                     TBDs
@@ -218,13 +218,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
             className="row event accommodationSet"
           >
             <div
-              className="col-12"
+
             >
               <div
                 className="row head"
               >
                 <div
-                  className="col-6"
+
                 >
                   <i
                     className="fal fa-hotel"
@@ -239,13 +239,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
               </div>
             </div>
             <div
-              className="col-12"
+
             >
               <div
                 className="row body"
               >
                 <div
-                  className="col-6"
+
                 >
                   <a
                     className="title event-accommodationSet-id-3"
@@ -258,11 +258,11 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                 <div
                   className="col-6 text-right"
                 >
-                  Ends at: 
+                  Ends at:
                   11:30
                 </div>
                 <div
-                  className="col-12"
+
                 >
                   <p>
                     TBDs
@@ -275,13 +275,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
             className="row event pickingcarSet"
           >
             <div
-              className="col-12"
+
             >
               <div
                 className="row head"
               >
                 <div
-                  className="col-6"
+
                 >
                   <i
                     className="fal fa-car"
@@ -296,13 +296,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
               </div>
             </div>
             <div
-              className="col-12"
+
             >
               <div
                 className="row body"
               >
                 <div
-                  className="col-6"
+
                 >
                   <a
                     className="title event-pickingcarSet-id-1"
@@ -315,11 +315,11 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                 <div
                   className="col-6 text-right"
                 >
-                  Ends at: 
+                  Ends at:
                   12:00
                 </div>
                 <div
-                  className="col-12"
+
                 >
                   <p>
                     TBDs
@@ -332,13 +332,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
             className="row event meetingconjunctionSet"
           >
             <div
-              className="col-12"
+
             >
               <div
                 className="row head"
               >
                 <div
-                  className="col-6"
+
                 >
                   <i
                     className="fal fa-user-friends"
@@ -353,13 +353,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
               </div>
             </div>
             <div
-              className="col-12"
+
             >
               <div
                 className="row body"
               >
                 <div
-                  className="col-6"
+
                 >
                   <a
                     className="title event-meetingconjunctionSet-id-2"
@@ -372,11 +372,11 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                 <div
                   className="col-6 text-right"
                 >
-                  Ends at: 
+                  Ends at:
                   17:00
                 </div>
                 <div
-                  className="col-12"
+
                 >
                   <p>
                     TBDs
@@ -389,7 +389,7 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
       </div>
       <div>
         <div
-          className="row"
+
         >
           <div
             className="col-6 day-header"
@@ -398,19 +398,19 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
           </div>
         </div>
         <div
-          className="events-list"
+
         >
           <div
             className="row event accommodationSet"
           >
             <div
-              className="col-12"
+
             >
               <div
                 className="row head"
               >
                 <div
-                  className="col-6"
+
                 >
                   <i
                     className="fal fa-hotel"
@@ -425,13 +425,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
               </div>
             </div>
             <div
-              className="col-12"
+
             >
               <div
                 className="row body"
               >
                 <div
-                  className="col-6"
+
                 >
                   <a
                     className="title event-accommodationSet-id-4"
@@ -444,11 +444,11 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                 <div
                   className="col-6 text-right"
                 >
-                  Ends at: 
+                  Ends at:
                   07:30
                 </div>
                 <div
-                  className="col-12"
+
                 >
                   <p>
                     TBDs
@@ -461,13 +461,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
             className="row event accommodationSet"
           >
             <div
-              className="col-12"
+
             >
               <div
                 className="row head"
               >
                 <div
-                  className="col-6"
+
                 >
                   <i
                     className="fal fa-hotel"
@@ -482,13 +482,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
               </div>
             </div>
             <div
-              className="col-12"
+
             >
               <div
                 className="row body"
               >
                 <div
-                  className="col-6"
+
                 >
                   <a
                     className="title event-accommodationSet-id-5"
@@ -501,11 +501,11 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                 <div
                   className="col-6 text-right"
                 >
-                  Ends at: 
+                  Ends at:
                   08:00
                 </div>
                 <div
-                  className="col-12"
+
                 >
                   <p>
                     TBDs
@@ -518,13 +518,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
             className="row event accommodationSet"
           >
             <div
-              className="col-12"
+
             >
               <div
                 className="row head"
               >
                 <div
-                  className="col-6"
+
                 >
                   <i
                     className="fal fa-hotel"
@@ -539,13 +539,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
               </div>
             </div>
             <div
-              className="col-12"
+
             >
               <div
                 className="row body"
               >
                 <div
-                  className="col-6"
+
                 >
                   <a
                     className="title event-accommodationSet-id-6"
@@ -558,11 +558,11 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                 <div
                   className="col-6 text-right"
                 >
-                  Ends at: 
+                  Ends at:
                   13:30
                 </div>
                 <div
-                  className="col-12"
+
                 >
                   <p>
                     TBDs
@@ -575,13 +575,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
             className="row event accommodationSet"
           >
             <div
-              className="col-12"
+
             >
               <div
                 className="row head"
               >
                 <div
-                  className="col-6"
+
                 >
                   <i
                     className="fal fa-hotel"
@@ -596,13 +596,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
               </div>
             </div>
             <div
-              className="col-12"
+
             >
               <div
                 className="row body"
               >
                 <div
-                  className="col-6"
+
                 >
                   <a
                     className="title event-accommodationSet-id-7"
@@ -615,11 +615,11 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                 <div
                   className="col-6 text-right"
                 >
-                  Ends at: 
+                  Ends at:
                   20:00
                 </div>
                 <div
-                  className="col-12"
+
                 >
                   <p>
                     TBDs
@@ -632,7 +632,7 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
       </div>
       <div>
         <div
-          className="row"
+
         >
           <div
             className="col-6 day-header"
@@ -641,19 +641,19 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
           </div>
         </div>
         <div
-          className="events-list"
+
         >
           <div
             className="row event accommodationSet"
           >
             <div
-              className="col-12"
+
             >
               <div
                 className="row head"
               >
                 <div
-                  className="col-6"
+
                 >
                   <i
                     className="fal fa-hotel"
@@ -668,13 +668,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
               </div>
             </div>
             <div
-              className="col-12"
+
             >
               <div
                 className="row body"
               >
                 <div
-                  className="col-6"
+
                 >
                   <a
                     className="title event-accommodationSet-id-8"
@@ -687,11 +687,11 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                 <div
                   className="col-6 text-right"
                 >
-                  Ends at: 
+                  Ends at:
                   12:00
                 </div>
                 <div
-                  className="col-12"
+
                 >
                   <p>
                     TBDs
@@ -704,13 +704,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
             className="row event accommodationSet"
           >
             <div
-              className="col-12"
+
             >
               <div
                 className="row head"
               >
                 <div
-                  className="col-6"
+
                 >
                   <i
                     className="fal fa-hotel"
@@ -725,13 +725,13 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
               </div>
             </div>
             <div
-              className="col-12"
+
             >
               <div
                 className="row body"
               >
                 <div
-                  className="col-6"
+
                 >
                   <a
                     className="title event-accommodationSet-id-9"
@@ -744,11 +744,11 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
                 <div
                   className="col-6 text-right"
                 >
-                  Ends at: 
+                  Ends at:
                   13:00
                 </div>
                 <div
-                  className="col-12"
+
                 >
                   <p>
                     TBDs

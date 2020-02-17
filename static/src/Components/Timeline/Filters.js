@@ -39,7 +39,7 @@ export default class Filters extends React.Component {
     }
 
     render() {
-        return <div className="row">
+        return <div >
 
             <div className="col-12 filters">
                 <ul className="filters float-left">{this.List()}</ul>

@@ -2,13 +2,13 @@
 
 exports[`Testing the header component 1`] = `
 <header
-  className="header"
+
 >
   <div
-    className="row"
+
   >
     <div
-      className="col-6"
+
     >
       <h1>
         Welcome, dummy
@@ -18,15 +18,15 @@ exports[`Testing the header component 1`] = `
       className="col-6 menu text-right"
     >
       <ul
-        className="list-inline"
+
       >
         <li
-          className="list-inline-item"
+
         >
           <i
             className="fal fa-user-cog"
           />
-           
+
           <a
             href="/settings"
           >
@@ -35,12 +35,12 @@ exports[`Testing the header component 1`] = `
         </li>
         |
         <li
-          className="list-inline-item"
+
         >
           <i
             className="fal fa-sign-out"
           />
-           
+
           <a
             href="auth/logout"
           >

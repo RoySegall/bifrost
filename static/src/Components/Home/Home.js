@@ -53,13 +53,9 @@ export default class Home extends React.Component {
 
     render() {
         if (this.state.loading) {
-            return <div className="text-center">{Loading()}</div>
+            return <div >{Loading()}</div>
         }
 
-        return <>
-
-            <span className="text-gray-900">sasd</span>
-            <Timelines timelines={this.state.timelines} />
-        </>
+        return <Timelines timelines={this.state.timelines} />;
     }
 }

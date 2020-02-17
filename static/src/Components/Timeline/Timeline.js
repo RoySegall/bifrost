@@ -95,7 +95,7 @@ class Timeline extends React.Component {
             return <></>;
         }
 
-        return <div className="trip">
+        return <div >
             <Head {...this.state.timeline} />
             <Filters/>
             <Events events={this.state.timeline.events}/>

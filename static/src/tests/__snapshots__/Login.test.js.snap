@@ -2,10 +2,10 @@
 
 exports[`Testing the login component 1`] = `
 <div
-  className="login"
+
 >
   <div
-    className="icon"
+
   >
     <i
       className="fal fa-sign-in"
@@ -13,11 +13,11 @@ exports[`Testing the login component 1`] = `
   </div>
   <form>
     <div
-      className="form-group"
+
     >
       <input
         aria-describedby="emailHelp"
-        className="form-control"
+
         id="username"
         onChange={[Function]}
         onFocus={[Function]}
@@ -26,10 +26,10 @@ exports[`Testing the login component 1`] = `
       />
     </div>
     <div
-      className="form-group"
+
     >
       <input
-        className="form-control"
+
         id="password"
         onChange={[Function]}
         onFocus={[Function]}

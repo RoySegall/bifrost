@@ -80,9 +80,9 @@ export default class Events extends React.Component {
 
         const icon = icons[event['type']];
 
-        return <div className="col-12">
+        return <div >
             <div className="row head">
-                <div className="col-6">{icon}</div>
+                <div >{icon}</div>
                 <div className="col-6 text-right">{moment.unix(event['startingDate']).utc().format(dateFormatOnlyHour)}</div>
                 <hr/>
             </div>
@@ -95,9 +95,9 @@ export default class Events extends React.Component {
             this.setEventView({day, key});
         };
 
-        return <div className="col-12">
+        return <div >
             <div className="row body">
-                <div className="col-6">
+                <div >
                     <a href='#' className={"title event-" + event['type'] + "-id-" + event['id']} onClick={(event) => onClick(event, day, key)}>
                         {event['title']}
                     </a>
@@ -107,7 +107,7 @@ export default class Events extends React.Component {
                     Ends at: {this.refactorEndDate(event['startingDate'], event['endingDate'])}
                 </div>
 
-                <div className="col-12">
+                <div >
                     <p>TBDs</p>
                 </div>
             </div>
@@ -117,7 +117,7 @@ export default class Events extends React.Component {
     List(days) {
         const col = this.state.activeEvent === null ? 'col-12 full-event' : 'col-6';
         return <div className={"slow-transition " + col}>
-            <div className="list">
+            <div >
                 {
                     Object.keys(days).map(day => {
                         const events = days[day]['events'].map((event, key) => {
@@ -128,11 +128,11 @@ export default class Events extends React.Component {
                         });
 
                         return <div key={day + "-list"}>
-                            <div className="row" key={day}>
+                            <div  key={day}>
                                 <div
                                     className="col-6 day-header">{days[day]['label']}</div>
                             </div>
-                            <div className="events-list">
+                            <div >
                                 {events}
                             </div>
                         </div>
@@ -158,19 +158,19 @@ export default class Events extends React.Component {
         return <div className="col-6 event-view">
 
             <div className={"event-view-wrapper " + event['type']}>
-                <div className="actions">
-                    <a href="#" className="close-event" onClick={(event) => onClick(event)}>
+                <div >
+                    <a href="#"  onClick={(event) => onClick(event)}>
                         {X()}
                     </a><br/>
                 </div>
 
-                <div className="row">
-                    <div className="col-12">
+                <div >
+                    <div >
                         <h3>{event['title']}</h3>
                     </div>
 
-                    <div className="map">
-                        <img className="img-fluid"
+                    <div >
+                        <img
                              src={process.env.PUBLIC_URL + '/mps.png'}/>
                     </div>
 
@@ -185,7 +185,7 @@ export default class Events extends React.Component {
                         </span>
                     </div>
 
-                    <div className="col-12">
+                    <div >
 
                         <p>
                             Lorem Ipsum is simply dummy text of the printing and

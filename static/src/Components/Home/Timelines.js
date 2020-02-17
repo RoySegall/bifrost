@@ -16,14 +16,14 @@ function Timelines(data) {
     const {timelines} = data;
 
     return timelines.map((timeline, key) => {
-        return <div className="row" key={key}>
-            <section className="timeline-wrapper">
-                <div className="col-12">
-                    <a href={"/timeline/" + timeline.id} className="timeline-link">{timeline.title}</a>
+        return <div  key={key}>
+            <section >
+                <div >
+                    <a href={"/timeline/" + timeline.id} >{timeline.title}</a>
                 </div>
 
-                <div className="col-12">
-                    <ul className="list-inline">
+                <div >
+                    <ul >
                         <li className="list-inline-item starting-date">
                             {PlaneUp()} <b>{timeline.startingDate}</b> |
                         </li>
@@ -34,7 +34,7 @@ function Timelines(data) {
                 </div>
 
                 <div className="col-12 extra-info">
-                    <span className="title">Extra info:</span>
+                    <span >Extra info:</span>
                     {extraInfo(timeline)}
                 </div>
             </section>
@@ -103,7 +103,7 @@ const hasMeetMembers = (meeting) => {
  *  Generated extra info.
  */
 function extraInfo(timeline) {
-    return <ul className="list-inline">
+    return <ul >
         <li className="list-inline-item connection">
             {Excahnge()} Connection flight - {YesNo(hasConnectionFlight(timeline.flightSet))},
         </li>
