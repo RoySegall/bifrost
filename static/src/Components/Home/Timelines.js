@@ -17,7 +17,7 @@ function Timelines(data) {
 
   return timelines.map((timeline, key) => {
     return <div className="grid grid-cols-1 justify-center pt-2 mt-2" key={key}>
-      <section className="bg-blue-100 p-3 mt-4 w-3/4 border-orange-400 border-2 m-0	m-auto">
+      <section className="bg-blue-100 p-3 w-full mt-4 border-orange-400 border-2 m-0	m-auto">
 
         <div className="flex flex-row justify-between">
           <div className="flex flex-row">

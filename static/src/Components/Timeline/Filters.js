@@ -31,7 +31,7 @@ export default class Filters extends React.Component {
 
             return <li
                 key={key}
-                className={`list-inline-item filter ${item['key']} ${active} ${first}`}
+                className={`pr-4 ${item['key']} ${active} ${first}`}
                 onClick={() => this.switchFilter(item['key'])}>
                 <span>{item['icon']} {item['title']}</span>
             </li>
@@ -39,12 +39,8 @@ export default class Filters extends React.Component {
     }
 
     render() {
-        return <div >
-
-            <div className="col-12 filters">
-                <ul className="filters float-left">{this.List()}</ul>
-            </div>
-
+        return <div>
+            <ul className="flex flex-row justify-start pt-4">{this.List()}</ul>
         </div>
     }
 }

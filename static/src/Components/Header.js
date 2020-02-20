@@ -10,7 +10,7 @@ function Header() {
       </div>
 
       <div>
-        <div className="flex flex-row justify-center">
+        <div className="flex flex-row justify-end">
           <div className="text-2xl">{Configuration()} <a href="/settings">Settings</a></div>
           <div className="text-2xl ml-4">{Logout()} <a href="auth/logout">Logout</a></div>
         </div>

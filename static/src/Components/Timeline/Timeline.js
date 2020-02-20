@@ -8,99 +8,99 @@ import {dateFormat, dateFormatWithDay, convertFromBackendToUtc} from '../../Serv
 
 class Timeline extends React.Component {
 
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            timeline: {},
-        };
-    }
+    this.state = {
+      timeline: {},
+    };
+  }
 
-    async componentDidMount() {
-        const id = this.props.match.params.id;
-        const params = {
-            graphql: `
-                query {
-                    timeline(id: ${id}) {
-                        id,
-                        title,
-                        startingDate,
-                        endingDate,
+  async componentDidMount() {
+    const id = this.props.match.params.id;
+    const params = {
+      graphql: `
+        query {
+            timeline(id: ${id}) {
+                id,
+                title,
+                startingDate,
+                endingDate,
 
-                        flightSet {
-                            id
-                            title
-                            origin
-                            destination
-                            startingDate
-                            endingDate
-                            location {
-                              id
-                              title,
-                              address
-                            }
-                            
-                            connectionFlight {
-                                id
-                            }
-                        },
-                        pickingcarSet {
-                            title
-                            id
-                            startingDate
-                            endingDate
-                            location {
-                              id
-                              title,
-                              address
-                            }
-                        },
-                        accommodationSet {
-                            id
-                            title
-                            location {
-                              id
-                              title,
-                              address
-                            },
-                            startingDate
-                            endingDate
-                            hotelName
-                            room
-                        },
-                        meetingconjunctionSet {
-                            id
-                            title
-                            startingDate
-                            endingDate
-                            members {
-                              id
-                            }
-                            location {
-                              id
-                              title,
-                              address
-                            }
-                        }
+                flightSet {
+                    id
+                    title
+                    origin
+                    destination
+                    startingDate
+                    endingDate
+                    location {
+                      id
+                      title,
+                      address
+                    }
+                    
+                    connectionFlight {
+                        id
+                    }
+                },
+                pickingcarSet {
+                    title
+                    id
+                    startingDate
+                    endingDate
+                    location {
+                      id
+                      title,
+                      address
+                    }
+                },
+                accommodationSet {
+                    id
+                    title
+                    location {
+                      id
+                      title,
+                      address
                     },
-                }`
-        };
-        const response = await request(params)();
-        this.setState({timeline: OrderTimeline(response.data.data.timeline)})
+                    startingDate
+                    endingDate
+                    hotelName
+                    room
+                },
+                meetingconjunctionSet {
+                    id
+                    title
+                    startingDate
+                    endingDate
+                    members {
+                      id
+                    }
+                    location {
+                      id
+                      title,
+                      address
+                    }
+                }
+            },
+        }`
+    };
+    const response = await request(params)();
+    this.setState({timeline: OrderTimeline(response.data.data.timeline)})
+  }
+
+  render() {
+
+    if (!this.state.timeline.events) {
+      return <></>;
     }
 
-    render() {
-
-        if (!this.state.timeline.events) {
-            return <></>;
-        }
-
-        return <div >
-            <Head {...this.state.timeline} />
-            <Filters/>
-            <Events events={this.state.timeline.events}/>
-        </div>
-    }
+    return <div className="container grid grid-cols-1 pt-2 pb-3 pt-2 mt-2">
+      <Head {...this.state.timeline} />
+      <Filters/>
+      {/*<Events events={this.state.timeline.events}/>*/}
+    </div>
+  }
 }
 
 /**
@@ -116,63 +116,65 @@ class Timeline extends React.Component {
  * @constructor
  */
 const OrderTimeline = (timeline) => {
-    // Get the endpoint we need to start the timeline.
-    const timelineInfo = {
-        title: timeline.title,
-        startingDate: timeline.startingDate,
-        events: [],
-    };
+  // Get the endpoint we need to start the timeline.
+  const timelineInfo = {
+    title: timeline.title,
+    startingDate: timeline.startingDate,
+    events: [],
+  };
 
-    const days = {};
+  const days = {};
 
-    ['accommodationSet', 'flightSet', 'meetingconjunctionSet', 'pickingcarSet']
-        .map(type => {
-            timeline[type].map(event => {
-                const startingDate = convertFromBackendToUtc(event['startingDate']);
-                const day = startingDate.format(dateFormat);
+  ['accommodationSet', 'flightSet', 'meetingconjunctionSet', 'pickingcarSet']
+    .map(type => {
+      timeline[type].map(event => {
+        const startingDate = convertFromBackendToUtc(event['startingDate']);
+        const day = startingDate.format(dateFormat);
 
-                // Check first if we have the day key or not.
-                if (Object.keys(days).indexOf(day) === -1) {
-                    days[day] = {
-                        timestamp: convertFromBackendToUtc(day, dateFormat).unix(),
-                        events: [],
-                        label: startingDate.format(dateFormatWithDay)
-                    };
-                }
-                event['endingDate'] = convertFromBackendToUtc(event['endingDate']).unix();
-                event['startingDate'] = convertFromBackendToUtc(event['startingDate']).unix();
-                event['type'] = type;
-
-                // Go over the event date and start to push events.
-                days[day]['events'].push(event);
-            });
-        });
-
-    // Sort the events and then sort the days.
-    const ordered = {'events': [], 'label': ''};
-    Object.keys(days).sort((a, b) => {
-        if (days[a].timestamp > days[b].timestamp) {
-            return 1;
+        // Check first if we have the day key or not.
+        if (Object.keys(days).indexOf(day) === -1) {
+          days[day] = {
+            timestamp: convertFromBackendToUtc(day, dateFormat).unix(),
+            events: [],
+            label: startingDate.format(dateFormatWithDay)
+          };
         }
-        if (days[a].timestamp < days[b].timestamp) {
-            return -1;
-        }
-        return 0;
-    }).forEach(function (key) {
-        ordered[key] = {'label': '', 'events': days[key].events.sort((a, b) => {
-            if (a.startingDate > b.startingDate) {
-                return 1;
-            }
-            if (a.startingDate < b.startingDate) {
-                return -1;
-            }
-            return 0;
-        })};
+        event['endingDate'] = convertFromBackendToUtc(event['endingDate']).unix();
+        event['startingDate'] = convertFromBackendToUtc(event['startingDate']).unix();
+        event['type'] = type;
+
+        // Go over the event date and start to push events.
+        days[day]['events'].push(event);
+      });
     });
 
-    timelineInfo.events = days;
+  // Sort the events and then sort the days.
+  const ordered = {'events': [], 'label': ''};
+  Object.keys(days).sort((a, b) => {
+    if (days[a].timestamp > days[b].timestamp) {
+      return 1;
+    }
+    if (days[a].timestamp < days[b].timestamp) {
+      return -1;
+    }
+    return 0;
+  }).forEach(function (key) {
+    ordered[key] = {
+      'label': '', 'events': days[key].events.sort((a, b) => {
+        if (a.startingDate > b.startingDate) {
+          return 1;
+        }
+        if (a.startingDate < b.startingDate) {
+          return -1;
+        }
+        return 0;
+      })
+    };
+  });
 
-    return timelineInfo;
+  timelineInfo.events = days;
+
+  return timelineInfo;
 };
 
 const RouteTimeline = withRouter(Timeline);
