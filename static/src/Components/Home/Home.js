@@ -53,9 +53,13 @@ export default class Home extends React.Component {
 
     render() {
         if (this.state.loading) {
-            return <div >{Loading()}</div>
+            return <div>{Loading()}</div>
         }
 
-        return <Timelines timelines={this.state.timelines} />;
+        return (
+            <div className="container">
+                <Timelines timelines={this.state.timelines} />
+            </div>
+        )
     }
 }
