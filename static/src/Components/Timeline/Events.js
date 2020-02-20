@@ -15,6 +15,12 @@ export default class Events extends React.Component {
     this.state = {
       events: props['events'],
       activeEvent: null,
+      borderColor: {
+        accommodationSet: 'pink',
+        flightSet: 'orange',
+        meetingconjunctionSet: 'blue',
+        pickingcarSet: 'green'
+      },
     };
   }
 
@@ -101,9 +107,11 @@ export default class Events extends React.Component {
       this.removeEventView();
     };
 
-    return <div className="bg-gray-100 pl-2 ml-2">
+    const rightBorder = `border-r-2 border-dashed border-${this.state.borderColor[event['type']]}-500`;
 
-      <div className={"event-view-wrapper " + event['type']}>
+    return <div className={`bg-gray-100 pl-2 ml-2 ${rightBorder}`}>
+
+      <div className={"event-view-wrapper"}>
 
         <div className="flex flex-row justify-between ml-2 mr-3 mt-2">
           <span>
@@ -175,15 +183,17 @@ export default class Events extends React.Component {
       this.setEventView({day, key});
     };
 
+    const leftBorder = `border-l-2 border-dashed border-${this.state.borderColor[event['type']]}-500`;
+    let rightBorder = `border-r-2 border-dashed border-${this.state.borderColor[event['type']]}-500`;
+
+    if (this.state.activeEvent !== null) {
+      rightBorder = '';
+    }
+
     return <>
-      <div key={key} className="
-          border-l-2 border-dashed border-orange-500
-          border-r-2 border-dashed border-orange-500
-          bg-gray-100
-          p-2 mb-4
-        ">
+      <div key={key} className={`${leftBorder} ${rightBorder} bg-gray-100 p-2 mb-4`}>
         <div className="flex flex-row justify-between pl-2 pr-2">
-          {icon}
+          <span className={`text-2xl text-${this.state.borderColor[event['type']]}-500 font-bold`}>{icon}</span>
           <span>{moment.unix(event['startingDate']).utc().format(dateFormatOnlyHour)}</span>
         </div>
 
