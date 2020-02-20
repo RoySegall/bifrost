@@ -69,44 +69,13 @@ export default class Events extends React.Component {
     return endingFromUnix.format(dateFormatOnlyHour);
   }
 
-  eventBody(event, day, key) {
-    const onClick = (event, day, key) => {
-      event.preventDefault();
-      this.setEventView({day, key});
-    };
-
-    return <div>
-      <div className="row body">
-        <div>
-          <a href='#' className={"title event-" + event['type'] + "-id-" + event['id']}
-             onClick={(event) => onClick(event, day, key)}>
-            {event['title']}
-          </a>
-        </div>
-
-        <div className="col-6 text-right">
-          Ends at: {this.refactorEndDate(event['startingDate'], event['endingDate'])}
-        </div>
-
-        <div>
-          <p>TBDs</p>
-        </div>
-      </div>
-    </div>
-  }
-
   List(days) {
-    const col = this.state.activeEvent === null ? 'col-12 full-event' : 'col-6';
     return <div>
       <div>
         {
           Object.keys(days).map(day => {
             const events = days[day]['events'].map((event, key) => {
               return this.singleEvent(event, day, key);
-              // return <div key={event['id'] + "-" + event['type']} className={"row event " + event['type']}>
-              //   {this.eventHead(event)}
-              //   {this.eventBody(event, day, key)}
-              // </div>
             });
 
             return <>
@@ -132,55 +101,54 @@ export default class Events extends React.Component {
       this.removeEventView();
     };
 
-    return <div className="col-6 event-view">
+    return <div className="bg-gray-100 pl-2 ml-2">
 
       <div className={"event-view-wrapper " + event['type']}>
-        <div>
-          <a href="#" onClick={(event) => onClick(event)}>
-            {X()}
-          </a><br/>
+
+        <div className="flex flex-row justify-between ml-2 mr-3 mt-2">
+          <span>
+            <h3 className="text-3xl">{event['title']}</h3>
+          </span>
+          <span>
+            <a className="text-2xl text-red-600"
+               href="#"
+               onClick={(event) => onClick(event)}>
+              {X()}
+            </a>
+          </span>
         </div>
 
-        <div>
-          <div>
-            <h3>{event['title']}</h3>
-          </div>
-
-          <div>
-            <img
-              src={process.env.PUBLIC_URL + '/mps.png'}/>
-          </div>
-
-          <div className="col-12 metadata">
-                        <span>
-                            Location: <b>{event['location']['title']}</b>,
-                            at <b>{moment.unix(event['startingDate']).utc().format(dateFormat)}</b>,&nbsp;
-                        </span>
-            <span>
-                            Starts at <b>{moment.unix(event['endingDate']).utc().format(dateFormatOnlyHour)}</b> and
-                            ends at: <b>{this.refactorEndDate(event['startingDate'], event['endingDate'])}</b>
-                        </span>
-          </div>
-
-          <div>
-
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and
-              scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap
-              into electronic typesetting, remaining essentially
-              unchanged. It was popularised in the 1960s with the
-              release of Letraset sheets containing Lorem Ipsum
-              passages, and more recently with desktop publishing
-              software like Aldus PageMaker including versions of
-              Lorem Ipsum.
-            </p>
-          </div>
+        <div className="flex flex-row flex-shrink-0 p-3">
+          <img className="border-2 border-red-400 border-solid rounded-lg mt-2"
+               src={process.env.PUBLIC_URL + '/mps.png'}/>
         </div>
 
+        <div className="pb-3">
+          <span>
+              Location: <b>{event['location']['title']}</b>,
+              at <b>{moment.unix(event['startingDate']).utc().format(dateFormat)}</b>,&nbsp;
+          </span>
+
+          <span>
+              Starts at <b>{moment.unix(event['endingDate']).utc().format(dateFormatOnlyHour)}</b> and
+              ends at: <b>{this.refactorEndDate(event['startingDate'], event['endingDate'])}</b>
+          </span>
+        </div>
+
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and
+          typesetting industry. Lorem Ipsum has been the
+          industry's standard dummy text ever since the 1500s,
+          when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has
+          survived not only five centuries, but also the leap
+          into electronic typesetting, remaining essentially
+          unchanged. It was popularised in the 1960s with the
+          release of Letraset sheets containing Lorem Ipsum
+          passages, and more recently with desktop publishing
+          software like Aldus PageMaker including versions of
+          Lorem Ipsum.
+        </p>
       </div>
     </div>
   }
@@ -202,6 +170,11 @@ export default class Events extends React.Component {
 
     const icon = icons[event['type']];
 
+    const onClick = (event, day, key) => {
+      event.preventDefault();
+      this.setEventView({day, key});
+    };
+
     return <>
       <div key={key} className="
           border-l-2 border-dashed border-orange-500
@@ -214,11 +187,14 @@ export default class Events extends React.Component {
           <span>{moment.unix(event['startingDate']).utc().format(dateFormatOnlyHour)}</span>
         </div>
 
-        <hr className="bg-orange-500 mt-2 mb-1" />
+        <hr className="bg-orange-500 mt-2 mb-1"/>
 
         <div className="flex flex-row justify-between pt-3 pl-2 pr-2">
-          <span>Picking car</span>
-          <span>Ends at: 12:00</span>
+          <a href='#' className={"title event-" + event['type'] + "-id-" + event['id']}
+             onClick={(event) => onClick(event, day, key)}>
+            {event['title']}
+          </a>
+          <span>Ends at: {this.refactorEndDate(event['startingDate'], event['endingDate'])}</span>
         </div>
 
         <p className="pt-3 pl-2 pr-2">
@@ -229,14 +205,13 @@ export default class Events extends React.Component {
   }
 
   render() {
+    const cols = this.state.activeEvent !== null ? 'grid-cols-2' : 'grid-cols-1';
     return <>
       <hr className="bg-orange-500 mt-4 mb-4"/>
-
-      <div className="grid">
+      <div className={"grid " + cols}>
         {this.List(this.state.events)}
+        {this.EventView()}
       </div>
-
-      {/*{this.EventView()}*/}
     </>
   }
 }
