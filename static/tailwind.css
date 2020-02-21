@@ -2,4 +2,16 @@
 
 @tailwind components;
 
+.btn-filter {
+    @apply text-gray-100 bg-indigo-600
+}
+
+.btn-filter:hover {
+    @apply text-red-400 bg-yellow-400
+}
+
+.btn-filter-selected {
+    @apply bg-green-400 text-gray-100
+}
+
 @tailwind utilities;

@@ -621,6 +621,25 @@ video {
   }
 }
 
+.btn-filter {
+  color: #f7fafc;
+  background-color: #5a67d8
+}
+
+.btn-filter:hover {
+  color: #fc8181;
+  background-color: #f6e05e
+}
+
+.btn-filter:active {
+  /*@apply text-red-400 bg-yellow-400*/
+}
+
+.btn-filter-selected {
+  background-color: #68d391;
+  color: #f7fafc
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
