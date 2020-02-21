@@ -621,6 +621,27 @@ video {
   }
 }
 
+.button {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  background-color: #9f7aea;
+  color: #fff;
+  font-weight: 700;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 0.25rem
+}
+
+.button:hover {
+  background-color: #b794f4
+}
+
+.button:focus {
+  @pply shadow-outline outline-none
+
+}
+
 .btn-filter {
   color: #f7fafc;
   background-color: #496fe2
@@ -634,6 +655,40 @@ video {
 .btn-filter-selected {
   background-color: #38a169;
   color: #f7fafc
+}
+
+.alert-success {
+  background-color: #f0fff4;
+  border-top-width: 4px;
+  border-color: #48bb78;
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  color: #22543d;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 50%
+}
+
+.alert-error {
+  background-color: #fff5f5;
+  border-top-width: 4px;
+  border-color: #f56565;
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  color: #742a2a;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 50%
 }
 
 .sr-only {

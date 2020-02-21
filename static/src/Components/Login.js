@@ -8,7 +8,6 @@ export default class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      icon: 'fal fa-sign-in',
       username: null,
       password: null,
       errors: {
@@ -18,17 +17,11 @@ export default class Login extends React.Component {
     };
   }
 
-  setIcon(icon) {
-    this.setState({icon: icon});
-  }
-
   setError(error) {
-    this.setIcon('fal fa-times text-danger');
-    this.setState({errors: {type: 'danger', message: error}});
+    this.setState({errors: {type: 'error', message: error}});
   }
 
   setSuccess(message) {
-    this.setIcon('fal fa-check text-success');
     this.setState({errors: {type: 'success', message: message}});
   }
 
@@ -50,72 +43,93 @@ export default class Login extends React.Component {
       return;
     }
 
-    this.setIcon('fas fa-spinner fa-spin');
-
     axios.post(`${process.env.REACT_APP_BACKEND}/auth/login`, {
       username: this.state.username,
       password: this.state.password,
     })
       .then(resp => {
         this.setSuccess('You are now logged!');
-        this.setIcon('fal fa-check text-success');
         localStorage.setItem('token', resp.data.token);
         setTimeout(() => {
           window.location.href = '/';
         }, 1500);
       })
       .catch(error => {
-        this.setIcon('fal fa-check text-success');
         this.setError(`Something went wrong: ${error.response.data.error}`);
       })
   }
 
+  username() {
+    return <div className="md:flex md:items-center mb-6">
+      <div className="md:w-1/3">
+        <label className="block text-black font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="inline-full-name">
+          Username
+        </label>
+      </div>
+      <div className="md:w-2/3">
+        <input
+          onChange={(event) => {
+            this.setState({username: event.currentTarget.value})
+          }}
+          id="username"
+
+          aria-describedby="emailHelp"
+          placeholder="Enter username"
+          className="
+                bg-gray-200 appearance-none
+                border-2 border-gray-200 rounded
+                w-full py-2 px-4
+                text-black leading-tight
+                focus:outline-none focus:bg-white focus:border-purple-500
+
+          " type="text" />
+      </div>
+    </div>
+  }
+
+  password() {
+    return <div className="md:flex md:items-center mb-6">
+      <div className="md:w-1/3">
+        <label className="block text-black font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="inline-username">
+          Password
+        </label>
+      </div>
+      <div className="md:w-2/3">
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter password"
+          onChange={(event) => {
+            this.setState({password: event.currentTarget.value})
+          }}
+          className="
+            bg-gray-200 appearance-none border-2 border-gray-200
+            rounded w-full py-2 px-4 text-gray-700 leading-tight
+            focus:outline-none focus:bg-white focus:border-purple-500
+          " />
+      </div>
+    </div>
+  }
+
+  submitButton() {
+    return <div className="md:flex md:items-center">
+      <div className="md:w-1/3"></div>
+      <div className="md:w-2/3">
+        <button className="button" type="button"onClick={(event) => {
+          this.login(event)
+        }}>Sign Up</button>
+      </div>
+    </div>
+  }
+
   render() {
     return <div>
-      <div>
-        <i className={this.state.icon}></i>
-      </div>
       <FormError type={this.state.errors.type} message={this.state.errors.message}/>
-      <form>
-        <div>
-          <input
-            type="text"
-            id="username"
 
-            aria-describedby="emailHelp"
-            placeholder="Enter username"
-            onFocus={() => {
-              this.setIcon('fal fa-eye')
-            }}
-            onChange={(event) => {
-              this.setState({username: event.currentTarget.value})
-            }}
-          />
-        </div>
-        <div>
-          <input
-            type="password"
-            id="password"
-
-            placeholder="Enter password"
-            onFocus={() => {
-              this.setIcon('fal fa-eye-slash')
-            }}
-            onChange={(event) => {
-              this.setState({password: event.currentTarget.value})
-            }}
-          />
-        </div>
-        <div className="form-group actions">
-          <button
-            type="submit"
-            className="btn btn-primary"
-            onClick={(event) => {
-              this.login(event)
-            }}
-          >Log me in!
-          </button>
-        </div>
+      <form className="w-full max-w-sm p-4 m-auto m-0">
+        {this.username()}
+        {this.password()}
+        {this.submitButton()}
       </form>
     </div>
   }
