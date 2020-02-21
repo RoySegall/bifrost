@@ -3,7 +3,7 @@
 @tailwind components;
 
 .btn-filter {
-    @apply text-gray-100 bg-indigo-600
+    @apply text-gray-100 bg-blue-1000
 }
 
 .btn-filter:hover {

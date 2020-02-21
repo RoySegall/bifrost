@@ -25,6 +25,7 @@ module.exports = {
         700: '#4a5568',
         800: '#2d3748',
         900: '#1a202c',
+        1000: '#eff0f5',
       },
       red: {
         100: '#fff5f5',
@@ -91,6 +92,7 @@ module.exports = {
         700: '#2b6cb0',
         800: '#2c5282',
         900: '#2a4365',
+        1000: '#496fe2',
       },
       indigo: {
         100: '#ebf4ff',
@@ -242,6 +244,7 @@ module.exports = {
       ],
       serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+      roboto: ['Roboto']
     },
     fontSize: {
       xs: '0.75rem',

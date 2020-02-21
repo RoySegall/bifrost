@@ -109,13 +109,13 @@ export default class Events extends React.Component {
 
     const rightBorder = `border-r-2 border-dashed border-${this.state.borderColor[event['type']]}-500`;
 
-    return <div className={`bg-gray-100 pl-2 ml-2 ${rightBorder}`}>
+    return <div className={`bg-gray-1000 pl-2 ml-2 ${rightBorder}`}>
 
       <div className={"event-view-wrapper"}>
 
         <div className="flex flex-row justify-between ml-2 mr-3 mt-2">
           <span>
-            <h3 className="text-3xl">{event['title']}</h3>
+            <h3 className="text-3xl font-bold">{event['title']}</h3>
           </span>
           <span>
             <a className="text-2xl text-red-600"
@@ -191,7 +191,7 @@ export default class Events extends React.Component {
     }
 
     return <>
-      <div key={key} className={`${leftBorder} ${rightBorder} bg-gray-100 p-2 mb-4`}>
+      <div key={key} className={`${leftBorder} ${rightBorder} bg-gray-1000 p-2 mb-4`}>
         <div className="flex flex-row justify-between pl-2 pr-2">
           <span className={`text-2xl text-${this.state.borderColor[event['type']]}-500 font-bold`}>{icon}</span>
           <span>{moment.unix(event['startingDate']).utc().format(dateFormatOnlyHour)}</span>
@@ -200,8 +200,7 @@ export default class Events extends React.Component {
         <hr className="bg-orange-500 mt-2 mb-1"/>
 
         <div className="flex flex-row justify-between pt-3 pl-2 pr-2">
-          <a href='#' className={"title event-" + event['type'] + "-id-" + event['id']}
-             onClick={(event) => onClick(event, day, key)}>
+          <a href='#' className="font-bold" onClick={(event) => onClick(event, day, key)}>
             {event['title']}
           </a>
           <span>Ends at: {this.refactorEndDate(event['startingDate'], event['endingDate'])}</span>
