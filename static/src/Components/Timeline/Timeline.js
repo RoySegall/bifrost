@@ -95,7 +95,7 @@ class Timeline extends React.Component {
       return <></>;
     }
 
-    return <div className="container grid grid-cols-1 pt-2 pb-3 pt-2 mt-2">
+    return <div className="container mx-auto grid grid-cols-1 pt-2 pb-3 pt-2 mt-2">
       <Head {...this.state.timeline} />
       <Filters/>
       <Events events={this.state.timeline.events}/>

@@ -3,22 +3,22 @@ import {Configuration, Logout} from '../Fonts'
 
 function Header() {
   return <header>
-    <div className="container grid grid-cols-2 gap-6 pt-2 pb-3">
 
-      <div>
-        <h1 className="text-4xl">Welcome, dummy</h1>
-      </div>
+    <div className="container mx-auto flex items-end pb-2 pt-2 mt-2 border-teal-1000 border-b">
+      <h1 className="flex-1 text-red-1000 font-bold text-4xl">Welcome, dummy</h1>
 
-      <div>
-        <div className="flex flex-row justify-end">
-          <div className="text-2xl">{Configuration()} <a href="/settings">Settings</a></div>
-          <div className="text-2xl ml-4">{Logout()} <a href="auth/logout">Logout</a></div>
+      <div className="flex justify-between text-2xl">
+        <div className="mr-2 mt-1">
+          <span className="text-red-1000 mr-1">{Configuration()}</span>
+          <a href="/settings">Settings</a> |
+        </div>
+
+        <div className="mr-2 mt-1">
+          <span className="text-red-1000 mr-1">{Logout()}</span>
+          <a href="auth/logout">Logout</a>
         </div>
       </div>
-
     </div>
-
-    <hr className="bg-red-500"/>
   </header>;
 }
 
