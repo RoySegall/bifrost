@@ -16,29 +16,25 @@ function Timelines(data) {
   const {timelines} = data;
 
   return timelines.map((timeline, key) => {
-    return <div className="grid grid-cols-1 justify-center pt-2 mt-2" key={key}>
-      <section className="bg-blue-100 p-3 w-full mt-4 border-orange-400 border-2 m-0	m-auto">
+    return <div className="" key={key}>
+      <section className="bg-orange-100 p-4 mt-4 border-orange-400 border m-0 m-auto">
 
-        <div className="flex flex-row justify-between">
-          <div className="flex flex-row">
-            <a href={"/timeline/" + timeline.id} className="text-2xl">{timeline.title}</a>
-          </div>
-
-          <div>
-            <ul className="flex flex-row justify-between">
-              <li className="mr-2">
-                {PlaneUp()} <b>{timeline.startingDate}</b> |
-              </li>
-              <li>
-                {PlaneDown()} <b>{timeline.endingDate}</b>
-              </li>
-            </ul>
-          </div>
+        <div className="flex flex-row">
+          <a href={"/timeline/" + timeline.id}
+             className="text-3xl text-teal-500 hover:underline pb-2"
+          >{timeline.title}</a>
         </div>
 
+        <ul className="flex flex-row text-2xl">
+          <li className="mr-2">
+            <span className="text-blue-500">{PlaneUp()}</span> <b>{timeline.startingDate}</b> |
+          </li>
+          <li>
+            <span className="text-orange-500">{PlaneDown()}</span> <b>{timeline.endingDate}</b>
+          </li>
+        </ul>
 
-        <div className="flex flex-row justify-between pt-3">
-          <span>Extra info:</span>
+        <div className="flex flex-row pt-3 text-lg">
           {extraInfo(timeline)}
         </div>
       </section>
@@ -107,17 +103,17 @@ const hasMeetMembers = (meeting) => {
  *  Generated extra info.
  */
 function extraInfo(timeline) {
-  return <ul>
-    <li className="list-inline-item connection">
+  return <ul className="flex justify-around">
+    <li className="list-inline-item connection mr-2">
       {Excahnge()} Connection flight - {YesNo(hasConnectionFlight(timeline.flightSet))},
     </li>
-    <li className="list-inline-item picking-car">
+    <li className="list-inline-item picking-car mr-2">
       {Car()} Picking car - {YesNo(hasPickingCarEvent(timeline.pickingcarSet))},
     </li>
-    <li className="list-inline-item accommodation">
+    <li className="list-inline-item accommodation mr-2">
       {Hotel()} Accommodation - {YesNo(hasAccommodation(timeline.accommodationSet))},
     </li>
-    <li className="list-inline-item meeting-members">
+    <li className="list-inline-item meeting-members mr-2">
       {Friends()} Meeting other - {YesNo(hasMeetMembers(timeline.meetingconjunctionSet))}
     </li>
   </ul>

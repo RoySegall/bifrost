@@ -11,7 +11,7 @@
 }
 
 .btn-filter-selected {
-    @apply bg-green-400 text-gray-100
+    @apply bg-green-600 text-gray-100
 }
 
 @tailwind utilities;

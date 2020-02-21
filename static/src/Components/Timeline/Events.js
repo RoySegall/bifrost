@@ -143,7 +143,7 @@ export default class Events extends React.Component {
           </span>
         </div>
 
-        <p>
+        <p className="mr-2">
           Lorem Ipsum is simply dummy text of the printing and
           typesetting industry. Lorem Ipsum has been the
           industry's standard dummy text ever since the 1500s,
@@ -200,10 +200,10 @@ export default class Events extends React.Component {
         <hr className="bg-orange-500 mt-2 mb-1"/>
 
         <div className="flex flex-row justify-between pt-3 pl-2 pr-2">
-          <a href='#' className="font-bold" onClick={(event) => onClick(event, day, key)}>
+          <a href='#' className="font-bold text-lg" onClick={(event) => onClick(event, day, key)}>
             {event['title']}
           </a>
-          <span>Ends at: {this.refactorEndDate(event['startingDate'], event['endingDate'])}</span>
+          <span className="text-lg">Ends at: {this.refactorEndDate(event['startingDate'], event['endingDate'])}</span>
         </div>
 
         <p className="pt-3 pl-2 pr-2">
@@ -216,8 +216,7 @@ export default class Events extends React.Component {
   render() {
     const cols = this.state.activeEvent !== null ? 'grid-cols-2' : 'grid-cols-1';
     return <>
-      <hr className="bg-orange-500 mt-4 mb-4"/>
-      <div className={"grid " + cols}>
+      <div className={"mt-6 grid " + cols}>
         {this.List(this.state.events)}
         {this.EventView()}
       </div>
