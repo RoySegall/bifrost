@@ -1,53 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing the login component 1`] = `
-<div
-  className="login"
->
+<div>
   <div
-    className="icon"
+    className="flex flex-row justify-between mt-2 mb-2"
   >
-    <i
-      className="fal fa-sign-in"
-    />
-  </div>
-  <form>
-    <div
-      className="form-group"
+    <form
+      className="margin-0-auto w-6/12"
     >
-      <input
-        aria-describedby="emailHelp"
-        className="form-control"
-        id="username"
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="Enter username"
-        type="text"
-      />
-    </div>
-    <div
-      className="form-group"
-    >
-      <input
-        className="form-control"
-        id="password"
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="Enter password"
-        type="password"
-      />
-    </div>
-    <div
-      className="form-group actions"
-    >
-      <button
-        className="btn btn-primary"
-        onClick={[Function]}
-        type="submit"
+      <div
+        className="flex-row pb-2"
       >
-        Log me in!
-      </button>
-    </div>
-  </form>
+        <label
+          className="align-bottom mr-5 text-black font-bold"
+          htmlFor="username"
+        >
+          Username
+        </label>
+        <input
+          className="align-bottom m-4 p-2 ml-5 mb-0 pb-0 border-blue-500 border-b focus:bg-blue-100 w-3/4"
+          id="username"
+          onChange={[Function]}
+          placeholder="Username"
+          type="text"
+        />
+      </div>
+      <div
+        className="flex-row pb-2"
+      >
+        <label
+          className="align-bottom mr-5 text-black font-bold"
+          htmlFor="username"
+        >
+          Password
+        </label>
+        <input
+          className="align-bottom m-4 p-2 ml-5 mb-0 pb-0 border-blue-500 border-b focus:bg-blue-100 w-3/4"
+          id="password"
+          onChange={[Function]}
+          placeholder="Enter password"
+          type="password"
+        />
+      </div>
+      <div
+        className="flex-row text-center"
+      >
+        <button
+          className="mt-4 button"
+          onClick={[Function]}
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
 `;

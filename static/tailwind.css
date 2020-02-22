@@ -1,0 +1,41 @@
+@tailwind base;
+
+@tailwind components;
+
+.button {
+    @apply shadow bg-blue-500 text-white font-bold py-2 px-4 rounded
+}
+
+.button:hover {
+    @apply bg-blue-400
+}
+
+.button:focus {
+    @pply shadow-outline outline-none
+}
+
+.btn-filter {
+    @apply text-gray-100 bg-blue-1000
+}
+
+.btn-filter:hover {
+    @apply text-red-400 bg-yellow-400
+}
+
+.btn-filter-selected {
+    @apply bg-green-600 text-gray-100
+}
+
+.alert-success {
+    @apply bg-green-100 border-t-4 border-green-500 rounded-b text-green-900 px-4 py-3 shadow-md mt-4 mb-4 w-3/6
+}
+
+.alert-error {
+    @apply bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 shadow-md mt-4 mb-4 w-3/6
+}
+
+.margin-0-auto {
+    @apply m-0 m-auto
+}
+
+@tailwind utilities;

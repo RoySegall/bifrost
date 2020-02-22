@@ -30,18 +30,18 @@ test("Testing the filter changing", () => {
     expect(filters.find('.fal')).toHaveLength(5);
 
     // Click on the button and verify the event was triggered.
-    filters.find('.pickingcarSet span').simulate('click');
+    filters.find('button.pickingcarSet').simulate('click');
     expect(filters.instance().state.activeFilter).toBe('pickingcarSet');
 
-    filters.find('.flightSet span').simulate('click');
+    filters.find('button.flightSet').simulate('click');
     expect(filters.instance().state.activeFilter).toBe('flightSet');
 
-    filters.find('.accommodationSet span').simulate('click');
+    filters.find('button.accommodationSet').simulate('click');
     expect(filters.instance().state.activeFilter).toBe('accommodationSet');
 
-    filters.find('.meetingconjunctionSet span').simulate('click');
+    filters.find('button.meetingconjunctionSet').simulate('click');
     expect(filters.instance().state.activeFilter).toBe('meetingconjunctionSet');
 
-    filters.find('.all span').simulate('click');
+    filters.find('button.all').simulate('click');
     expect(filters.instance().state.activeFilter).toBe('all');
 });

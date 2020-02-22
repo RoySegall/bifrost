@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing the output of the timeline head component 1`] = `
-<h2>
-   
+<h2
+  className="text-4xl"
+>
   Title for testing
   , starts at: 
   17-11-2019 06:00
-   
 </h2>
 `;

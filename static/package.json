@@ -6,20 +6,21 @@
     "axios": "^0.19.0",
     "moment": "^2.24.0",
     "node-sass": "^4.13.0",
+    "postcss-import": "^12.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "tailwindcss": "^1.2.0"
   },
   "scripts": {
+    "tailwind": "npx tailwindcss build ./tailwind.css -o src/styles/tailwind.css",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "lint": "eslint src/**/*.js",
     "lint-fix": "eslint src/**/*.js --fix",
-    "eject": "react-scripts eject",
-    "style:compile": "node-sass --output-style compressed --output=public/css public/css/sass/main.scss",
-    "style:watch": "node-sass --watch --output=public/css public/css/sass/main.scss"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,6 +39,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^9.3.2",
+    "autoprefixer": "^9.7.4",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "eslint": "^6.6.0",
@@ -47,6 +49,9 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-standard": "^4.0.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^7.1.0",
+    "postcss-nested": "^4.2.1",
     "react-test-renderer": "^16.12.0"
   }
 }
