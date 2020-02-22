@@ -6,553 +6,561 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
 >
   <div>
     <div>
-      <h3
-        className="text-3xl m-0 m-auto pb-3 text-center"
-      >
-        17-11-2019, Sunday
-      </h3>
-      <hr
-        className="w-1/2 m-0 m-auto p-2 border-purple-400 border-t-2 border-dashed"
-      />
-      <div
-        className="border-l-2 border-dashed border-orange-500 border-r-2 border-dashed border-orange-500 bg-gray-1000 p-2 mb-4"
-      >
-        <div
-          className="flex flex-row justify-between pl-2 pr-2"
+      <div>
+        <h3
+          className="text-3xl m-0 m-auto pb-3 text-center"
         >
-          <span
-            className="text-2xl text-orange-500 font-bold"
-          >
-            <i
-              className="fal fa-plane"
-            />
-          </span>
-          <span>
-            06:00
-          </span>
-        </div>
+          17-11-2019, Sunday
+        </h3>
         <hr
-          className="bg-orange-500 mt-2 mb-1"
+          className="w-1/2 m-0 m-auto p-2 border-purple-400 border-t-2 border-dashed"
         />
         <div
-          className="flex flex-row justify-between pt-3 pl-2 pr-2"
+          className="border-l-2 border-dashed border-orange-500 border-r-2 border-dashed border-orange-500 bg-gray-1000 p-2 mb-4"
         >
-          <a
-            className="font-bold text-lg"
-            href="#"
-            onClick={[Function]}
+          <div
+            className="flex flex-row justify-between pl-2 pr-2"
           >
-            Flight to london
-          </a>
-          <span
-            className="text-lg"
+            <span
+              className="text-2xl text-orange-500 font-bold"
+            >
+              <i
+                className="fal fa-plane"
+              />
+            </span>
+            <span>
+              06:00
+            </span>
+          </div>
+          <hr
+            className="bg-orange-500 mt-2 mb-1"
+          />
+          <div
+            className="flex flex-row justify-between pt-3 pl-2 pr-2"
           >
-            Ends at: 
-            10:00
-          </span>
+            <a
+              className="title event-flightSet-id-1 font-bold text-lg"
+              href="#"
+              onClick={[Function]}
+            >
+              Flight to london
+            </a>
+            <span
+              className="text-lg"
+            >
+              Ends at: 
+              10:00
+            </span>
+          </div>
+          <p
+            className="pt-3 pl-2 pr-2"
+          >
+            TBD
+          </p>
         </div>
-        <p
-          className="pt-3 pl-2 pr-2"
+        <div
+          className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
         >
-          TBD
-        </p>
+          <div
+            className="flex flex-row justify-between pl-2 pr-2"
+          >
+            <span
+              className="text-2xl text-pink-500 font-bold"
+            >
+              <i
+                className="fal fa-hotel"
+              />
+            </span>
+            <span>
+              16:00
+            </span>
+          </div>
+          <hr
+            className="bg-orange-500 mt-2 mb-1"
+          />
+          <div
+            className="flex flex-row justify-between pt-3 pl-2 pr-2"
+          >
+            <a
+              className="title event-accommodationSet-id-1 font-bold text-lg"
+              href="#"
+              onClick={[Function]}
+            >
+              Hotel Gibson
+            </a>
+            <span
+              className="text-lg"
+            >
+              Ends at: 
+              21-11-2019 10:00
+            </span>
+          </div>
+          <p
+            className="pt-3 pl-2 pr-2"
+          >
+            TBD
+          </p>
+        </div>
       </div>
-      <div
-        className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
-      >
-        <div
-          className="flex flex-row justify-between pl-2 pr-2"
+      <div>
+        <h3
+          className="text-3xl m-0 m-auto pb-3 text-center"
         >
-          <span
-            className="text-2xl text-pink-500 font-bold"
-          >
-            <i
-              className="fal fa-hotel"
-            />
-          </span>
-          <span>
-            16:00
-          </span>
-        </div>
+          18-11-2019, Monday
+        </h3>
         <hr
-          className="bg-orange-500 mt-2 mb-1"
+          className="w-1/2 m-0 m-auto p-2 border-purple-400 border-t-2 border-dashed"
         />
         <div
-          className="flex flex-row justify-between pt-3 pl-2 pr-2"
+          className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
         >
-          <a
-            className="font-bold text-lg"
-            href="#"
-            onClick={[Function]}
+          <div
+            className="flex flex-row justify-between pl-2 pr-2"
           >
-            Hotel Gibson
-          </a>
-          <span
-            className="text-lg"
+            <span
+              className="text-2xl text-pink-500 font-bold"
+            >
+              <i
+                className="fal fa-hotel"
+              />
+            </span>
+            <span>
+              08:00
+            </span>
+          </div>
+          <hr
+            className="bg-orange-500 mt-2 mb-1"
+          />
+          <div
+            className="flex flex-row justify-between pt-3 pl-2 pr-2"
           >
-            Ends at: 
-            21-11-2019 10:00
-          </span>
+            <a
+              className="title event-accommodationSet-id-2 font-bold text-lg"
+              href="#"
+              onClick={[Function]}
+            >
+              Demo at clinic in London
+            </a>
+            <span
+              className="text-lg"
+            >
+              Ends at: 
+              09:00
+            </span>
+          </div>
+          <p
+            className="pt-3 pl-2 pr-2"
+          >
+            TBD
+          </p>
         </div>
-        <p
-          className="pt-3 pl-2 pr-2"
+        <div
+          className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
         >
-          TBD
-        </p>
+          <div
+            className="flex flex-row justify-between pl-2 pr-2"
+          >
+            <span
+              className="text-2xl text-pink-500 font-bold"
+            >
+              <i
+                className="fal fa-hotel"
+              />
+            </span>
+            <span>
+              10:00
+            </span>
+          </div>
+          <hr
+            className="bg-orange-500 mt-2 mb-1"
+          />
+          <div
+            className="flex flex-row justify-between pt-3 pl-2 pr-2"
+          >
+            <a
+              className="title event-accommodationSet-id-3 font-bold text-lg"
+              href="#"
+              onClick={[Function]}
+            >
+              Lunch with John
+            </a>
+            <span
+              className="text-lg"
+            >
+              Ends at: 
+              11:30
+            </span>
+          </div>
+          <p
+            className="pt-3 pl-2 pr-2"
+          >
+            TBD
+          </p>
+        </div>
+        <div
+          className="border-l-2 border-dashed border-green-500 border-r-2 border-dashed border-green-500 bg-gray-1000 p-2 mb-4"
+        >
+          <div
+            className="flex flex-row justify-between pl-2 pr-2"
+          >
+            <span
+              className="text-2xl text-green-500 font-bold"
+            >
+              <i
+                className="fal fa-car"
+              />
+            </span>
+            <span>
+              12:00
+            </span>
+          </div>
+          <hr
+            className="bg-orange-500 mt-2 mb-1"
+          />
+          <div
+            className="flex flex-row justify-between pt-3 pl-2 pr-2"
+          >
+            <a
+              className="title event-pickingcarSet-id-1 font-bold text-lg"
+              href="#"
+              onClick={[Function]}
+            >
+              Picking car
+            </a>
+            <span
+              className="text-lg"
+            >
+              Ends at: 
+              12:00
+            </span>
+          </div>
+          <p
+            className="pt-3 pl-2 pr-2"
+          >
+            TBD
+          </p>
+        </div>
+        <div
+          className="border-l-2 border-dashed border-blue-500 border-r-2 border-dashed border-blue-500 bg-gray-1000 p-2 mb-4"
+        >
+          <div
+            className="flex flex-row justify-between pl-2 pr-2"
+          >
+            <span
+              className="text-2xl text-blue-500 font-bold"
+            >
+              <i
+                className="fal fa-user-friends"
+              />
+            </span>
+            <span>
+              17:00
+            </span>
+          </div>
+          <hr
+            className="bg-orange-500 mt-2 mb-1"
+          />
+          <div
+            className="flex flex-row justify-between pt-3 pl-2 pr-2"
+          >
+            <a
+              className="title event-meetingconjunctionSet-id-2 font-bold text-lg"
+              href="#"
+              onClick={[Function]}
+            >
+              Picking employees
+            </a>
+            <span
+              className="text-lg"
+            >
+              Ends at: 
+              17:00
+            </span>
+          </div>
+          <p
+            className="pt-3 pl-2 pr-2"
+          >
+            TBD
+          </p>
+        </div>
       </div>
-      <h3
-        className="text-3xl m-0 m-auto pb-3 text-center"
-      >
-        18-11-2019, Monday
-      </h3>
-      <hr
-        className="w-1/2 m-0 m-auto p-2 border-purple-400 border-t-2 border-dashed"
-      />
-      <div
-        className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
-      >
-        <div
-          className="flex flex-row justify-between pl-2 pr-2"
+      <div>
+        <h3
+          className="text-3xl m-0 m-auto pb-3 text-center"
         >
-          <span
-            className="text-2xl text-pink-500 font-bold"
-          >
-            <i
-              className="fal fa-hotel"
-            />
-          </span>
-          <span>
-            08:00
-          </span>
-        </div>
+          19-11-2019, Tuesday
+        </h3>
         <hr
-          className="bg-orange-500 mt-2 mb-1"
+          className="w-1/2 m-0 m-auto p-2 border-purple-400 border-t-2 border-dashed"
         />
         <div
-          className="flex flex-row justify-between pt-3 pl-2 pr-2"
+          className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
         >
-          <a
-            className="font-bold text-lg"
-            href="#"
-            onClick={[Function]}
+          <div
+            className="flex flex-row justify-between pl-2 pr-2"
           >
-            Demo at clinic in London
-          </a>
-          <span
-            className="text-lg"
+            <span
+              className="text-2xl text-pink-500 font-bold"
+            >
+              <i
+                className="fal fa-hotel"
+              />
+            </span>
+            <span>
+              06:00
+            </span>
+          </div>
+          <hr
+            className="bg-orange-500 mt-2 mb-1"
+          />
+          <div
+            className="flex flex-row justify-between pt-3 pl-2 pr-2"
           >
-            Ends at: 
-            09:00
-          </span>
+            <a
+              className="title event-accommodationSet-id-4 font-bold text-lg"
+              href="#"
+              onClick={[Function]}
+            >
+              Demo at a clinic
+            </a>
+            <span
+              className="text-lg"
+            >
+              Ends at: 
+              07:30
+            </span>
+          </div>
+          <p
+            className="pt-3 pl-2 pr-2"
+          >
+            TBD
+          </p>
         </div>
-        <p
-          className="pt-3 pl-2 pr-2"
+        <div
+          className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
         >
-          TBD
-        </p>
+          <div
+            className="flex flex-row justify-between pl-2 pr-2"
+          >
+            <span
+              className="text-2xl text-pink-500 font-bold"
+            >
+              <i
+                className="fal fa-hotel"
+              />
+            </span>
+            <span>
+              08:00
+            </span>
+          </div>
+          <hr
+            className="bg-orange-500 mt-2 mb-1"
+          />
+          <div
+            className="flex flex-row justify-between pt-3 pl-2 pr-2"
+          >
+            <a
+              className="title event-accommodationSet-id-5 font-bold text-lg"
+              href="#"
+              onClick={[Function]}
+            >
+              Driving to stonehenge
+            </a>
+            <span
+              className="text-lg"
+            >
+              Ends at: 
+              08:00
+            </span>
+          </div>
+          <p
+            className="pt-3 pl-2 pr-2"
+          >
+            TBD
+          </p>
+        </div>
+        <div
+          className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
+        >
+          <div
+            className="flex flex-row justify-between pl-2 pr-2"
+          >
+            <span
+              className="text-2xl text-pink-500 font-bold"
+            >
+              <i
+                className="fal fa-hotel"
+              />
+            </span>
+            <span>
+              12:00
+            </span>
+          </div>
+          <hr
+            className="bg-orange-500 mt-2 mb-1"
+          />
+          <div
+            className="flex flex-row justify-between pt-3 pl-2 pr-2"
+          >
+            <a
+              className="title event-accommodationSet-id-6 font-bold text-lg"
+              href="#"
+              onClick={[Function]}
+            >
+              Luch
+            </a>
+            <span
+              className="text-lg"
+            >
+              Ends at: 
+              13:30
+            </span>
+          </div>
+          <p
+            className="pt-3 pl-2 pr-2"
+          >
+            TBD
+          </p>
+        </div>
+        <div
+          className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
+        >
+          <div
+            className="flex flex-row justify-between pl-2 pr-2"
+          >
+            <span
+              className="text-2xl text-pink-500 font-bold"
+            >
+              <i
+                className="fal fa-hotel"
+              />
+            </span>
+            <span>
+              14:00
+            </span>
+          </div>
+          <hr
+            className="bg-orange-500 mt-2 mb-1"
+          />
+          <div
+            className="flex flex-row justify-between pt-3 pl-2 pr-2"
+          >
+            <a
+              className="title event-accommodationSet-id-7 font-bold text-lg"
+              href="#"
+              onClick={[Function]}
+            >
+              Driving to manchenter
+            </a>
+            <span
+              className="text-lg"
+            >
+              Ends at: 
+              20:00
+            </span>
+          </div>
+          <p
+            className="pt-3 pl-2 pr-2"
+          >
+            TBD
+          </p>
+        </div>
       </div>
-      <div
-        className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
-      >
-        <div
-          className="flex flex-row justify-between pl-2 pr-2"
+      <div>
+        <h3
+          className="text-3xl m-0 m-auto pb-3 text-center"
         >
-          <span
-            className="text-2xl text-pink-500 font-bold"
-          >
-            <i
-              className="fal fa-hotel"
-            />
-          </span>
-          <span>
-            10:00
-          </span>
-        </div>
+          20-11-2019, Wednesday
+        </h3>
         <hr
-          className="bg-orange-500 mt-2 mb-1"
+          className="w-1/2 m-0 m-auto p-2 border-purple-400 border-t-2 border-dashed"
         />
         <div
-          className="flex flex-row justify-between pt-3 pl-2 pr-2"
+          className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
         >
-          <a
-            className="font-bold text-lg"
-            href="#"
-            onClick={[Function]}
+          <div
+            className="flex flex-row justify-between pl-2 pr-2"
           >
-            Lunch with John
-          </a>
-          <span
-            className="text-lg"
+            <span
+              className="text-2xl text-pink-500 font-bold"
+            >
+              <i
+                className="fal fa-hotel"
+              />
+            </span>
+            <span>
+              08:00
+            </span>
+          </div>
+          <hr
+            className="bg-orange-500 mt-2 mb-1"
+          />
+          <div
+            className="flex flex-row justify-between pt-3 pl-2 pr-2"
           >
-            Ends at: 
-            11:30
-          </span>
+            <a
+              className="title event-accommodationSet-id-8 font-bold text-lg"
+              href="#"
+              onClick={[Function]}
+            >
+              demo at a clinic
+            </a>
+            <span
+              className="text-lg"
+            >
+              Ends at: 
+              12:00
+            </span>
+          </div>
+          <p
+            className="pt-3 pl-2 pr-2"
+          >
+            TBD
+          </p>
         </div>
-        <p
-          className="pt-3 pl-2 pr-2"
-        >
-          TBD
-        </p>
-      </div>
-      <div
-        className="border-l-2 border-dashed border-green-500 border-r-2 border-dashed border-green-500 bg-gray-1000 p-2 mb-4"
-      >
         <div
-          className="flex flex-row justify-between pl-2 pr-2"
+          className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
         >
-          <span
-            className="text-2xl text-green-500 font-bold"
+          <div
+            className="flex flex-row justify-between pl-2 pr-2"
           >
-            <i
-              className="fal fa-car"
-            />
-          </span>
-          <span>
-            12:00
-          </span>
+            <span
+              className="text-2xl text-pink-500 font-bold"
+            >
+              <i
+                className="fal fa-hotel"
+              />
+            </span>
+            <span>
+              13:00
+            </span>
+          </div>
+          <hr
+            className="bg-orange-500 mt-2 mb-1"
+          />
+          <div
+            className="flex flex-row justify-between pt-3 pl-2 pr-2"
+          >
+            <a
+              className="title event-accommodationSet-id-9 font-bold text-lg"
+              href="#"
+              onClick={[Function]}
+            >
+              Back to the hotel
+            </a>
+            <span
+              className="text-lg"
+            >
+              Ends at: 
+              13:00
+            </span>
+          </div>
+          <p
+            className="pt-3 pl-2 pr-2"
+          >
+            TBD
+          </p>
         </div>
-        <hr
-          className="bg-orange-500 mt-2 mb-1"
-        />
-        <div
-          className="flex flex-row justify-between pt-3 pl-2 pr-2"
-        >
-          <a
-            className="font-bold text-lg"
-            href="#"
-            onClick={[Function]}
-          >
-            Picking car
-          </a>
-          <span
-            className="text-lg"
-          >
-            Ends at: 
-            12:00
-          </span>
-        </div>
-        <p
-          className="pt-3 pl-2 pr-2"
-        >
-          TBD
-        </p>
-      </div>
-      <div
-        className="border-l-2 border-dashed border-blue-500 border-r-2 border-dashed border-blue-500 bg-gray-1000 p-2 mb-4"
-      >
-        <div
-          className="flex flex-row justify-between pl-2 pr-2"
-        >
-          <span
-            className="text-2xl text-blue-500 font-bold"
-          >
-            <i
-              className="fal fa-user-friends"
-            />
-          </span>
-          <span>
-            17:00
-          </span>
-        </div>
-        <hr
-          className="bg-orange-500 mt-2 mb-1"
-        />
-        <div
-          className="flex flex-row justify-between pt-3 pl-2 pr-2"
-        >
-          <a
-            className="font-bold text-lg"
-            href="#"
-            onClick={[Function]}
-          >
-            Picking employees
-          </a>
-          <span
-            className="text-lg"
-          >
-            Ends at: 
-            17:00
-          </span>
-        </div>
-        <p
-          className="pt-3 pl-2 pr-2"
-        >
-          TBD
-        </p>
-      </div>
-      <h3
-        className="text-3xl m-0 m-auto pb-3 text-center"
-      >
-        19-11-2019, Tuesday
-      </h3>
-      <hr
-        className="w-1/2 m-0 m-auto p-2 border-purple-400 border-t-2 border-dashed"
-      />
-      <div
-        className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
-      >
-        <div
-          className="flex flex-row justify-between pl-2 pr-2"
-        >
-          <span
-            className="text-2xl text-pink-500 font-bold"
-          >
-            <i
-              className="fal fa-hotel"
-            />
-          </span>
-          <span>
-            06:00
-          </span>
-        </div>
-        <hr
-          className="bg-orange-500 mt-2 mb-1"
-        />
-        <div
-          className="flex flex-row justify-between pt-3 pl-2 pr-2"
-        >
-          <a
-            className="font-bold text-lg"
-            href="#"
-            onClick={[Function]}
-          >
-            Demo at a clinic
-          </a>
-          <span
-            className="text-lg"
-          >
-            Ends at: 
-            07:30
-          </span>
-        </div>
-        <p
-          className="pt-3 pl-2 pr-2"
-        >
-          TBD
-        </p>
-      </div>
-      <div
-        className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
-      >
-        <div
-          className="flex flex-row justify-between pl-2 pr-2"
-        >
-          <span
-            className="text-2xl text-pink-500 font-bold"
-          >
-            <i
-              className="fal fa-hotel"
-            />
-          </span>
-          <span>
-            08:00
-          </span>
-        </div>
-        <hr
-          className="bg-orange-500 mt-2 mb-1"
-        />
-        <div
-          className="flex flex-row justify-between pt-3 pl-2 pr-2"
-        >
-          <a
-            className="font-bold text-lg"
-            href="#"
-            onClick={[Function]}
-          >
-            Driving to stonehenge
-          </a>
-          <span
-            className="text-lg"
-          >
-            Ends at: 
-            08:00
-          </span>
-        </div>
-        <p
-          className="pt-3 pl-2 pr-2"
-        >
-          TBD
-        </p>
-      </div>
-      <div
-        className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
-      >
-        <div
-          className="flex flex-row justify-between pl-2 pr-2"
-        >
-          <span
-            className="text-2xl text-pink-500 font-bold"
-          >
-            <i
-              className="fal fa-hotel"
-            />
-          </span>
-          <span>
-            12:00
-          </span>
-        </div>
-        <hr
-          className="bg-orange-500 mt-2 mb-1"
-        />
-        <div
-          className="flex flex-row justify-between pt-3 pl-2 pr-2"
-        >
-          <a
-            className="font-bold text-lg"
-            href="#"
-            onClick={[Function]}
-          >
-            Luch
-          </a>
-          <span
-            className="text-lg"
-          >
-            Ends at: 
-            13:30
-          </span>
-        </div>
-        <p
-          className="pt-3 pl-2 pr-2"
-        >
-          TBD
-        </p>
-      </div>
-      <div
-        className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
-      >
-        <div
-          className="flex flex-row justify-between pl-2 pr-2"
-        >
-          <span
-            className="text-2xl text-pink-500 font-bold"
-          >
-            <i
-              className="fal fa-hotel"
-            />
-          </span>
-          <span>
-            14:00
-          </span>
-        </div>
-        <hr
-          className="bg-orange-500 mt-2 mb-1"
-        />
-        <div
-          className="flex flex-row justify-between pt-3 pl-2 pr-2"
-        >
-          <a
-            className="font-bold text-lg"
-            href="#"
-            onClick={[Function]}
-          >
-            Driving to manchenter
-          </a>
-          <span
-            className="text-lg"
-          >
-            Ends at: 
-            20:00
-          </span>
-        </div>
-        <p
-          className="pt-3 pl-2 pr-2"
-        >
-          TBD
-        </p>
-      </div>
-      <h3
-        className="text-3xl m-0 m-auto pb-3 text-center"
-      >
-        20-11-2019, Wednesday
-      </h3>
-      <hr
-        className="w-1/2 m-0 m-auto p-2 border-purple-400 border-t-2 border-dashed"
-      />
-      <div
-        className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
-      >
-        <div
-          className="flex flex-row justify-between pl-2 pr-2"
-        >
-          <span
-            className="text-2xl text-pink-500 font-bold"
-          >
-            <i
-              className="fal fa-hotel"
-            />
-          </span>
-          <span>
-            08:00
-          </span>
-        </div>
-        <hr
-          className="bg-orange-500 mt-2 mb-1"
-        />
-        <div
-          className="flex flex-row justify-between pt-3 pl-2 pr-2"
-        >
-          <a
-            className="font-bold text-lg"
-            href="#"
-            onClick={[Function]}
-          >
-            demo at a clinic
-          </a>
-          <span
-            className="text-lg"
-          >
-            Ends at: 
-            12:00
-          </span>
-        </div>
-        <p
-          className="pt-3 pl-2 pr-2"
-        >
-          TBD
-        </p>
-      </div>
-      <div
-        className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
-      >
-        <div
-          className="flex flex-row justify-between pl-2 pr-2"
-        >
-          <span
-            className="text-2xl text-pink-500 font-bold"
-          >
-            <i
-              className="fal fa-hotel"
-            />
-          </span>
-          <span>
-            13:00
-          </span>
-        </div>
-        <hr
-          className="bg-orange-500 mt-2 mb-1"
-        />
-        <div
-          className="flex flex-row justify-between pt-3 pl-2 pr-2"
-        >
-          <a
-            className="font-bold text-lg"
-            href="#"
-            onClick={[Function]}
-          >
-            Back to the hotel
-          </a>
-          <span
-            className="text-lg"
-          >
-            Ends at: 
-            13:00
-          </span>
-        </div>
-        <p
-          className="pt-3 pl-2 pr-2"
-        >
-          TBD
-        </p>
       </div>
     </div>
   </div>

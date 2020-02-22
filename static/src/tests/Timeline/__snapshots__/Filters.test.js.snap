@@ -10,7 +10,7 @@ exports[`Testing the snapshot of the component 1`] = `
     >
       <button
         className="
-            btn-filter-selected font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
+            btn-filter-selected all font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
           "
       >
         <span>
@@ -30,7 +30,7 @@ exports[`Testing the snapshot of the component 1`] = `
     >
       <button
         className="
-            btn-filter font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
+            btn-filter pickingcarSet font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
           "
       >
         <span>
@@ -50,7 +50,7 @@ exports[`Testing the snapshot of the component 1`] = `
     >
       <button
         className="
-            btn-filter font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
+            btn-filter flightSet font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
           "
       >
         <span>
@@ -70,7 +70,7 @@ exports[`Testing the snapshot of the component 1`] = `
     >
       <button
         className="
-            btn-filter font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
+            btn-filter accommodationSet font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
           "
       >
         <span>
@@ -90,7 +90,7 @@ exports[`Testing the snapshot of the component 1`] = `
     >
       <button
         className="
-            btn-filter font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
+            btn-filter meetingconjunctionSet font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
           "
       >
         <span>

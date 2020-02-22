@@ -84,10 +84,10 @@ export default class Events extends React.Component {
               return this.singleEvent(event, day, key);
             });
 
-            return <>
+            return <div key={`${day}`}>
               {this.dayHead(days[day]['label'])}
               {events}
-            </>
+            </div>
           })
         }
       </div>
@@ -109,7 +109,7 @@ export default class Events extends React.Component {
 
     const rightBorder = `border-r-2 border-dashed border-${this.state.borderColor[event['type']]}-500`;
 
-    return <div className={`bg-gray-1000 pl-2 ml-2 ${rightBorder}`}>
+    return <div className={`event-view bg-gray-1000 pl-2 ml-2 ${rightBorder}`}>
 
       <div className={"event-view-wrapper"}>
 
@@ -118,7 +118,7 @@ export default class Events extends React.Component {
             <h3 className="text-3xl font-bold">{event['title']}</h3>
           </span>
           <span>
-            <a className="text-2xl text-red-600"
+            <a className="text-2xl text-red-600 close-event"
                href="#"
                onClick={(event) => onClick(event)}>
               {X()}
@@ -190,8 +190,9 @@ export default class Events extends React.Component {
       rightBorder = '';
     }
 
-    return <>
-      <div key={key} className={`${leftBorder} ${rightBorder} bg-gray-1000 p-2 mb-4`}>
+    const titleClass = `title event-${event['type']}-id-${event['id']}`;
+
+    return <div key={key} className={`${leftBorder} ${rightBorder} bg-gray-1000 p-2 mb-4`}>
         <div className="flex flex-row justify-between pl-2 pr-2">
           <span className={`text-2xl text-${this.state.borderColor[event['type']]}-500 font-bold`}>{icon}</span>
           <span>{moment.unix(event['startingDate']).utc().format(dateFormatOnlyHour)}</span>
@@ -200,7 +201,7 @@ export default class Events extends React.Component {
         <hr className="bg-orange-500 mt-2 mb-1"/>
 
         <div className="flex flex-row justify-between pt-3 pl-2 pr-2">
-          <a href='#' className="font-bold text-lg" onClick={(event) => onClick(event, day, key)}>
+          <a href='#' className={`${titleClass} font-bold text-lg`} onClick={(event) => onClick(event, day, key)}>
             {event['title']}
           </a>
           <span className="text-lg">Ends at: {this.refactorEndDate(event['startingDate'], event['endingDate'])}</span>
@@ -209,17 +210,14 @@ export default class Events extends React.Component {
         <p className="pt-3 pl-2 pr-2">
           TBD
         </p>
-      </div>
-    </>
+    </div>
   }
 
   render() {
     const cols = this.state.activeEvent !== null ? 'grid-cols-2' : 'grid-cols-1';
-    return <>
-      <div className={"mt-6 grid " + cols}>
+    return <div className={"mt-6 grid " + cols}>
         {this.List(this.state.events)}
         {this.EventView()}
       </div>
-    </>
   }
 }
