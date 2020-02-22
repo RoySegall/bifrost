@@ -53,7 +53,7 @@ export default class Home extends React.Component {
 
     render() {
         if (this.state.loading) {
-            return <div>{Loading()}</div>
+            return <div className="text-4xl mt-4 mb-4 text-center text-blue-1000">{Loading()}</div>
         }
 
         return (

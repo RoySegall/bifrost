@@ -16,21 +16,21 @@ function Timelines(data) {
   const {timelines} = data;
 
   return timelines.map((timeline, key) => {
-    return <div className="" key={key}>
+    return <div key={key}>
       <section className="bg-orange-100 p-4 mt-4 border-orange-400 border m-0 m-auto">
 
         <div className="flex flex-row">
           <a href={"/timeline/" + timeline.id}
-             className="text-3xl text-teal-500 hover:underline pb-2"
+             className="text-3xl text-teal-500 hover:underline pb-2 timeline-link"
           >{timeline.title}</a>
         </div>
 
         <ul className="flex flex-row text-2xl">
           <li className="mr-2">
-            <span className="text-blue-500">{PlaneUp()}</span> <b>{timeline.startingDate}</b> |
+            <span className="text-blue-500">{PlaneUp()}</span> <b className="starting-date">{timeline.startingDate}</b> |
           </li>
           <li>
-            <span className="text-orange-500">{PlaneDown()}</span> <b>{timeline.endingDate}</b>
+            <span className="text-orange-500">{PlaneDown()}</span> <b className="ending-date">{timeline.endingDate}</b>
           </li>
         </ul>
 

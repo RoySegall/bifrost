@@ -1,55 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing the header component 1`] = `
-<header
-
->
+<header>
   <div
-
+    className="container mx-auto flex items-end pb-2 pt-2 mt-2 border-teal-1000 border-b"
   >
-    <div
-
+    <h1
+      className="flex-1 text-red-1000 font-bold text-4xl"
     >
-      <h1>
-        Welcome, dummy
-      </h1>
-    </div>
+      Welcome, dummy
+    </h1>
     <div
-      className="col-6 menu text-right"
+      className="flex justify-between text-2xl"
     >
-      <ul
-
+      <div
+        className="mr-2 mt-1"
       >
-        <li
-
+        <span
+          className="text-red-1000 mr-1"
         >
           <i
             className="fal fa-user-cog"
           />
-
-          <a
-            href="/settings"
-          >
-            Settings
-          </a>
-        </li>
-        |
-        <li
-
+        </span>
+        <a
+          href="/settings"
+        >
+          Settings
+        </a>
+         |
+      </div>
+      <div
+        className="mr-2 mt-1"
+      >
+        <span
+          className="text-red-1000 mr-1"
         >
           <i
             className="fal fa-sign-out"
           />
-
-          <a
-            href="auth/logout"
-          >
-            Logout
-          </a>
-        </li>
-      </ul>
+        </span>
+        <a
+          href="auth/logout"
+        >
+          Logout
+        </a>
+      </div>
     </div>
   </div>
-  <hr />
 </header>
 `;

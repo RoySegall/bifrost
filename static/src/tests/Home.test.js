@@ -9,10 +9,10 @@ configure({adapter: new Adapter()});
 
 test('Testing the spinner of the app', () => {
     const home = shallow(<Home/>);
-    expect(home.find('.text-center i').hasClass('fa-spinner')).toBe(true);
+    expect(home.find('.loading').hasClass('fa-spinner')).toBe(true);
 
     home.setState({loading: false});
-    expect(home.find('.text-center i')).not.toBe(true);
+    expect(home.find('.loading i')).not.toBe(true);
 });
 
 test('Test the timeline component with partial yes', () => {
@@ -43,8 +43,8 @@ test('Test the timeline component with partial yes', () => {
 
     expect(timeline.find('.timeline-link').text()).toEqual("Roy's amazing trip");
 
-    expect(timeline.find('.starting-date').text()).toEqual(" 2019-11-12T20:18:25 |");
-    expect(timeline.find('.ending-date').text()).toEqual(" 2019-11-16T00:00:00");
+    expect(timeline.find('.starting-date').text()).toEqual("2019-11-12T20:18:25");
+    expect(timeline.find('.ending-date').text()).toEqual("2019-11-16T00:00:00");
 
     expect(timeline.find('.connection').text()).toEqual(' Connection flight - Yes,');
     expect(timeline.find('.picking-car').text()).toEqual(' Picking car - No,');
