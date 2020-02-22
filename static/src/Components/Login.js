@@ -59,78 +59,38 @@ export default class Login extends React.Component {
       })
   }
 
-  username() {
-    return <div className="md:flex md:items-center mb-6">
-      <div className="md:w-1/3">
-        <label className="block text-black font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="inline-full-name">
-          Username
-        </label>
-      </div>
-      <div className="md:w-2/3">
-        <input
-          onChange={(event) => {
-            this.setState({username: event.currentTarget.value})
-          }}
-          id="username"
-
-          aria-describedby="emailHelp"
-          placeholder="Enter username"
-          className="
-                bg-gray-200 appearance-none
-                border-2 border-gray-200 rounded
-                w-full py-2 px-4
-                text-black leading-tight
-                focus:outline-none focus:bg-white focus:border-purple-500
-
-          " type="text" />
-      </div>
-    </div>
-  }
-
-  password() {
-    return <div className="md:flex md:items-center mb-6">
-      <div className="md:w-1/3">
-        <label className="block text-black font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="inline-username">
-          Password
-        </label>
-      </div>
-      <div className="md:w-2/3">
-        <input
-          type="password"
-          id="password"
-          placeholder="Enter password"
-          onChange={(event) => {
-            this.setState({password: event.currentTarget.value})
-          }}
-          className="
-            bg-gray-200 appearance-none border-2 border-gray-200
-            rounded w-full py-2 px-4 text-gray-700 leading-tight
-            focus:outline-none focus:bg-white focus:border-purple-500
-          " />
-      </div>
-    </div>
-  }
-
-  submitButton() {
-    return <div className="md:flex md:items-center">
-      <div className="md:w-1/3"></div>
-      <div className="md:w-2/3">
-        <button className="button" type="button"onClick={(event) => {
-          this.login(event)
-        }}>Sign Up</button>
-      </div>
-    </div>
-  }
-
   render() {
     return <div>
       <FormError type={this.state.errors.type} message={this.state.errors.message}/>
 
-      <form className="w-full max-w-sm p-4 m-auto m-0">
-        {this.username()}
-        {this.password()}
-        {this.submitButton()}
-      </form>
+      <div className="flex flex-row justify-between mt-2 mb-2">
+        <form className="margin-0-auto w-6/12">
+          <div className="flex-row pb-2">
+            <label htmlFor="username" className="align-bottom mr-5 text-black font-bold">Username</label>
+            <input type="text"
+                   id="username"
+                   onChange={(event) => {this.setState({username: event.currentTarget.value})}}
+                   className="align-bottom m-4 p-2 ml-5 mb-0 pb-0 border-blue-500 border-b focus:bg-blue-100 w-3/4"
+                   placeholder="Username"
+            />
+          </div>
+
+          <div className="flex-row pb-2">
+            <label htmlFor="username" className="align-bottom mr-5 text-black font-bold">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter password"
+              onChange={(event) => {this.setState({password: event.currentTarget.value})}}
+              className="align-bottom m-4 p-2 ml-5 mb-0 pb-0 border-blue-500 border-b focus:bg-blue-100 w-3/4"
+            />
+          </div>
+
+          <div className="flex-row text-center">
+            <button className="mt-4 button" onClick={(event) => {this.login(event)}}>Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
   }
 

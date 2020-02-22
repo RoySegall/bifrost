@@ -623,7 +623,7 @@ video {
 
 .button {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  background-color: #9f7aea;
+  background-color: #4299e1;
   color: #fff;
   font-weight: 700;
   padding-top: 0.5rem;
@@ -634,7 +634,7 @@ video {
 }
 
 .button:hover {
-  background-color: #b794f4
+  background-color: #63b3ed
 }
 
 .button:focus {
@@ -689,6 +689,11 @@ video {
   margin-top: 1rem;
   margin-bottom: 1rem;
   width: 50%
+}
+
+.margin-0-auto {
+  margin: 0;
+  margin: auto
 }
 
 .sr-only {
