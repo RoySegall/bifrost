@@ -1,4 +1,7 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView
 from bifrost.settings import FRONT_ADDRESS
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
@@ -30,3 +33,13 @@ class Login(ObtainAuthToken):
         return Response({
             'token': token.key
         })
+
+
+@permission_classes([IsAuthenticated])
+class Logout(APIView):
+
+    def get(self, request, format=None):
+        """
+        Logging out of the system.
+        """
+        return JsonResponse({'foo': 'bar'})
