@@ -55,4 +55,11 @@ class Logout(APIView):
         """
         Logging out of the system.
         """
-        return JsonResponse({'foo': 'bar'})
+        token = request.headers\
+            .get('Authorization')\
+            .lower()\
+            .replace('token ', '')
+
+        Token.objects.get(key=token).delete()
+
+        return JsonResponse({'status': 'deleted'})

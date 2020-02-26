@@ -9,7 +9,7 @@ class TestLogout(TestCase):
 
     def setUp(self):
         """
-        Setting up stuff for the tests. Maybe...
+        Setting up stuff for the tests.
         """
         self.user = User.objects.create(email='foo@gmail.com')
 
@@ -45,14 +45,28 @@ class TestLogout(TestCase):
         self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
 
     def test_logout_with_invalid_access_token(self):
-        pass
+        """
+        Testing when tying to logout with invalid access token.
+        """
+        token = self.create_access_token()
+        res = self.get_client(token.key[:-1]).delete("/auth/logout")
+
+        self.assertEqual(res.json(), {'detail': 'Invalid token.'})
+        self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
 
     def test_logout_with_valid_access_token(self):
+        """
+        Testing the logout with a valid access token.
+        """
         # Make sure we got the correct user.
         token = self.create_access_token()
         self.assertEquals(self.get_user(token)['id'], self.user.id)
 
         # Now, let's logout and make sure the user's token is no longer valid.
+        res = self.get_client(token.key).delete("/auth/logout")
+        self.assertEquals(res.status_code, status.HTTP_200_OK)
+        self.assertEquals(res.json(), {'status': 'deleted'})
 
-    def test_logout_with_token_of_anoher_user(self):
-        pass
+        # Testing the token is no longer valid.
+        res = self.get_user(token)
+        self.assertEqual(res, {'detail': 'Invalid token.'})
