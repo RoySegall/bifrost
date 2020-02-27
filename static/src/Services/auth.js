@@ -5,4 +5,8 @@ function isLoggedIn() {
     return window.localStorage.getItem('token');
 }
 
+export const Logout = () => {
+    localStorage.removeItem('token');
+};
+
 export default isLoggedIn
