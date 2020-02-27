@@ -42,6 +42,8 @@ exports[`Testing the header component 1`] = `
         </span>
         <a
           href="auth/logout"
+          id="logout"
+          onClick={[Function]}
         >
           Logout
         </a>

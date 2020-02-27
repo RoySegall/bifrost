@@ -1,5 +1,6 @@
 import React from 'react';
 import {Configuration, Logout} from '../Fonts'
+import {Logout as userLogout} from '../Services/auth';
 
 function Header() {
   return <header>
@@ -15,7 +16,7 @@ function Header() {
 
         <div className="mr-2 mt-1">
           <span className="text-red-1000 mr-1">{Logout()}</span>
-          <a href="auth/logout">Logout</a>
+          <a href="auth/logout" onClick={userLogout} id="logout">Logout</a>
         </div>
       </div>
     </div>
