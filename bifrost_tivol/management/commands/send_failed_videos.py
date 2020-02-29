@@ -51,21 +51,25 @@ class Command(BaseCommand):
             message.add_attachment(attachment)
 
     def handle(self, *args, **options):
-        print(os.environ)
+
+        if not os.environ['SEND_ON_FAIL']:
+            return
+
         message = Mail(
             from_email='from_email@example.com',
             to_emails='roy@segall.io',
-            subject=f"{os.environ['TRAVIS_COMMIT_MESSAGE']} is failing",
-            html_content='This are the failed tests videos',)
+            subject=f"{os.environ['TRAVIS_COMMIT_MESSAGE']} on {os.environ['TRAVIS_BRANCH']} is failing",
+            html_content='For some reason, the commit has been failed. Screenshots and videos are attached',
+        )
 
         self.add_videos(message)
         self.add_picturs(message)
 
-        # try:
-        #     sg = SendGridAPIClient(sendgird)
-        #     response = sg.send(message)
-        #     print(response.status_code)
-        #     print(response.body)
-        #     print(response.headers)
-        # except Exception as e:
-        #     print(str(e))
+        try:
+            sg = SendGridAPIClient(sendgird)
+            response = sg.send(message)
+            print(response.status_code)
+            print(response.body)
+            print(response.headers)
+        except Exception as e:
+            print(str(e))
