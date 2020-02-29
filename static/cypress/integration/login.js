@@ -1,6 +1,6 @@
 describe('Logging in', function() {
 
-  it('Visits the Kitchen Sink', function() {
+  it('Testing the login', function() {
     cy.visit('http://localhost:3000');
 
     // Try to submit with empty creds.
