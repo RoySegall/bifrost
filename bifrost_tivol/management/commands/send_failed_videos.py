@@ -51,21 +51,21 @@ class Command(BaseCommand):
             message.add_attachment(attachment)
 
     def handle(self, *args, **options):
-
+        print(os.environ)
         message = Mail(
             from_email='from_email@example.com',
             to_emails='roy@segall.io',
-            subject='Sending with Twilio SendGrid is Fun',
+            subject=f"{os.environ['TRAVIS_COMMIT_MESSAGE']} is failing",
             html_content='This are the failed tests videos',)
 
         self.add_videos(message)
         self.add_picturs(message)
 
-        try:
-            sg = SendGridAPIClient(sendgird)
-            response = sg.send(message)
-            print(response.status_code)
-            print(response.body)
-            print(response.headers)
-        except Exception as e:
-            print(str(e))
+        # try:
+        #     sg = SendGridAPIClient(sendgird)
+        #     response = sg.send(message)
+        #     print(response.status_code)
+        #     print(response.body)
+        #     print(response.headers)
+        # except Exception as e:
+        #     print(str(e))

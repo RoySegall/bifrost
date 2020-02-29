@@ -27,4 +27,5 @@ script:
   - bash $SCRIPT
 
 after_failure:
+  - once
   - python manage.py send_failed_videos
