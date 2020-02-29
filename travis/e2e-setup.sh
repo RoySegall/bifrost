@@ -8,6 +8,7 @@ pip install -r requirements.txt
 mysql -e 'CREATE DATABASE bifrost;'
 cp bifrost/local_settings.travis.py bifrost/local_settings.py
 python manage.py migrate
+python manage.py migrate_content
 python manage.py runserver &
 echo "Server is runing!"
 
