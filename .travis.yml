@@ -2,17 +2,17 @@ language: python
 python: "3.7"
 
 env:
-  - SCRIPT=travis/python-linter.sh
-    INSTALL=travis/python-setup.sh
-
-  - SCRIPT=travis/python-unitest.sh
-    INSTALL=travis/python-setup.sh
-
-  - SCRIPT=travis/react-unittest.sh
-    INSTALL=travis/react-setup.sh
-
-  - SCRIPT=travis/react-linter.sh
-    INSTALL=travis/react-setup.sh
+#  - SCRIPT=travis/python-linter.sh
+#    INSTALL=travis/python-setup.sh
+#
+#  - SCRIPT=travis/python-unitest.sh
+#    INSTALL=travis/python-setup.sh
+#
+#  - SCRIPT=travis/react-unittest.sh
+#    INSTALL=travis/react-setup.sh
+#
+#  - SCRIPT=travis/react-linter.sh
+#    INSTALL=travis/react-setup.sh
 
   - SCRIPT=travis/e2e.sh
     INSTALL=travis/e2e-setup.sh
