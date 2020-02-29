@@ -8,3 +8,5 @@ DATABASES = {
         'HOST': '127.0.0.1',
     }
 }
+
+sendgird = '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'

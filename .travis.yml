@@ -25,3 +25,6 @@ before_script:
 
 script:
   - bash $SCRIPT
+
+after_failure:
+  - python manage.py send_failed_videos
