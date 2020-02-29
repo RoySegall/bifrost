@@ -10,7 +10,7 @@ describe('Logging in', function() {
     cy.get('.alert-error').contains('Username is required');
 
     // Set up the username and submit the form. Verify we got and error.
-    cy.get('#username').type('tossny');
+    cy.get('#username').type('tony');
     cy.get('.flex-row.text-center button').click();
     cy.get('.alert-error').contains('Password is required');
 
