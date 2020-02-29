@@ -11,4 +11,4 @@ DATABASES = {
     }
 }
 
-sendgird = os.environ.get('EMAIL')
+sendgird = os.environ['EMAIL']
