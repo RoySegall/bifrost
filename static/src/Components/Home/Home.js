@@ -57,7 +57,7 @@ export default class Home extends React.Component {
         }
 
         return (
-            <div className="container mb-4">
+            <div className="container mb-4 timeline">
                 <Timelines timelines={this.state.timelines} />
             </div>
         )

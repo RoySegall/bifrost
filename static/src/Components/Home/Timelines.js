@@ -19,7 +19,7 @@ function Timelines(data) {
     return <div key={key}>
       <section className="bg-orange-100 p-4 mt-4 border-orange-400 border m-0 m-auto">
 
-        <div className="flex flex-row">
+        <div className="flex flex-row trip-title">
           <a href={"/timeline/" + timeline.id}
              className="text-3xl text-teal-500 hover:underline pb-2 timeline-link"
           >{timeline.title}</a>
