@@ -149,7 +149,7 @@ const OrderTimeline = (timeline) => {
     });
 
   // Sort the events and then sort the days.
-  const ordered = {'events': [], 'label': ''};
+  const ordered = {};
   Object.keys(days).sort((a, b) => {
     if (days[a].timestamp > days[b].timestamp) {
       return 1;
@@ -160,7 +160,9 @@ const OrderTimeline = (timeline) => {
     return 0;
   }).forEach(function (key) {
     ordered[key] = {
-      'label': '', 'events': days[key].events.sort((a, b) => {
+      'timestamp': days[key]['timestamp'],
+      'label': days[key]['label'],
+      'events': days[key].events.sort((a, b) => {
         if (a.startingDate > b.startingDate) {
           return 1;
         }
@@ -172,7 +174,7 @@ const OrderTimeline = (timeline) => {
     };
   });
 
-  timelineInfo.events = days;
+  timelineInfo.events = ordered;
 
   return timelineInfo;
 };
