@@ -14,6 +14,10 @@ env:
   - SCRIPT=travis/react-linter.sh
     INSTALL=travis/react-setup.sh
 
+  - SCRIPT=travis/e2e.sh
+    INSTALL=travis/e2e-setup.sh
+    SEND_ON_FAIL=1
+
 services:
   - mysql
 
@@ -22,3 +26,6 @@ before_script:
 
 script:
   - bash $SCRIPT
+
+after_failure:
+  - python manage.py send_failed_videos
