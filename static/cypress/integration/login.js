@@ -7,7 +7,7 @@ describe('Logging in', function() {
     cy.get('.flex-row.text-center button').click();
 
     // Verify the error.
-    cy.get('.alert-error').contains('Userndddame is required');
+    cy.get('.alert-error').contains('Username is required');
 
     // Set up the username and submit the form. Verify we got and error.
     cy.get('#username').type('tony');
