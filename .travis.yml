@@ -4,23 +4,19 @@ python: "3.7"
 env:
   - SCRIPT=travis/python-linter.sh
     INSTALL=travis/python-setup.sh
-    SEND_ON_FAIL=FALSE
 
   - SCRIPT=travis/python-unitest.sh
     INSTALL=travis/python-setup.sh
-    SEND_ON_FAIL=FALSE
 
   - SCRIPT=travis/react-unittest.sh
     INSTALL=travis/react-setup.sh
-    SEND_ON_FAIL=FALSE
 
   - SCRIPT=travis/react-linter.sh
     INSTALL=travis/react-setup.sh
-    SEND_ON_FAIL=FALSE
 
   - SCRIPT=travis/e2e.sh
     INSTALL=travis/e2e-setup.sh
-    SEND_ON_FAIL=TRUE
+    SEND_ON_FAIL=1
 
 services:
   - mysql
@@ -32,5 +28,4 @@ script:
   - bash $SCRIPT
 
 after_failure:
-  - once
   - python manage.py send_failed_videos
