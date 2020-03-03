@@ -26,7 +26,13 @@ class BifrostTimelineGrpahql(graphene.ObjectType):
         user = info.context.user
 
         user_timelines = TimelineModel.objects.filter(user=user.id).all()
-        mcs = MeetingConjunction.objects.filter(members=info.context.user)
+
+        if info.context.user.is_anonymous:
+            members = None
+        else:
+            members = info.context.user
+
+        mcs = MeetingConjunction.objects.filter(members=members)
         shared_timelines = []
         for mc in mcs:
             shared_timelines.append(mc.timeline)
@@ -38,18 +44,20 @@ class BifrostTimelineGrpahql(graphene.ObjectType):
         user = info.context.user
         id = kwargs.get('id')
 
+        return TimelineModel.objects.filter(user=user.id, id=id).first()
+
         try:
             timeline = TimelineModel.objects.get(id=id)
         except TimelineModel.DoesNotExist:
             return None
 
-        if timeline.user.id == user:
+        if timeline.user.id == user.id:
             # The timeline belongs to the user.
             return timeline
 
         if timeline.shared:
-            # The timeline is shared with the user so the user can access to the
-            # timeline.
+            # The timeline is shared with the user so the user can access to
+            # the timeline.
             return timeline
 
         return None

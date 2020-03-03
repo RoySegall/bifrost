@@ -14,4 +14,4 @@ class Timeline(models.Model):
     @property
     def shared(self):
         # come up with a fancy algo for this...
-        return True
+        return False

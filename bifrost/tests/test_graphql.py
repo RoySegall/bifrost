@@ -1,4 +1,7 @@
 from datetime import datetime
+
+from django.test import tag
+
 from bifrost.schema import schema
 from bifrost.src.ioc.ServiceContainer import Container
 from graphene_django.utils.testing import GraphQLTestCase
@@ -194,6 +197,7 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
         self.assertTrue(alice in members)
         self.assertTrue(bob in members)
 
+    @tag('now')
     def test_complete_trip_view(self):
         """
         Testing we can view the trip.
@@ -213,6 +217,7 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
         response = self.send_timelines_query()
         self.assertResponseValue(response, self.second_user_trip)
 
+    @tag('now')
     def test_view_trip_by_allowed_users(self):
         """
         Testing a user can access it's own trip and not other user's trips.
