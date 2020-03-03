@@ -10,3 +10,8 @@ class Timeline(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def shared(self):
+        # come up with a fancy algo for this...
+        return True

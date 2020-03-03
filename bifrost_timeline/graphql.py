@@ -6,6 +6,8 @@ from bifrost_timeline.models import Timeline as TimelineModel
 
 
 class Timeline(DjangoObjectType):
+    shared = graphene.Boolean(source='shared')
+
     class Meta:
         model = TimelineModel
 
@@ -23,25 +25,31 @@ class BifrostTimelineGrpahql(graphene.ObjectType):
     def resolve_timelines(self, info):
         user = info.context.user
 
-        # Get the timeline by the current user.
-        return TimelineModel.objects.filter(user=user.id).all()
+        user_timelines = TimelineModel.objects.filter(user=user.id).all()
+        mcs = MeetingConjunction.objects.filter(members=info.context.user)
+        shared_timelines = []
+        for mc in mcs:
+            shared_timelines.append(mc.timeline)
+
+        # Get the timeline by the current user and the shared events.
+        return list(user_timelines) + list(shared_timelines)
 
     def resolve_timeline(self, info, **kwargs):
         user = info.context.user
         id = kwargs.get('id')
 
-        # Get the timeline by the current user.
-        return TimelineModel.objects.filter(user=user.id, id=id).first()
+        try:
+            timeline = TimelineModel.objects.get(id=id)
+        except TimelineModel.DoesNotExist:
+            return None
 
-    def resolve_shared_timelines(self, info):
-        # First, get the meeting conjunctions of the user.
+        if timeline.user.id == user:
+            # The timeline belongs to the user.
+            return timeline
 
-        return [mc.timeline for mc in
-                MeetingConjunction.objects.filter(members=info.context.user)]
+        if timeline.shared:
+            # The timeline is shared with the user so the user can access to the
+            # timeline.
+            return timeline
 
-    def resolve_shared_timeline(self, info, **kwargs):
-        user = info.context.user
-        id = kwargs.get('id')
-
-        # Get the timeline by the current user.
-        return TimelineModel.objects.filter(user=user.id, id=id).first()
+        return None
