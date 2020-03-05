@@ -212,36 +212,3 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
         self._client = self.login('second_user')
         response = self.send_timelines_query()
         self.assertResponseValue(response, self.second_user_trip)
-
-    def test_view_trip_by_allowed_users(self):
-        """
-        Testing a user can access it's own trip and not other user's trips.
-        """
-        def get_timeline_by_id(timeline_id):
-            return self.query(
-                '''
-                {
-                    timeline(id: ''' + timeline_id + ''') {
-                        title,
-                        id
-                    }
-                }
-                '''
-            )
-
-        self._client = self.login('first_user')
-        timeline = self.second_user_trip['timeline']
-        response = get_timeline_by_id(str(timeline.id))
-        response = json.loads(response.content)['data']
-
-        self.assertEquals(response, {'timeline': None})
-
-        # Testing with the other the correct user.
-        timeline = self.first_user_trip['timeline']
-        response = get_timeline_by_id(str(timeline.id))
-        response = json.loads(response.content)['data']
-
-        self.assertEquals(
-            response,
-            {'timeline': {'id': str(timeline.id), 'title': timeline.title}}
-        )

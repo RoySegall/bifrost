@@ -21,7 +21,9 @@ class TestTimelineAccess(BaseTestUtils, GraphQLTestCase):
         Create a timeline which belong to user A and shared with user B while
         user C is not shared with any timeline.
         """
-        # Creating the users.
+
+        self.simple_setup()
+
         self.user_timeline = self.create_user(username='user_timeline')
         self.user_shared_with = self.create_user(username='user_shared_with')
         self.user_not_shared = self.create_user(username='user_not_shared')
@@ -36,10 +38,10 @@ class TestTimelineAccess(BaseTestUtils, GraphQLTestCase):
         self.mc.members.add(self.user_shared_with)
         self.mc.save()
 
-    def test_user_access_to_its_own_timeline(self):
+    def get_timelines(self):
         """
+        Get all the timelines.
         """
-        self._client = self.login('user_timeline')
         response = self.query(
             '''
             {
@@ -50,15 +52,70 @@ class TestTimelineAccess(BaseTestUtils, GraphQLTestCase):
             '''
         )
 
-        data = json.loads(response.content)['data']
+        return json.loads(response.content)['data']
+
+    def get_timeline(self, timeline_id):
+        """
+        Get a single timeline.
+        """
+        response = self.query(
+            '''
+            {
+                timeline(id: ''' + timeline_id + ''') {
+                    id
+                }
+            }
+            '''
+        )
+        return response.json()['data']
+
+    def test_user_access_to_its_own_timeline(self):
+        """
+        Testing access to the user own timeline.
+        """
+        self._client = self.login('user_timeline')
+        data = self.get_timelines()
         self.assertEqual(data, {'timelines': [{'id': str(self.timeline.id)}]})
+
+        data = self.get_timeline(str(self.timeline.id))
+        self.assertEqual(data, {'timeline': {'id': str(self.timeline.id)}})
 
     def test_user_access_to_timeline_which_shared_with_him(self):
         """
+        Testing the access for timelines which shared with the user.
         """
-        pass
+        self._client = self.login('user_shared_with')
+        data = self.get_timelines()
+        self.assertEqual(data, {'timelines': [{'id': str(self.timeline.id)}]})
+
+        data = self.get_timeline(str(self.timeline.id))
+        self.assertEqual(data, {'timeline': {'id': str(self.timeline.id)}})
+
+        # Create another timeline for the "user_shared_with".
+        self.create_timeline(self.user_shared_with)
+        data = self.get_timelines()
+        self.assertEqual(2, len(data['timelines']))
+
+        # Login as the first user and make sure the user can see a single
+        # timeline.
+        self._client = self.login('user_timeline')
+        data = self.get_timelines()
+        self.assertEqual(1, len(data['timelines']))
 
     def test_access_for_the_shared_timeline_with_user_c(self):
         """
+        Check that a user which not shared with will not see any timeline.
         """
-        pass
+        self.login(self.user_not_shared)
+        data = self.get_timelines()
+        self.assertEqual(0, len(data['timelines']))
+
+        data = self.get_timeline(str(self.timeline.id))
+        self.assertEqual(data, {'timeline': None})
+
+    def test_access_as_anonymous(self):
+        data = self.get_timelines()
+        self.assertEqual(0, len(data['timelines']))
+
+        data = self.get_timeline(str(self.timeline.id))
+        self.assertEqual(data, {'timeline': None})

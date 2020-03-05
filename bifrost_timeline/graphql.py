@@ -1,8 +1,7 @@
 import graphene
 from graphene_django import DjangoObjectType
-
-from bifrost_events.models import MeetingConjunction
 from bifrost_timeline.models import Timeline as TimelineModel
+from bifrost.src.ioc.ServiceContainer import Container
 
 
 class Timeline(DjangoObjectType):
@@ -27,15 +26,9 @@ class BifrostTimelineGrpahql(graphene.ObjectType):
 
         user_timelines = TimelineModel.objects.filter(user=user.id).all()
 
-        if info.context.user.is_anonymous:
-            members = None
-        else:
-            members = info.context.user
-
-        mcs = MeetingConjunction.objects.filter(members=members)
-        shared_timelines = []
-        for mc in mcs:
-            shared_timelines.append(mc.timeline)
+        shared_timelines = Container\
+            .timeline_service()\
+            .get_shared_timelines(info.context.user)
 
         # Get the timeline by the current user and the shared events.
         return list(user_timelines) + list(shared_timelines)
@@ -44,10 +37,10 @@ class BifrostTimelineGrpahql(graphene.ObjectType):
         user = info.context.user
         id = kwargs.get('id')
 
-        return TimelineModel.objects.filter(user=user.id, id=id).first()
+        # return TimelineModel.objects.filter(user=user.id, id=id).first()
 
         try:
-            timeline = TimelineModel.objects.get(id=id)
+            timeline = TimelineModel.objects.filter(id=id).first()
         except TimelineModel.DoesNotExist:
             return None
 
@@ -55,9 +48,8 @@ class BifrostTimelineGrpahql(graphene.ObjectType):
             # The timeline belongs to the user.
             return timeline
 
-        if timeline.shared:
-            # The timeline is shared with the user so the user can access to
-            # the timeline.
+        if Container.timeline_service().is_shared_timeline(info.context.user,
+                                                           timeline):
             return timeline
 
         return None
