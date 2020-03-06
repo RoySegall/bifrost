@@ -20,6 +20,7 @@ export default class Filters extends React.Component {
   }
 
   switchFilter(filter) {
+    this.props.changeEvnetCallbak(filter);
     this.setState({activeFilter: filter});
   }
 

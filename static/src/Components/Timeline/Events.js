@@ -15,6 +15,7 @@ export default class Events extends React.Component {
     this.state = {
       events: props['events'],
       activeEvent: null,
+      selectedEventType: this.props['selectedEventType'],
       borderColor: {
         accommodationSet: 'pink',
         flightSet: 'orange',
@@ -81,8 +82,18 @@ export default class Events extends React.Component {
         {
           Object.keys(days).map(day => {
             const events = days[day]['events'].map((event, key) => {
+              if (this.props['selectedEventType'] !== 'all') {
+                if (event['type'] !== this.props['selectedEventType']) {
+                    return null;
+                }
+              }
               return this.singleEvent(event, day, key);
             });
+
+            if (events.filter(item => item !== null).length === 0) {
+              // In case we don't have event for this day we won't display anything. Including the label of the day.
+              return;
+            }
 
             return <div key={`${day}`}>
               {this.dayHead(days[day]['label'])}
@@ -178,7 +189,7 @@ export default class Events extends React.Component {
 
     const icon = icons[event['type']];
 
-    const onClick = (event, day, key) => {
+    const setEventCallback = (event, day, key) => {
       event.preventDefault();
       this.setEventView({day, key});
     };
@@ -201,7 +212,7 @@ export default class Events extends React.Component {
         <hr className="bg-orange-500 mt-2 mb-1"/>
 
         <div className="flex flex-row justify-between pt-3 pl-2 pr-2">
-          <a href='#' className={`${titleClass} font-bold text-lg`} onClick={(event) => onClick(event, day, key)}>
+          <a href='#' className={`${titleClass} font-bold text-lg`} onClick={(event) => setEventCallback(event, day, key)}>
             {event['title']}
           </a>
           <span className="text-lg">Ends at: {this.refactorEndDate(event['startingDate'], event['endingDate'])}</span>
