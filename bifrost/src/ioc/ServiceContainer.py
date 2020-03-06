@@ -2,6 +2,7 @@ from bifrost.signals import ServiceContainerInit
 from bifrost_events.Services import Flight, Accommodation, PickingCar, \
     MeetingConjunction
 from bifrost_location.Services import Location
+from bifrost_timeline.Services import Timeline
 
 
 class Container:
@@ -77,3 +78,7 @@ class Container:
         Get the location service.
         """
         return Container.get_service('location_service')
+
+    @staticmethod
+    def timeline_service() -> Timeline.Service:
+        return Container.get_service('timeline_service')
