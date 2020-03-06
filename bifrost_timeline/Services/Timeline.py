@@ -15,9 +15,9 @@ class Service(ServiceBase):
         Get all the shared timelines of the user.
 
         Shared timeline is a timeline which shared with other users but only
-        when a meeting conjunction exists. The events in the timeline are shared
-        between the starting of the meeting conjunction and the end of the
-        event.
+        when a meeting conjunction exists. The events in the timeline are
+        shared between the starting of the meeting conjunction and the end
+        of the event.
         """
         if user.is_anonymous:
             members = None
