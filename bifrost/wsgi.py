@@ -13,4 +13,8 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bifrost.settings')
 
+from bifrost.signals import ServiceContainerInit
+service_init = ServiceContainerInit()
+service_init.notify_listeners()
+
 application = get_wsgi_application()
