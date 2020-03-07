@@ -208,3 +208,33 @@ class MeetingConjunctionMembersMigration(MigrationBase):
             meeting_conjunction.save()
 
         return f'{self.name}: {len(rows)} processed'
+
+
+class LunchMigration(MigrationBase):
+
+    def init_metadata(self):
+        self.init_helper(
+            'lunch',
+            'lunches.csv',
+            MeetingConjunction
+        )
+
+        self.fields_plugins = {
+            'starting_date': [Plugins.DateFormatPlugin],
+            'ending_date': [
+                {
+                    'plugin': Plugins.DateFormatPlugin,
+                    'extra_info': {'delta': timedelta(days=6)}
+                }
+            ],
+            'timeline': [
+                {
+                    'plugin': Plugins.BifrostReferencePlugin,
+                    'extra_info': {'model': Timeline}
+                }
+            ],
+            'location': [
+                {'plugin': ReferencePlugin, 'extra_info': {'model': Location}}
+            ],
+        }
+
