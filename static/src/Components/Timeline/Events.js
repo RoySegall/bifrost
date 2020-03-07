@@ -66,6 +66,10 @@ export default class Events extends React.Component {
    *  The end date by laws.
    */
   refactorEndDate(startDate, endDate) {
+    if (!endDate) {
+      return null;
+    }
+
     const startingFrom = moment.unix(startDate).utc();
     const endingFromUnix = moment.unix(endDate).utc();
 
@@ -119,6 +123,7 @@ export default class Events extends React.Component {
     };
 
     const rightBorder = `border-r-2 border-dashed border-${this.state.borderColor[event['type']]}-500`;
+    const endDate = this.refactorEndDate(event['startingDate'], event['endingDate']);
 
     return <div className={`event-view bg-gray-1000 pl-2 ml-2 ${rightBorder}`}>
 
@@ -149,8 +154,8 @@ export default class Events extends React.Component {
           </span>
 
           <span>
-              Starts at <b>{moment.unix(event['endingDate']).utc().format(dateFormatOnlyHour)}</b> and
-              ends at: <b>{this.refactorEndDate(event['startingDate'], event['endingDate'])}</b>
+              Starts at <b>{moment.unix(event['endingDate']).utc().format(dateFormatOnlyHour)}</b>
+              { !endDate ? null : <> and ends at: <b>{endDate}</b></> }
           </span>
         </div>
 
@@ -202,6 +207,7 @@ export default class Events extends React.Component {
     }
 
     const titleClass = `title event-${event['type']}-id-${event['id']}`;
+    const endDate = this.refactorEndDate(event['startingDate'], event['endingDate']);
 
     return <div key={key} className={`${leftBorder} ${rightBorder} bg-gray-1000 p-2 mb-4`}>
         <div className="flex flex-row justify-between pl-2 pr-2">
@@ -215,7 +221,10 @@ export default class Events extends React.Component {
           <a href='#' className={`${titleClass} font-bold text-lg`} onClick={(event) => setEventCallback(event, day, key)}>
             {event['title']}
           </a>
-          <span className="text-lg">Ends at: {this.refactorEndDate(event['startingDate'], event['endingDate'])}</span>
+          { !endDate ? null :
+              <><span className="text-lg">Ends at: {this.refactorEndDate(event['startingDate'], event['endingDate'])}</span></>
+          }
+
         </div>
 
         <p className="pt-3 pl-2 pr-2">
