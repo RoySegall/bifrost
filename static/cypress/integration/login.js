@@ -1,7 +1,7 @@
 describe('Logging in', function() {
 
   it('Testing the login', function() {
-    cy.visit('/');
+    // cy.visit('/');
 
     // Try to submit with empty creds.
     cy.get('.flex-row.text-center button').click();
