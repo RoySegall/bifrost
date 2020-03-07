@@ -13,6 +13,7 @@ class Timeline extends React.Component {
 
     this.state = {
       timeline: {},
+      selectedEventType: 'all'
     };
   }
 
@@ -89,6 +90,15 @@ class Timeline extends React.Component {
     this.setState({timeline: OrderTimeline(response.data.data.timeline)})
   }
 
+  /**
+   * Setting the event type.
+   *
+   * @param selectedEventType
+   */
+  setEventsType = (selectedEventType)  => {
+    this.setState({selectedEventType})
+  };
+
   render() {
 
     if (!this.state.timeline.events) {
@@ -97,8 +107,8 @@ class Timeline extends React.Component {
 
     return <div className="container mx-auto grid grid-cols-1 pt-2 pb-3 pt-2 mt-2">
       <Head {...this.state.timeline} />
-      <Filters/>
-      <Events events={this.state.timeline.events}/>
+      <Filters changeEvnetCallbak={this.setEventsType} />
+      <Events events={this.state.timeline.events} selectedEventType={this.state['selectedEventType']} />
     </div>
   }
 }
