@@ -237,4 +237,3 @@ class LunchMigration(MigrationBase):
                 {'plugin': ReferencePlugin, 'extra_info': {'model': Location}}
             ],
         }
-
