@@ -6,6 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 configure({adapter: new Adapter()});
 
+const filterCallbackMock = jest.fn();
 
 test("Testing the snapshot of the component", () => {
 
@@ -17,7 +18,7 @@ test("Testing the snapshot of the component", () => {
 
 test("Testing the filter changing", () => {
 
-    const filters = mount(<Filters/>);
+    const filters = mount(<Filters changeEvnetCallbak={filterCallbackMock}/>);
     const event = {
         preventDefault: () => {
         }
@@ -32,16 +33,21 @@ test("Testing the filter changing", () => {
     // Click on the button and verify the event was triggered.
     filters.find('button.pickingcarSet').simulate('click');
     expect(filters.instance().state.activeFilter).toBe('pickingcarSet');
+    expect(filterCallbackMock).toHaveBeenCalledTimes(1);
 
     filters.find('button.flightSet').simulate('click');
     expect(filters.instance().state.activeFilter).toBe('flightSet');
+    expect(filterCallbackMock).toHaveBeenCalledTimes(2);
 
     filters.find('button.accommodationSet').simulate('click');
     expect(filters.instance().state.activeFilter).toBe('accommodationSet');
+    expect(filterCallbackMock).toHaveBeenCalledTimes(3);
 
     filters.find('button.meetingconjunctionSet').simulate('click');
     expect(filters.instance().state.activeFilter).toBe('meetingconjunctionSet');
+    expect(filterCallbackMock).toHaveBeenCalledTimes(4);
 
     filters.find('button.all').simulate('click');
     expect(filters.instance().state.activeFilter).toBe('all');
+    expect(filterCallbackMock).toHaveBeenCalledTimes(5);
 });
