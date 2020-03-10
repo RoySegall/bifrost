@@ -95,6 +95,13 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             location=self.location
         )
 
+        general_event = Container.accommodation_service().create_general_event(
+            title='Lunch',
+            starting_date=datetime.now(),
+            timeline=timeline,
+            location=self.location
+        )
+
         return {
             'timeline': timeline,
             'picking_car': picking_car,
@@ -104,6 +111,7 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             'accommodation': accommodation,
             'lunch': lunch,
             'meeting': meeting,
+            'general_event': general_event,
         }
 
     def send_timelines_query(self):

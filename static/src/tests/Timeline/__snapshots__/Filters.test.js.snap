@@ -145,6 +145,26 @@ exports[`Testing the snapshot of the component 1`] = `
         </span>
       </button>
     </li>
+    <li
+      onClick={[Function]}
+    >
+      <button
+        className="
+            btn-filter generaleventSet font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
+          "
+      >
+        <span>
+          <i
+            className="fad fa-calendar-alt"
+          />
+        </span>
+        <span
+          className="pl-2"
+        >
+          General Events
+        </span>
+      </button>
+    </li>
   </ul>
 </div>
 `;

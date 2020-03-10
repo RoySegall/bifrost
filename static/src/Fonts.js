@@ -56,6 +56,10 @@ const Meeting = () => {
     return <i className="far fa-handshake"></i>;
 };
 
+const GeneralEvent = () => {
+    return <i className="fad fa-calendar-alt"></i>;
+};
+
 export {
     Calendar,
     Car,
@@ -70,5 +74,6 @@ export {
     Excahnge,
     X,
     Restaurant,
-    Meeting
+    Meeting,
+    GeneralEvent
 };

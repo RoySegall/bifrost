@@ -3,22 +3,22 @@ from datetime import datetime
 from bifrost.src.ioc.ServiceContainer import Container
 
 
-class TestMeetingEvent(BaseTestUtils):
+class TestGeneralEvent(BaseTestUtils):
 
     def setUp(self):
         self.simple_setup()
 
-    def test_meeting_event_creation(self):
+    def test_accommodation_event_creation(self):
         """
-        Testing the creation of a meeting event.
+        Testing the creation of accommodation event.
         """
-        meeting = Container.accommodation_service().create_meeting(
+        meeting = Container.accommodation_service().create_general_event(
             title='Dummy flight',
             starting_date=datetime.now(),
             timeline=self.timeline,
         )
 
         self.assertEquals(
-            self.user.timeline_set.first().meeting_set.first(),
+            self.user.timeline_set.first().generalevent_set.first(),
             meeting
         )

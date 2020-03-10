@@ -3,7 +3,7 @@ from graphene_django import DjangoObjectType
 from .models import Flight as FlightModel, \
     Accommodation as AccommodationModel, PickingCar as PickingCarModel, \
     MeetingConjunction as MeetingConjunctionModel, Lunch as LunchModel, \
-    Meeting as MeetingModel
+    Meeting as MeetingModel, GeneralEvent as GeneralEventModel
 
 
 class Flight(DjangoObjectType):
@@ -36,6 +36,11 @@ class Meeting(DjangoObjectType):
         model = MeetingModel
 
 
+class GeneralEvent(DjangoObjectType):
+    class Meta:
+        model = GeneralEventModel
+
+
 class BifrostEventsGraphql(graphene.ObjectType):
     flights = graphene.List(Flight)
     flight = graphene.Field(Flight, id=graphene.Int())
@@ -54,6 +59,9 @@ class BifrostEventsGraphql(graphene.ObjectType):
 
     meetings = graphene.List(Meeting)
     meeting = graphene.Field(Meeting, id=graphene.Int())
+
+    general_events = graphene.List(GeneralEvent)
+    general_event = graphene.Field(GeneralEvent, id=graphene.Int())
 
     def resolve_flights(self, info):
         user = info.context.user
@@ -136,5 +144,20 @@ class BifrostEventsGraphql(graphene.ObjectType):
         id = kwargs.get('id')
 
         return MeetingModel.objects.filter(
+            timeline__user=user.id, id=id
+        ).first()
+
+    def resolve_general_events(self, info):
+        user = info.context.user
+
+        return GeneralEventModel.objects.filter(
+            timeline__user=user.id
+        ).all()
+
+    def resolve_general_event(self, info, **kwargs):
+        user = info.context.user
+        id = kwargs.get('id')
+
+        return GeneralEventModel.objects.filter(
             timeline__user=user.id, id=id
         ).first()

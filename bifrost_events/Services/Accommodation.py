@@ -1,5 +1,5 @@
 from bifrost.src.ioc.Base import ServiceBase
-from bifrost_events.models import Accommodation, Lunch, Meeting
+from bifrost_events.models import Accommodation, Lunch, Meeting, GeneralEvent
 
 
 class Service(ServiceBase):
@@ -40,3 +40,13 @@ class Service(ServiceBase):
         :return: The meeting object.
         """
         return Meeting.objects.create(**kwargs)
+
+    def create_general_event(self, **kwargs):
+        """
+        Creating a general event.
+
+        :param kwargs: Arguments for the event.
+
+        :return: The meeting object.
+        """
+        return GeneralEvent.objects.create(**kwargs)

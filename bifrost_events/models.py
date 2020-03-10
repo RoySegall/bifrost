@@ -64,3 +64,7 @@ class Lunch(EventBase):
 class Meeting(EventBase):
     # todo: add support for contacts.
     pass
+
+
+class GeneralEvent(EventBase):
+    pass

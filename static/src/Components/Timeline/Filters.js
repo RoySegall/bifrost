@@ -6,7 +6,7 @@ import {
   Hotel,
   Friends,
   Meeting,
-  Restaurant
+  Restaurant, GeneralEvent
 } from '../../Fonts'
 
 
@@ -24,6 +24,7 @@ export default class Filters extends React.Component {
         {'key': 'meetingconjunctionSet', title: 'Meet employees', icon: Friends()},
         {'key': 'lunchSet', title: 'Luch', icon: Restaurant()},
         {'key': 'meetingSet', title: 'Meetings', icon: Meeting()},
+        {'key': 'generaleventSet', title: 'General Events', icon: GeneralEvent()},
       ],
       activeFilter: 'all',
     };
