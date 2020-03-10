@@ -167,6 +167,17 @@ test('Testing OrderTimeline', () => {
                 "title": "jfk airplain",
                 "address": "ff"
             }
+        }],
+        "meetingSet": [{
+            "id": "1",
+            "title": "Picking employees",
+            "startingDate": "2019-11-18T19:00:00",
+            "endingDate": "2019-11-18T19:00:00",
+            "location": {
+                "id": "1",
+                "title": "jfk airplain",
+                "address": "ff"
+            }
         }]
     };
 
