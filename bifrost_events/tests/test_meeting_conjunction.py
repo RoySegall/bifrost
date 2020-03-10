@@ -16,7 +16,7 @@ class TestMeetingConjunction(BaseTestUtils):
         Testing the creation of a meeting conjunction.
         """
 
-        meeting_conjunction = Container.accommodation_service().create_meeting_conjunction(
+        meeting_conjunction = Container.event_service().create_meeting_conjunction(
             members=(self.alice, self.bob),
             title='Dummy flight',
             starting_date=datetime.now(),

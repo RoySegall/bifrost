@@ -35,7 +35,7 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
 
         timeline = self.create_timeline(user)
 
-        picking_car = Container.accommodation_service().create_picking_car(
+        picking_car = Container.event_service().create_picking_car(
             title=f'Dummy flight for user {user.username}',
             starting_date=datetime.now(),
             timeline=timeline,
@@ -45,7 +45,7 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             location=self.location
         )
 
-        connection_flight = Container.accommodation_service().create_flight_event(
+        connection_flight = Container.event_service().create_flight_event(
             title=f'Connection dummy flight {user.username}',
             starting_date=datetime.now(),
             origin='House of cats',
@@ -54,7 +54,7 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             location=self.location
         )
 
-        flight = Container.accommodation_service().create_flight_event(
+        flight = Container.event_service().create_flight_event(
             title=f'Dummy flight {user.username}',
             starting_date=datetime.now(),
             timeline=timeline,
@@ -65,7 +65,7 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             connection_flight=connection_flight
         )
 
-        meeting_conjunction = Container.accommodation_service().create_meeting_conjunction(
+        meeting_conjunction = Container.event_service().create_meeting_conjunction(
             members=(self.alice, self.bob),
             title=f'Dummy flight {user.username}',
             starting_date=datetime.now(),
@@ -73,7 +73,7 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             location=self.location
         )
 
-        accommodation = Container.accommodation_service().create_accommodation(
+        accommodation = Container.event_service().create_accommodation(
             title=f'Dummy flight {user.username}',
             starting_date=datetime.now(),
             timeline=timeline,
@@ -81,21 +81,21 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             room='213',
         )
 
-        lunch = Container.accommodation_service().create_lunch(
+        lunch = Container.event_service().create_lunch(
             title='Lunch',
             starting_date=datetime.now(),
             timeline=timeline,
             location=self.location
         )
 
-        meeting = Container.accommodation_service().create_meeting(
+        meeting = Container.event_service().create_meeting(
             title='Lunch',
             starting_date=datetime.now(),
             timeline=timeline,
             location=self.location
         )
 
-        general_event = Container.accommodation_service().create_general_event(
+        general_event = Container.event_service().create_general_event(
             title='Lunch',
             starting_date=datetime.now(),
             timeline=timeline,

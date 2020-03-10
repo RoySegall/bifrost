@@ -6,4 +6,4 @@ from bifrost_events.Services import Events
 
 @receiver(init_service)
 def declare_services(sender, **kwargs):
-    Container.set_service('accommodation_service', Events.Service)
+    Container.set_service('event_service', Events.Service)

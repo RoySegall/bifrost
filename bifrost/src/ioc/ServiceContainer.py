@@ -44,11 +44,11 @@ class Container:
         Container.services[service_name] = reference
 
     @staticmethod
-    def accommodation_service() -> Events.Service:
+    def event_service() -> Events.Service:
         """
         Get the accommodation service.
         """
-        return Container.get_service('accommodation_service')
+        return Container.get_service('event_service')
 
     @staticmethod
     def location_service() -> Location.Service:

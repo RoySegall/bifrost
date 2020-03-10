@@ -12,7 +12,7 @@ class TestMeetingEvent(BaseTestUtils):
         """
         Testing the creation of a meeting event.
         """
-        meeting = Container.accommodation_service().create_meeting(
+        meeting = Container.event_service().create_meeting(
             title='Dummy flight',
             starting_date=datetime.now(),
             timeline=self.timeline,
