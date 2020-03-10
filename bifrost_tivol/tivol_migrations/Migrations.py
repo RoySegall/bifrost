@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from tivol.models import ContentMigrationStatus
 
 from bifrost_events.models import Accommodation, Flight, PickingCar, \
-    MeetingConjunction
+    MeetingConjunction, Lunch
 from bifrost_location.models import Location
 from bifrost_timeline.models import Timeline
 from bifrost_tivol.tivol_migrations import Plugins
@@ -216,7 +216,7 @@ class LunchMigration(MigrationBase):
         self.init_helper(
             'lunch',
             'lunches.csv',
-            MeetingConjunction
+            Lunch
         )
 
         self.fields_plugins = {

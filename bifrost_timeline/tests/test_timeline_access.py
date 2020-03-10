@@ -1,4 +1,3 @@
-from django.test import tag
 from datetime import datetime
 from graphene_django.utils import GraphQLTestCase
 from bifrost.src.CommonTestUtils import BaseTestUtils
@@ -7,7 +6,6 @@ import json
 from bifrost.schema import schema
 
 
-@tag('now')
 class TestTimelineAccess(BaseTestUtils, GraphQLTestCase):
     """
     Testing shared timeline and events..

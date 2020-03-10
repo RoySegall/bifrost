@@ -1,5 +1,4 @@
 from bifrost.src.CommonTestUtils import BaseTestUtils
-from bifrost_events.models import PickingCar
 from datetime import datetime
 from bifrost.src.ioc.ServiceContainer import Container
 

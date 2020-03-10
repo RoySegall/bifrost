@@ -48,6 +48,10 @@ const X = () => {
     return <i className="fal fa-times"></i>;
 };
 
+const Restaurant = () => {
+    return <i className="fad fa-utensils-alt"></i>;
+};
+
 export {
     Calendar,
     Car,
@@ -60,5 +64,6 @@ export {
     Logout,
     Loading,
     Excahnge,
-    X
+    X,
+    Restaurant
 };

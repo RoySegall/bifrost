@@ -81,6 +81,13 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             room='213',
         )
 
+        lunch = Container.accommodation_service().create_lunch(
+            title='Lunch',
+            starting_date=datetime.now(),
+            timeline=timeline,
+            location=self.location
+        )
+
         return {
             'timeline': timeline,
             'picking_car': picking_car,
@@ -88,6 +95,7 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             'connection_flight': connection_flight,
             'meeting_conjunction': meeting_conjunction,
             'accommodation': accommodation,
+            'lunch': lunch,
         }
 
     def send_timelines_query(self):
@@ -128,6 +136,9 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
                         id
                         username
                       }
+                    },
+                    lunchSet {
+                      id
                     }
                     user {
                       id
@@ -188,22 +199,30 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             user_trip['meeting_conjunction'].id
         )
 
+        # Check lunch.
+        lunch = timeline['lunchSet']
+        self.assertEquals(
+            int(lunch[0]['id']),
+            user_trip['lunch'].id
+        )
+
         members = meeting_conjunction[0]['members']
         alice = {'id': str(self.alice.id), 'username': self.alice.username}
         bob = {'id': str(self.bob.id), 'username': self.bob.username}
         self.assertTrue(alice in members)
         self.assertTrue(bob in members)
 
-    def test_complete_trip_view(self):
+    def test_anonymous_trip_view(self):
         """
-        Testing we can view the trip.
+        Testing anonymous user trip view.
         """
-        # First, check with anonymous.
         anonymous_query = self.send_timelines_query()
-
         self.assertEquals(anonymous_query, {'timelines': []})
 
-        # Now, check with teh first user.
+    def test_view_for_two_different_users(self):
+        """
+        Testing that each user get the trip he owns.
+        """
         self._client = self.login('first_user')
         response = self.send_timelines_query()
         self.assertResponseValue(response, self.first_user_trip)
