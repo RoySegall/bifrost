@@ -1,7 +1,6 @@
 from django.test import TestCase
 from bifrost.src.ioc.ServiceContainer import Container
-from bifrost_events.Services import Flight, Accommodation, \
-    PickingCar, MeetingConjunction
+from bifrost_events.Services import Events
 from bifrost_location.Services import Location
 
 
@@ -14,52 +13,20 @@ class TestServiceContainer(TestCase):
         """
 
         Container.reset_services()
-        flight = Flight.Service()
-        accommodation = Accommodation.Service()
-        picking_car = PickingCar.Service()
-        meeting_conjunction = MeetingConjunction.Service()
-        location = Location.Service()
-
-        # Checking flight service.
-        self.assertEquals(Container.services['flight_service'], Flight.Service)
-        self.assertEquals(Container.flight_service().info(), flight.info())
+        accommodation = Events.Service()
 
         # Checking accommodation service.
         self.assertEquals(
-            Container.services['accommodation_service'], Accommodation.Service
+            Container.services['accommodation_service'], Events.Service
         )
         self.assertEquals(
             Container.accommodation_service().info(), accommodation.info()
-        )
-
-        # Testing the picking car service.
-        self.assertEquals(
-            Container.services['picking_car_service'], PickingCar.Service
-        )
-        self.assertEquals(
-            Container.picking_car_service().info(), picking_car.info()
-        )
-
-        # Testing the meeting conjunction service.
-        self.assertEquals(
-            Container.services['meeting_conjunction_service'],
-            MeetingConjunction.Service
-        )
-
-        self.assertEquals(
-            Container.meeting_conjunction_service().info(),
-            meeting_conjunction.info()
         )
 
         # Testing location service.
         self.assertEquals(
             Container.services['location_service'],
             Location.Service
-        )
-
-        self.assertEquals(
-            Container.location_service().info(),
-            location.info()
         )
 
     def test_swap_service(self):
@@ -69,8 +36,10 @@ class TestServiceContainer(TestCase):
         class DummyService:
             pass
 
-        self.assertEquals(Container.services['flight_service'], Flight.Service)
+        self.assertEquals(Container.services['accommodation_service'],
+                          Events.Service)
 
         # Swapping service and make sure we get another instance.
-        Container.set_service('flight_service', DummyService)
-        self.assertEquals(Container.services['flight_service'], DummyService)
+        Container.set_service('accommodation_service', DummyService)
+        self.assertEquals(Container.services['accommodation_service'],
+                          DummyService)

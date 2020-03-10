@@ -16,7 +16,7 @@ class TestFlightEvent(BaseTestUtils):
         """
         Testing the creation of a flight.
         """
-        flight = Container.flight_service().create(
+        flight = Container.accommodation_service().create_flight_event(
             title='Dummy flight',
             starting_date=datetime.now(),
             timeline=self.timeline,

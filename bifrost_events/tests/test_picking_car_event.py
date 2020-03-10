@@ -12,7 +12,7 @@ class TestPickingCar(BaseTestUtils):
         """
         Testing the car picking event.
         """
-        picking_car = Container.picking_car_service().create(
+        picking_car = Container.accommodation_service().create_picking_car(
             title='Dummy flight',
             starting_date=datetime.now(),
             timeline=self.timeline,
