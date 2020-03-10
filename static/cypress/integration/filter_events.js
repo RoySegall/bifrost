@@ -5,7 +5,7 @@ describe('Events filtering', function() {
     cy.visit('/');
     cy.xpath('//a[.="Trip to New York"]').click();
 
-    cy.xpath('//h3').should('have.length', 3);
+    cy.xpath('//h3').should('have.length', 4);
 
     cy.get('.pickingcarSet').click();
     cy.contains('Flight to Frankfurt').should('not.be.visible');
@@ -15,6 +15,6 @@ describe('Events filtering', function() {
 
     cy.get('.all').click();
     cy.contains('Flight to Frankfurt').should('be.visible');
-    cy.xpath('//h3').should('have.length', 3);
+    cy.xpath('//h3').should('have.length', 4);
   });
 });
