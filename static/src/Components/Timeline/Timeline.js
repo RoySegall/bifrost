@@ -93,6 +93,17 @@ class Timeline extends React.Component {
                       title,
                       address
                     }
+                },
+                meetingSet {
+                    id
+                    title
+                    startingDate
+                    endingDate
+                    location {
+                      id
+                      title,
+                      address
+                    }
                 }
             },
         }`
@@ -146,7 +157,7 @@ const OrderTimeline = (timeline) => {
 
   const days = {};
 
-  ['accommodationSet', 'flightSet', 'meetingconjunctionSet', 'pickingcarSet', 'lunchSet']
+  ['accommodationSet', 'flightSet', 'meetingconjunctionSet', 'pickingcarSet', 'lunchSet', 'meetingSet']
     .map(type => {
       timeline[type].map(event => {
         const startingDate = convertFromBackendToUtc(event['startingDate']);

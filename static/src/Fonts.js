@@ -52,6 +52,10 @@ const Restaurant = () => {
     return <i className="fad fa-utensils-alt"></i>;
 };
 
+const Meeting = () => {
+    return <i className="far fa-handshake"></i>;
+};
+
 export {
     Calendar,
     Car,
@@ -65,5 +69,6 @@ export {
     Loading,
     Excahnge,
     X,
-    Restaurant
+    Restaurant,
+    Meeting
 };

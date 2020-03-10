@@ -2,7 +2,8 @@ import graphene
 from graphene_django import DjangoObjectType
 from .models import Flight as FlightModel, \
     Accommodation as AccommodationModel, PickingCar as PickingCarModel, \
-    MeetingConjunction as MeetingConjunctionModel, Lunch as LunchModel
+    MeetingConjunction as MeetingConjunctionModel, Lunch as LunchModel, \
+    Meeting as MeetingModel
 
 
 class Flight(DjangoObjectType):
@@ -30,6 +31,11 @@ class Lunch(DjangoObjectType):
         model = LunchModel
 
 
+class Meeting(DjangoObjectType):
+    class Meta:
+        model = MeetingModel
+
+
 class BifrostEventsGraphql(graphene.ObjectType):
     flights = graphene.List(Flight)
     flight = graphene.Field(Flight, id=graphene.Int())
@@ -45,6 +51,9 @@ class BifrostEventsGraphql(graphene.ObjectType):
 
     lunches = graphene.List(Lunch)
     lunch = graphene.Field(Lunch, id=graphene.Int())
+
+    meetings = graphene.List(Meeting)
+    meeting = graphene.Field(Meeting, id=graphene.Int())
 
     def resolve_flights(self, info):
         user = info.context.user
@@ -112,5 +121,20 @@ class BifrostEventsGraphql(graphene.ObjectType):
         id = kwargs.get('id')
 
         return LunchModel.objects.filter(
+            timeline__user=user.id, id=id
+        ).first()
+
+    def resolve_meetings(self, info):
+        user = info.context.user
+
+        return MeetingModel.objects.filter(
+            timeline__user=user.id
+        ).all()
+
+    def resolve_meeting(self, info, **kwargs):
+        user = info.context.user
+        id = kwargs.get('id')
+
+        return MeetingModel.objects.filter(
             timeline__user=user.id, id=id
         ).first()

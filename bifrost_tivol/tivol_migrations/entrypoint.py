@@ -17,3 +17,4 @@ class BifrostEntryPoint(EntryPoint):
         self.add_migration_handler(Migrations.MeetingConjunctionMigration)
         self.add_migration_handler(meeting_conjunction_members_migration)
         self.add_migration_handler(Migrations.LunchMigration)
+        self.add_migration_handler(Migrations.MeetingMigration)

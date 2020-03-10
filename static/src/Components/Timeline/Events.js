@@ -1,5 +1,5 @@
 import React from 'react';
-import {X, Car, Hotel, Plane, Friends, Restaurant} from '../../Fonts'
+import {X, Car, Hotel, Plane, Friends, Restaurant, Meeting} from '../../Fonts'
 import {
   dateFormat,
   dateFormatOnlyHour,
@@ -21,7 +21,8 @@ export default class Events extends React.Component {
         flightSet: 'orange',
         meetingconjunctionSet: 'blue',
         pickingcarSet: 'green',
-        lunchSet: 'red'
+        lunchSet: 'red',
+        meetingSet: 'purple',
       },
     };
   }
@@ -191,7 +192,8 @@ export default class Events extends React.Component {
       flightSet: Plane(),
       meetingconjunctionSet: Friends(),
       pickingcarSet: Car(),
-      lunchSet: Restaurant()
+      lunchSet: Restaurant(),
+      meetingSet: Meeting()
     };
 
     const icon = icons[event['type']];

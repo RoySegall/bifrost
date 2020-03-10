@@ -59,3 +59,8 @@ class MeetingConjunction(EventBase):
 class Lunch(EventBase):
     # todo: add support for contacts.
     pass
+
+
+class Meeting(EventBase):
+    # todo: add support for contacts.
+    pass

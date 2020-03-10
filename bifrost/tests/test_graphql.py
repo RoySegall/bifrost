@@ -88,6 +88,13 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             location=self.location
         )
 
+        meeting = Container.accommodation_service().create_meeting(
+            title='Lunch',
+            starting_date=datetime.now(),
+            timeline=timeline,
+            location=self.location
+        )
+
         return {
             'timeline': timeline,
             'picking_car': picking_car,
@@ -96,6 +103,7 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             'meeting_conjunction': meeting_conjunction,
             'accommodation': accommodation,
             'lunch': lunch,
+            'meeting': meeting,
         }
 
     def send_timelines_query(self):
@@ -138,6 +146,9 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
                       }
                     },
                     lunchSet {
+                      id
+                    },
+                    meetingSet {
                       id
                     }
                     user {
@@ -204,6 +215,13 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
         self.assertEquals(
             int(lunch[0]['id']),
             user_trip['lunch'].id
+        )
+
+        # Check meeting.
+        lunch = timeline['meetingSet']
+        self.assertEquals(
+            int(lunch[0]['id']),
+            user_trip['meeting'].id
         )
 
         members = meeting_conjunction[0]['members']
