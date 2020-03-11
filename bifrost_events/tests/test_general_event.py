@@ -12,7 +12,7 @@ class TestGeneralEvent(BaseTestUtils):
         """
         Testing the creation of accommodation event.
         """
-        meeting = Container.event_service().create_general_event(
+        meeting = Container.events_service().create_general_event(
             title='Dummy flight',
             starting_date=datetime.now(),
             timeline=self.timeline,

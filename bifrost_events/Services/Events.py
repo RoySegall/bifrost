@@ -7,8 +7,8 @@ class Service(ServiceBase):
 
     def info(self):
         return {
-            'name': 'Accommodation service',
-            'description': 'Manage accommodations',
+            'name': 'Events service',
+            'description': 'Manage events',
         }
 
     def create_accommodation(self, **kwargs):

@@ -22,7 +22,7 @@ class TestMeetingConjunction(BaseTestUtils):
             'timeline': self.timeline,
             'location': self.create_location()
         }
-        meeting_conjunction = Container.event_service()\
+        meeting_conjunction = Container.events_service()\
             .create_meeting_conjunction(**create_meeting_conjunction_kwargs)
 
         referenced_conjunctions = self.user.timeline_set.first()\

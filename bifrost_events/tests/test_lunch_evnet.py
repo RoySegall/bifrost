@@ -12,7 +12,7 @@ class TestLunchEvent(BaseTestUtils):
         """
         Testing the lunch event.
         """
-        lunch = Container.event_service().create_lunch(
+        lunch = Container.events_service().create_lunch(
             title='Lunch',
             starting_date=datetime.now(),
             timeline=self.timeline,

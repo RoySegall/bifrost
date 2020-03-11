@@ -13,14 +13,15 @@ class TestServiceContainer(TestCase):
         """
 
         Container.reset_services()
-        accommodation = Events.Service()
 
-        # Checking accommodation service.
+        # Checking event service.
         self.assertEquals(
-            Container.services['event_service'], Events.Service
+            Container.services['events_service'],
+            Events.Service
         )
         self.assertEquals(
-            Container.event_service().info(), accommodation.info()
+            Container.events_service().info(),
+            Events.Service().info()
         )
 
         # Testing location service.
@@ -36,10 +37,10 @@ class TestServiceContainer(TestCase):
         class DummyService:
             pass
 
-        self.assertEquals(Container.services['event_service'],
+        self.assertEquals(Container.services['events_service'],
                           Events.Service)
 
         # Swapping service and make sure we get another instance.
-        Container.set_service('event_service', DummyService)
-        self.assertEquals(Container.services['event_service'],
+        Container.set_service('events_service', DummyService)
+        self.assertEquals(Container.services['events_service'],
                           DummyService)

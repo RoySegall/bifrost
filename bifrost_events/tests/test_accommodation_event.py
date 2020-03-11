@@ -12,7 +12,7 @@ class TestAccommodationEvent(BaseTestUtils):
         """
         Testing the creation of accommodation event.
         """
-        accommodation = Container.event_service().create_accommodation(
+        accommodation = Container.events_service().create_accommodation(
             title='Dummy flight',
             starting_date=datetime.now(),
             timeline=self.timeline,
