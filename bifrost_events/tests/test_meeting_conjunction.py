@@ -15,14 +15,15 @@ class TestMeetingConjunction(BaseTestUtils):
         """
         Testing the creation of a meeting conjunction.
         """
-
-        meeting_conjunction = Container.event_service().create_meeting_conjunction(
-            members=(self.alice, self.bob),
-            title='Dummy flight',
-            starting_date=datetime.now(),
-            timeline=self.timeline,
-            location=self.create_location()
-        )
+        create_meeting_conjunction_kwargs = {
+            'members': (self.alice, self.bob),
+            'title': 'Dummy flight',
+            'starting_date': datetime.now(),
+            'timeline': self.timeline,
+            'location': self.create_location()
+        }
+        meeting_conjunction = Container.event_service()\
+            .create_meeting_conjunction(**create_meeting_conjunction_kwargs)
 
         referenced_conjunctions = self.user.timeline_set.first()\
             .meetingconjunction_set.first()

@@ -65,13 +65,15 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             connection_flight=connection_flight
         )
 
-        meeting_conjunction = Container.event_service().create_meeting_conjunction(
-            members=(self.alice, self.bob),
-            title=f'Dummy flight {user.username}',
-            starting_date=datetime.now(),
-            timeline=timeline,
-            location=self.location
-        )
+        create_meeting_conjunction_kwargs = {
+            'members': (self.alice, self.bob),
+            'title': f'Dummy flight {user.username}',
+            'starting_date': datetime.now(),
+            'timeline': timeline,
+            'location': self.location
+        }
+        meeting_conjunction = Container.event_service()\
+            .create_meeting_conjunction(**create_meeting_conjunction_kwargs)
 
         accommodation = Container.event_service().create_accommodation(
             title=f'Dummy flight {user.username}',

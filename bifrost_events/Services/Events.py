@@ -1,6 +1,6 @@
 from bifrost.src.ioc.Base import ServiceBase
-from bifrost_events.models import Accommodation, Lunch, Meeting, GeneralEvent, \
-    Flight, MeetingConjunction, PickingCar
+from bifrost_events.models import Accommodation, Lunch, Meeting, \
+    GeneralEvent, Flight, MeetingConjunction, PickingCar
 
 
 class Service(ServiceBase):
