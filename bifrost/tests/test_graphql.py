@@ -35,7 +35,7 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
 
         timeline = self.create_timeline(user)
 
-        picking_car = Container.picking_car_service().create(
+        picking_car = Container.events_service().create_picking_car(
             title=f'Dummy flight for user {user.username}',
             starting_date=datetime.now(),
             timeline=timeline,
@@ -45,7 +45,7 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             location=self.location
         )
 
-        connection_flight = Container.flight_service().create(
+        connection_flight = Container.events_service().create_flight_event(
             title=f'Connection dummy flight {user.username}',
             starting_date=datetime.now(),
             origin='House of cats',
@@ -54,7 +54,7 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             location=self.location
         )
 
-        flight = Container.flight_service().create(
+        flight = Container.events_service().create_flight_event(
             title=f'Dummy flight {user.username}',
             starting_date=datetime.now(),
             timeline=timeline,
@@ -65,20 +65,43 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             connection_flight=connection_flight
         )
 
-        meeting_conjunction = Container.meeting_conjunction_service().create(
-            members=(self.alice, self.bob),
-            title=f'Dummy flight {user.username}',
-            starting_date=datetime.now(),
-            timeline=timeline,
-            location=self.location
-        )
+        create_meeting_conjunction_kwargs = {
+            'members': (self.alice, self.bob),
+            'title': f'Dummy flight {user.username}',
+            'starting_date': datetime.now(),
+            'timeline': timeline,
+            'location': self.location
+        }
+        meeting_conjunction = Container.events_service()\
+            .create_meeting_conjunction(**create_meeting_conjunction_kwargs)
 
-        accommodation = Container.accommodation_service().create(
+        accommodation = Container.events_service().create_accommodation(
             title=f'Dummy flight {user.username}',
             starting_date=datetime.now(),
             timeline=timeline,
             hotel_name='Special Diabetes hotel',
             room='213',
+        )
+
+        lunch = Container.events_service().create_lunch(
+            title='Lunch',
+            starting_date=datetime.now(),
+            timeline=timeline,
+            location=self.location
+        )
+
+        meeting = Container.events_service().create_meeting(
+            title='Lunch',
+            starting_date=datetime.now(),
+            timeline=timeline,
+            location=self.location
+        )
+
+        general_event = Container.events_service().create_general_event(
+            title='Lunch',
+            starting_date=datetime.now(),
+            timeline=timeline,
+            location=self.location
         )
 
         return {
@@ -88,6 +111,9 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             'connection_flight': connection_flight,
             'meeting_conjunction': meeting_conjunction,
             'accommodation': accommodation,
+            'lunch': lunch,
+            'meeting': meeting,
+            'general_event': general_event,
         }
 
     def send_timelines_query(self):
@@ -128,6 +154,12 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
                         id
                         username
                       }
+                    },
+                    lunchSet {
+                      id
+                    },
+                    meetingSet {
+                      id
                     }
                     user {
                       id
@@ -188,22 +220,37 @@ class TestGraphQL(BaseTestUtils, GraphQLTestCase):
             user_trip['meeting_conjunction'].id
         )
 
+        # Check lunch.
+        lunch = timeline['lunchSet']
+        self.assertEquals(
+            int(lunch[0]['id']),
+            user_trip['lunch'].id
+        )
+
+        # Check meeting.
+        lunch = timeline['meetingSet']
+        self.assertEquals(
+            int(lunch[0]['id']),
+            user_trip['meeting'].id
+        )
+
         members = meeting_conjunction[0]['members']
         alice = {'id': str(self.alice.id), 'username': self.alice.username}
         bob = {'id': str(self.bob.id), 'username': self.bob.username}
         self.assertTrue(alice in members)
         self.assertTrue(bob in members)
 
-    def test_complete_trip_view(self):
+    def test_anonymous_trip_view(self):
         """
-        Testing we can view the trip.
+        Testing anonymous user trip view.
         """
-        # First, check with anonymous.
         anonymous_query = self.send_timelines_query()
-
         self.assertEquals(anonymous_query, {'timelines': []})
 
-        # Now, check with teh first user.
+    def test_view_for_two_different_users(self):
+        """
+        Testing that each user get the trip he owns.
+        """
         self._client = self.login('first_user')
         response = self.send_timelines_query()
         self.assertResponseValue(response, self.first_user_trip)

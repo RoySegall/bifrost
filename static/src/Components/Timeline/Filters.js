@@ -1,5 +1,13 @@
 import React from 'react';
-import {Calendar, Car, Plane, Hotel, Friends} from '../../Fonts'
+import {
+  Calendar,
+  Car,
+  Plane,
+  Hotel,
+  Friends,
+  Meeting,
+  Restaurant, GeneralEvent
+} from '../../Fonts'
 
 
 export default class Filters extends React.Component {
@@ -14,6 +22,9 @@ export default class Filters extends React.Component {
         {'key': 'flightSet', title: 'Flight', icon: Plane()},
         {'key': 'accommodationSet', title: 'Accommodation', icon: Hotel()},
         {'key': 'meetingconjunctionSet', title: 'Meet employees', icon: Friends()},
+        {'key': 'lunchSet', title: 'Luch', icon: Restaurant()},
+        {'key': 'meetingSet', title: 'Meetings', icon: Meeting()},
+        {'key': 'generaleventSet', title: 'General Events', icon: GeneralEvent()},
       ],
       activeFilter: 'all',
     };

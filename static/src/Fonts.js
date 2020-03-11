@@ -48,6 +48,18 @@ const X = () => {
     return <i className="fal fa-times"></i>;
 };
 
+const Restaurant = () => {
+    return <i className="fad fa-utensils-alt"></i>;
+};
+
+const Meeting = () => {
+    return <i className="far fa-handshake"></i>;
+};
+
+const GeneralEvent = () => {
+    return <i className="fad fa-calendar-alt"></i>;
+};
+
 export {
     Calendar,
     Car,
@@ -60,5 +72,8 @@ export {
     Logout,
     Loading,
     Excahnge,
-    X
+    X,
+    Restaurant,
+    Meeting,
+    GeneralEvent
 };

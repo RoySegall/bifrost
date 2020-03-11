@@ -54,3 +54,17 @@ class PickingCar(EventBase):
 
 class MeetingConjunction(EventBase):
     members = models.ManyToManyField(User, blank=True)
+
+
+class Lunch(EventBase):
+    # todo: add support for contacts.
+    pass
+
+
+class Meeting(EventBase):
+    # todo: add support for contacts.
+    pass
+
+
+class GeneralEvent(EventBase):
+    pass

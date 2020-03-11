@@ -69,7 +69,8 @@ class Command(BaseCommand):
             return
 
         # Building the variables.
-        subject = f"{os.environ['TRAVIS_COMMIT_MESSAGE']} on " \
+        subject = f"Dear {os.environ['AUTHOR_NAME']} " \
+                  f"{os.environ['TRAVIS_COMMIT_MESSAGE']} on " \
                   f"{os.environ['TRAVIS_BRANCH']} is failing"
         mail_content = f"For some reason, the commit has been failed. " \
                        f"Screenshots and videos are attached. You can see " \
@@ -79,8 +80,8 @@ class Command(BaseCommand):
 
         # Building the email alongside the media of the email.
         message = Mail(
-            from_email='from_email@example.com',
-            to_emails='roy@segall.io',
+            from_email='dont-reply@your-trusty.ci',
+            to_emails=os.environ['COMMITTER_EMAIL'],
             subject=subject,
             html_content=mail_content,
         )

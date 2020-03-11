@@ -1,5 +1,4 @@
 from bifrost.src.CommonTestUtils import BaseTestUtils
-from bifrost_events.models import PickingCar
 from datetime import datetime
 from bifrost.src.ioc.ServiceContainer import Container
 
@@ -13,7 +12,7 @@ class TestPickingCar(BaseTestUtils):
         """
         Testing the car picking event.
         """
-        picking_car = Container.picking_car_service().create(
+        picking_car = Container.events_service().create_picking_car(
             title='Dummy flight',
             starting_date=datetime.now(),
             timeline=self.timeline,
