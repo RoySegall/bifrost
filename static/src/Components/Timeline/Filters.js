@@ -18,13 +18,13 @@ export default class Filters extends React.Component {
     this.state = {
       filters: [
         {'key': 'all', title: 'All events', icon: Calendar(), first: true},
-        {'key': 'pickingcarSet', title: 'Picking car', icon: Car()},
-        {'key': 'flightSet', title: 'Flight', icon: Plane()},
-        {'key': 'accommodationSet', title: 'Accommodation', icon: Hotel()},
-        {'key': 'meetingconjunctionSet', title: 'Meet employees', icon: Friends()},
-        {'key': 'lunchSet', title: 'Luch', icon: Restaurant()},
-        {'key': 'meetingSet', title: 'Meetings', icon: Meeting()},
-        {'key': 'generaleventSet', title: 'General Events', icon: GeneralEvent()},
+        {'key': 'pickingCars', title: 'Picking car', icon: Car()},
+        {'key': 'flights', title: 'Flight', icon: Plane()},
+        {'key': 'accommodations', title: 'Accommodation', icon: Hotel()},
+        {'key': 'meetingConjunctions', title: 'Meet employees', icon: Friends()},
+        {'key': 'lunches', title: 'Luch', icon: Restaurant()},
+        {'key': 'meetings', title: 'Meetings', icon: Meeting()},
+        {'key': 'generalEvent', title: 'General Events', icon: GeneralEvent()},
       ],
       activeFilter: 'all',
     };

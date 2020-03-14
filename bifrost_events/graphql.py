@@ -43,31 +43,31 @@ class GeneralEvent(DjangoObjectType):
 
 
 class BifrostEventsGraphql(graphene.ObjectType):
-    flights = graphene.List(Flight)
+    flights = graphene.List(Flight, timeline=graphene.Int())
     flight = graphene.Field(Flight, id=graphene.Int())
 
-    accommodations = graphene.List(Accommodation)
+    accommodations = graphene.List(Accommodation, timeline=graphene.Int())
     accommodation = graphene.Field(Accommodation, id=graphene.Int())
 
-    picking_cars = graphene.List(PickingCar)
+    picking_cars = graphene.List(PickingCar, timeline=graphene.Int())
     picking_car = graphene.Field(PickingCar, id=graphene.Int())
 
-    meeting_conjunctions = graphene.List(MeetingConjunction)
+    meeting_conjunctions = graphene.List(MeetingConjunction, timeline=graphene.Int())
     meeting_conjunction = graphene.Field(MeetingConjunction, id=graphene.Int())
 
-    lunches = graphene.List(Lunch)
+    lunches = graphene.List(Lunch, timeline=graphene.Int())
     lunch = graphene.Field(Lunch, id=graphene.Int())
 
-    meetings = graphene.List(Meeting)
+    meetings = graphene.List(Meeting, timeline=graphene.Int())
     meeting = graphene.Field(Meeting, id=graphene.Int())
 
-    general_events = graphene.List(GeneralEvent)
+    general_events = graphene.List(GeneralEvent, timeline=graphene.Int())
     general_event = graphene.Field(GeneralEvent, id=graphene.Int())
 
-    def resolve_flights(self, info):
+    def resolve_flights(self, info, **kwargs):
         user = info.context.user
 
-        return FlightModel.objects.filter_not_shared(user_id=user.id)
+        return FlightModel.objects.filter_not_shared(user_id=user.id, timeline=kwargs['timeline'])
 
     def resolve_flight(self, info, **kwargs):
         user = info.context.user
@@ -75,12 +75,12 @@ class BifrostEventsGraphql(graphene.ObjectType):
 
         return FlightModel.objects.filter(
             timeline__user=user.id, id=id
-        ).first()
+        ).first().filter_not_shared(user_id=user.id)
 
-    def resolve_accomodations(self, info):
+    def resolve_accomodations(self, info, **kwargs):
         user = info.context.user
 
-        return AccommodationModel.objects.filter_not_shared(user_id=user.id)
+        return AccommodationModel.objects.filter_not_shared(user_id=user.id, timeline=kwargs['timeline'])
 
     def resolve_accomodation(self, info, **kwargs):
         user = info.context.user
@@ -90,10 +90,10 @@ class BifrostEventsGraphql(graphene.ObjectType):
             timeline__user=user.id, id=id
         ).first().filter_not_shared(user_id=user.id)
 
-    def resolve_picking_cars(self, info):
+    def resolve_picking_cars(self, info, **kwargs):
         user = info.context.user
 
-        return PickingCarModel.objects.filter_not_shared(user_id=user.id)
+        return PickingCarModel.objects.filter_not_shared(user_id=user.id, timeline=kwargs['timeline'])
 
     def resolve_picking_car(self, info, **kwargs):
         user = info.context.user
@@ -118,10 +118,10 @@ class BifrostEventsGraphql(graphene.ObjectType):
             timeline__user=user.id, id=id
         ).first()
 
-    def resolve_lunches(self, info):
+    def resolve_lunches(self, info, **kwargs):
         user = info.context.user
 
-        return LunchModel.objects.filter_not_shared(user_id=user.id)
+        return LunchModel.objects.filter_not_shared(user_id=user.id, timeline=kwargs['timeline'])
 
     def resolve_lunch(self, info, **kwargs):
         user = info.context.user
@@ -131,10 +131,10 @@ class BifrostEventsGraphql(graphene.ObjectType):
             timeline__user=user.id, id=id
         ).first().filter_not_shared(user_id=user.id)
 
-    def resolve_meetings(self, info):
+    def resolve_meetings(self, info, **kwargs):
         user = info.context.user
 
-        return MeetingModel.objects.filter_not_shared(user_id=user.id)
+        return MeetingModel.objects.filter_not_shared(user_id=user.id, timeline=kwargs['timeline'])
 
     def resolve_meeting(self, info, **kwargs):
         user = info.context.user
@@ -143,10 +143,10 @@ class BifrostEventsGraphql(graphene.ObjectType):
         return MeetingModel.objects.filter(id=id).first()\
             .filter_not_shared(user_id=user.id)
 
-    def resolve_general_events(self, info):
+    def resolve_general_events(self, info, **kwargs):
         user = info.context.user
 
-        return GeneralEventModel.objects.filter_not_shared(user_id=user.id)
+        return GeneralEventModel.objects.filter_not_shared(user_id=user.id, timeline=kwargs['timeline'])
 
     def resolve_general_event(self, info, **kwargs):
         user = info.context.user

@@ -31,11 +31,15 @@ class EventBase(models.Model):
 
 class EventsManager(models.Manager):
 
-    def filter_not_shared(self, user_id):
+    def filter_not_shared(self, user_id, timeline=None):
         events = self.all()
 
         filtered_events = []
         for event in events:
+
+            if timeline and event.timeline.id != timeline:
+                continue
+
             if event.timeline.user_id == user_id or \
                     event_between_conjunction(user_id, event):
                 # This is the event which owned by the users. Append it.

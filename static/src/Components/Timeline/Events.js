@@ -17,13 +17,13 @@ export default class Events extends React.Component {
       activeEvent: null,
       selectedEventType: this.props['selectedEventType'],
       borderColor: {
-        accommodationSet: 'pink',
-        flightSet: 'orange',
-        meetingconjunctionSet: 'blue',
-        pickingcarSet: 'green',
-        lunchSet: 'red',
-        meetingSet: 'purple',
-        generaleventSet: 'teal',
+        accommodations: 'pink',
+        flights: 'orange',
+        meetingConjunctions: 'blue',
+        pickingCars: 'green',
+        lunches: 'red',
+        meetings: 'purple',
+        generalEvents: 'teal',
       },
     };
   }
@@ -189,13 +189,13 @@ export default class Events extends React.Component {
 
   singleEvent(event, day, key) {
     const icons = {
-      accommodationSet: Hotel(),
-      flightSet: Plane(),
-      meetingconjunctionSet: Friends(),
-      pickingcarSet: Car(),
-      lunchSet: Restaurant(),
-      meetingSet: Meeting(),
-      generaleventSet: GeneralEvent(),
+      accommodations: Hotel(),
+      flights: Plane(),
+      meetingConjunctions: Friends(),
+      pickingCars: Car(),
+      lunches: Restaurant(),
+      meetings: Meeting(),
+      generalEvents: GeneralEvent(),
     };
 
     const icon = icons[event['type']];
