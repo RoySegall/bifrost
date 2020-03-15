@@ -16,18 +16,14 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
           className="w-1/2 m-0 m-auto p-2 border-purple-400 border-t-2 border-dashed"
         />
         <div
-          className="border-l-2 border-dashed border-orange-500 border-r-2 border-dashed border-orange-500 bg-gray-1000 p-2 mb-4"
+          className="border-l-2 border-dashed border-undefined-500 border-r-2 border-dashed border-undefined-500 bg-gray-1000 p-2 mb-4"
         >
           <div
             className="flex flex-row justify-between pl-2 pr-2"
           >
             <span
-              className="text-2xl text-orange-500 font-bold"
-            >
-              <i
-                className="fal fa-plane"
-              />
-            </span>
+              className="text-2xl text-undefined-500 font-bold"
+            />
             <span>
               06:00
             </span>
@@ -59,18 +55,14 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
           </p>
         </div>
         <div
-          className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
+          className="border-l-2 border-dashed border-undefined-500 border-r-2 border-dashed border-undefined-500 bg-gray-1000 p-2 mb-4"
         >
           <div
             className="flex flex-row justify-between pl-2 pr-2"
           >
             <span
-              className="text-2xl text-pink-500 font-bold"
-            >
-              <i
-                className="fal fa-hotel"
-              />
-            </span>
+              className="text-2xl text-undefined-500 font-bold"
+            />
             <span>
               16:00
             </span>
@@ -112,18 +104,14 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
           className="w-1/2 m-0 m-auto p-2 border-purple-400 border-t-2 border-dashed"
         />
         <div
-          className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
+          className="border-l-2 border-dashed border-undefined-500 border-r-2 border-dashed border-undefined-500 bg-gray-1000 p-2 mb-4"
         >
           <div
             className="flex flex-row justify-between pl-2 pr-2"
           >
             <span
-              className="text-2xl text-pink-500 font-bold"
-            >
-              <i
-                className="fal fa-hotel"
-              />
-            </span>
+              className="text-2xl text-undefined-500 font-bold"
+            />
             <span>
               08:00
             </span>
@@ -155,18 +143,14 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
           </p>
         </div>
         <div
-          className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
+          className="border-l-2 border-dashed border-undefined-500 border-r-2 border-dashed border-undefined-500 bg-gray-1000 p-2 mb-4"
         >
           <div
             className="flex flex-row justify-between pl-2 pr-2"
           >
             <span
-              className="text-2xl text-pink-500 font-bold"
-            >
-              <i
-                className="fal fa-hotel"
-              />
-            </span>
+              className="text-2xl text-undefined-500 font-bold"
+            />
             <span>
               10:00
             </span>
@@ -198,18 +182,14 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
           </p>
         </div>
         <div
-          className="border-l-2 border-dashed border-green-500 border-r-2 border-dashed border-green-500 bg-gray-1000 p-2 mb-4"
+          className="border-l-2 border-dashed border-undefined-500 border-r-2 border-dashed border-undefined-500 bg-gray-1000 p-2 mb-4"
         >
           <div
             className="flex flex-row justify-between pl-2 pr-2"
           >
             <span
-              className="text-2xl text-green-500 font-bold"
-            >
-              <i
-                className="fal fa-car"
-              />
-            </span>
+              className="text-2xl text-undefined-500 font-bold"
+            />
             <span>
               12:00
             </span>
@@ -241,18 +221,14 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
           </p>
         </div>
         <div
-          className="border-l-2 border-dashed border-blue-500 border-r-2 border-dashed border-blue-500 bg-gray-1000 p-2 mb-4"
+          className="border-l-2 border-dashed border-undefined-500 border-r-2 border-dashed border-undefined-500 bg-gray-1000 p-2 mb-4"
         >
           <div
             className="flex flex-row justify-between pl-2 pr-2"
           >
             <span
-              className="text-2xl text-blue-500 font-bold"
-            >
-              <i
-                className="fal fa-user-friends"
-              />
-            </span>
+              className="text-2xl text-undefined-500 font-bold"
+            />
             <span>
               17:00
             </span>
@@ -294,18 +270,14 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
           className="w-1/2 m-0 m-auto p-2 border-purple-400 border-t-2 border-dashed"
         />
         <div
-          className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
+          className="border-l-2 border-dashed border-undefined-500 border-r-2 border-dashed border-undefined-500 bg-gray-1000 p-2 mb-4"
         >
           <div
             className="flex flex-row justify-between pl-2 pr-2"
           >
             <span
-              className="text-2xl text-pink-500 font-bold"
-            >
-              <i
-                className="fal fa-hotel"
-              />
-            </span>
+              className="text-2xl text-undefined-500 font-bold"
+            />
             <span>
               06:00
             </span>
@@ -337,18 +309,14 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
           </p>
         </div>
         <div
-          className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
+          className="border-l-2 border-dashed border-undefined-500 border-r-2 border-dashed border-undefined-500 bg-gray-1000 p-2 mb-4"
         >
           <div
             className="flex flex-row justify-between pl-2 pr-2"
           >
             <span
-              className="text-2xl text-pink-500 font-bold"
-            >
-              <i
-                className="fal fa-hotel"
-              />
-            </span>
+              className="text-2xl text-undefined-500 font-bold"
+            />
             <span>
               08:00
             </span>
@@ -380,18 +348,14 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
           </p>
         </div>
         <div
-          className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
+          className="border-l-2 border-dashed border-undefined-500 border-r-2 border-dashed border-undefined-500 bg-gray-1000 p-2 mb-4"
         >
           <div
             className="flex flex-row justify-between pl-2 pr-2"
           >
             <span
-              className="text-2xl text-pink-500 font-bold"
-            >
-              <i
-                className="fal fa-hotel"
-              />
-            </span>
+              className="text-2xl text-undefined-500 font-bold"
+            />
             <span>
               12:00
             </span>
@@ -423,18 +387,14 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
           </p>
         </div>
         <div
-          className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
+          className="border-l-2 border-dashed border-undefined-500 border-r-2 border-dashed border-undefined-500 bg-gray-1000 p-2 mb-4"
         >
           <div
             className="flex flex-row justify-between pl-2 pr-2"
           >
             <span
-              className="text-2xl text-pink-500 font-bold"
-            >
-              <i
-                className="fal fa-hotel"
-              />
-            </span>
+              className="text-2xl text-undefined-500 font-bold"
+            />
             <span>
               14:00
             </span>
@@ -476,18 +436,14 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
           className="w-1/2 m-0 m-auto p-2 border-purple-400 border-t-2 border-dashed"
         />
         <div
-          className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
+          className="border-l-2 border-dashed border-undefined-500 border-r-2 border-dashed border-undefined-500 bg-gray-1000 p-2 mb-4"
         >
           <div
             className="flex flex-row justify-between pl-2 pr-2"
           >
             <span
-              className="text-2xl text-pink-500 font-bold"
-            >
-              <i
-                className="fal fa-hotel"
-              />
-            </span>
+              className="text-2xl text-undefined-500 font-bold"
+            />
             <span>
               08:00
             </span>
@@ -519,18 +475,14 @@ exports[`Testing the eventHead, eventBody, EventView function with snapshot 1`] 
           </p>
         </div>
         <div
-          className="border-l-2 border-dashed border-pink-500 border-r-2 border-dashed border-pink-500 bg-gray-1000 p-2 mb-4"
+          className="border-l-2 border-dashed border-undefined-500 border-r-2 border-dashed border-undefined-500 bg-gray-1000 p-2 mb-4"
         >
           <div
             className="flex flex-row justify-between pl-2 pr-2"
           >
             <span
-              className="text-2xl text-pink-500 font-bold"
-            >
-              <i
-                className="fal fa-hotel"
-              />
-            </span>
+              className="text-2xl text-undefined-500 font-bold"
+            />
             <span>
               13:00
             </span>

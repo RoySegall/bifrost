@@ -158,7 +158,6 @@ class Timeline extends React.Component {
  * @constructor
  */
 const OrderTimeline = (data) => {
-  console.dir(data);
   // Get the endpoint we need to start the data.
   const timelineInfo = {
     title: data.timeline.title,
@@ -167,8 +166,6 @@ const OrderTimeline = (data) => {
   };
 
   const days = {};
-
-  console.log(data);
 
   ['accommodations', 'flights', 'meetingConjunctions', 'pickingCars', 'lunches', 'meetings', 'generalEvents']
     .map(type => {

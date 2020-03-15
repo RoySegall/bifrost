@@ -7,224 +7,162 @@ configure({adapter: new Adapter()});
 
 test('Testing OrderTimeline', () => {
     const input = {
-        "id": "1",
-        "title": "Roy's amazing trip",
-        "startingDate": "2019-11-17T06:00:00",
-        "endingDate": "2019-11-22T18:00:00",
-        "flightSet": [{
-            "id": "1",
-            "title": "Flight to london",
-            "origin": "Tel aviv",
-            "destination": "London",
-            "startingDate": "2019-11-17T08:00:00",
-            "endingDate": "2019-11-17T12:00:00",
-            "location": {
-                "id": "1",
-                "title": "jfk airplain",
-                "address": "ff"
+        "flights": [
+            {
+                "id": "38",
+                "title": "Flight to Frankfurt",
+                "origin": "Tel aviv",
+                "destination": "Frakfurt",
+                "startingDate": "2020-03-11T07:00:00",
+                "endingDate": "2020-03-11T11:00:00",
+                "location": {
+                    "id": "255",
+                    "title": "Ben Gurion Airport",
+                    "address": "Ben Gurion Airport, Terminal 3"
+                },
+                "connectionFlight": null
             },
-            "connectionFlight": null
-        }],
-        "pickingcarSet": [{
-            "title": "Picking car",
-            "id": "1",
-            "startingDate": "2019-11-18T14:00:00",
-            "endingDate": "2019-11-18T14:00:00",
-            "location": {
-                "id": "2",
-                "title": "Gibson hotel",
-                "address": "Gibson hotel, Ireland"
+            {
+                "id": "39",
+                "title": "Flight to USA",
+                "origin": "Frnkfurt",
+                "destination": "New York",
+                "startingDate": "2020-03-11T14:00:00",
+                "endingDate": "2020-03-11T09:00:00",
+                "location": {
+                    "id": "256",
+                    "title": "Frankfurt Airport",
+                    "address": "60547 Frankfurt, Germany"
+                },
+                "connectionFlight": {
+                    "id": "38"
+                }
             }
-        }],
-        "accommodationSet": [{
-            "id": "1",
-            "title": "Hotel Gibson",
-            "location": {
-                "id": "2",
-                "title": "Gibson hotel",
-                "address": "Gibson hotel, Ireland"
-            },
-            "startingDate": "2019-11-17T18:00:00",
-            "endingDate": "2019-11-21T12:00:00",
-            "hotelName": "Gisbon",
-            "room": "312"
-        }, {
-            "id": "2",
-            "title": "Demo at clinic in London",
-            "location": {
-                "id": "1",
-                "title": "jfk airplain",
-                "address": "ff"
-            },
-            "startingDate": "2019-11-18T10:00:00",
-            "endingDate": "2019-11-18T11:00:00",
-            "hotelName": "foo",
-            "room": "123"
-        }, {
-            "id": "3",
-            "title": "Lunch with John",
-            "location": {
-                "id": "2",
-                "title": "Gibson hotel",
-                "address": "Gibson hotel, Ireland"
-            },
-            "startingDate": "2019-11-18T12:00:00",
-            "endingDate": "2019-11-18T13:30:00",
-            "hotelName": "asdasd",
-            "room": "221"
-        }, {
-            "id": "4",
-            "title": "Demo at a clinic",
-            "location": {
-                "id": "1",
-                "title": "jfk airplain",
-                "address": "ff"
-            },
-            "startingDate": "2019-11-19T08:00:00",
-            "endingDate": "2019-11-19T09:30:00",
-            "hotelName": "asdas",
-            "room": "213"
-        }, {
-            "id": "5",
-            "title": "Driving to stonehenge",
-            "location": {
-                "id": "1",
-                "title": "jfk airplain",
-                "address": "ff"
-            },
-            "startingDate": "2019-11-19T10:00:00",
-            "endingDate": "2019-11-19T10:00:00",
-            "hotelName": "33",
-            "room": "asdd"
-        }, {
-            "id": "6",
-            "title": "Luch",
-            "location": {
-                "id": "1",
-                "title": "jfk airplain",
-                "address": "ff"
-            },
-            "startingDate": "2019-11-19T14:00:00",
-            "endingDate": "2019-11-19T15:30:00",
-            "hotelName": "saasd",
-            "room": "asdasd"
-        }, {
-            "id": "7",
-            "title": "Driving to manchenter",
-            "location": {
-                "id": "2",
-                "title": "Gibson hotel",
-                "address": "Gibson hotel, Ireland"
-            },
-            "startingDate": "2019-11-19T16:00:00",
-            "endingDate": "2019-11-19T22:00:00",
-            "hotelName": "23213",
-            "room": "123123"
-        }, {
-            "id": "8",
-            "title": "demo at a clinic",
-            "location": {
-                "id": "1",
-                "title": "jfk airplain",
-                "address": "ff"
-            },
-            "startingDate": "2019-11-20T10:00:00",
-            "endingDate": "2019-11-20T14:00:00",
-            "hotelName": "21321",
-            "room": "213213"
-        }, {
-            "id": "9",
-            "title": "Back to the hotel",
-            "location": {
-                "id": "2",
-                "title": "Gibson hotel",
-                "address": "Gibson hotel, Ireland"
-            },
-            "startingDate": "2019-11-20T15:00:00",
-            "endingDate": "2019-11-20T15:00:00",
-            "hotelName": "foo",
-            "room": "foo"
-        }],
-        "meetingconjunctionSet": [{
-            "id": "2",
-            "title": "Picking employees",
-            "startingDate": "2019-11-18T19:00:00",
-            "endingDate": "2019-11-18T19:00:00",
-            "members": [{"id": "1"}, {"id": "2"}],
-            "location": {
-                "id": "1",
-                "title": "jfk airplain",
-                "address": "ff"
+        ],
+        "pickingCars": [
+            {
+                "title": "Picking car",
+                "id": "23",
+                "startingDate": "2020-03-12T10:00:00",
+                "endingDate": "2020-03-15T09:00:00",
+                "location": {
+                    "id": "258",
+                    "title": "Avis Car Rental",
+                    "address": "John F. Kennedy International Airport, 305 Federal Cir building 305, Jamaica, NY 11430, United States"
+                }
             }
-        }],
-        "lunchSet": [{
-            "id": "1",
-            "title": "Picking employees",
-            "startingDate": "2019-11-18T19:00:00",
-            "endingDate": "2019-11-18T19:00:00",
-            "location": {
-                "id": "1",
-                "title": "jfk airplain",
-                "address": "ff"
+        ],
+        "accommodations": null,
+        "meetingConjunctions": null,
+        "lunches": [
+            {
+                "id": "8",
+                "title": "Luch at \"The Grange\"",
+                "startingDate": "2020-03-13T12:00:00",
+                "endingDate": "2020-03-13T19:24:18.755169",
+                "location": {
+                    "id": "261",
+                    "title": "The Grange",
+                    "address": "1635 Amsterdam Ave, New York, NY 10031, United States"
+                }
+            },
+            {
+                "id": "9",
+                "title": "Goodbye Breakfast at \"Taqueria San Pedro\"",
+                "startingDate": "2020-03-14T08:00:00",
+                "endingDate": "2020-03-14T12:00:00",
+                "location": {
+                    "id": "262",
+                    "title": "Taqueria San Pedro",
+                    "address": "3662 Broadway, New York, NY 10031, United States"
+                }
             }
-        }],
-        "meetingSet": [{
-            "id": "1",
-            "title": "Picking employees",
-            "startingDate": "2019-11-18T19:00:00",
-            "endingDate": "2019-11-18T19:00:00",
-            "location": {
-                "id": "1",
-                "title": "jfk airplain",
-                "address": "ff"
+        ],
+        "meetings": [
+            {
+                "id": "4",
+                "title": "Luch at \"The Grange\"",
+                "startingDate": "2020-03-13T19:24:19.782675",
+                "endingDate": "2020-03-13T19:24:19.784639",
+                "location": {
+                    "id": "260",
+                    "title": "Naomi Berrie Diabetes Center",
+                    "address": "1150 Saint Nicholas Avenue Columbia University Medical Center Russ Berrie Medical Science Pavilion, New York, NY 10032, United States"
+                }
             }
-        }],
-        "generaleventSet": [{
-            "id": "1",
-            "title": "Picking employees",
-            "startingDate": "2019-11-18T19:00:00",
-            "endingDate": "2019-11-18T19:00:00",
-            "location": {
-                "id": "1",
-                "title": "jfk airplain",
-                "address": "ff"
+        ],
+        "generalEvents": [
+            {
+                "id": "6",
+                "title": "Goodbye Breakfast at \"Taqueria San Pedro\"",
+                "startingDate": "2020-03-14T13:30:00",
+                "endingDate": "2020-03-14T18:00:00",
+                "location": {
+                    "id": "268",
+                    "title": "Museum of the City of New York",
+                    "address": "1220 5th Ave, New York, NY 10029, United States"
+                }
+            },
+            {
+                "id": "7",
+                "title": "Funtime at \"The Shops at Columbus Circle\"",
+                "startingDate": "2020-03-14T18:30:00",
+                "endingDate": "2020-03-14T21:00:00",
+                "location": {
+                    "id": "269",
+                    "title": "The Shops at Columbus Circle",
+                    "address": "10 Columbus Cir, New York, NY 10019, United States"
+                }
             }
-        }]
+        ],
+        "timeline": {
+            "id": "46",
+            "title": "Roy's amazing trip",
+            "startingDate": "2020-03-11T07:00:00",
+            "endingDate": "2020-03-15T02:00:00"
+        }
     };
 
     const orderedTimeline = OrderTimeline(input);
 
     expect(orderedTimeline['title']).toBe("Roy's amazing trip");
-    expect(orderedTimeline['startingDate']).toBe("2019-11-17T06:00:00");
-    expect(Object.keys(orderedTimeline['events'])).toStrictEqual(['17-11-2019', '18-11-2019', '19-11-2019', '20-11-2019']);
+    expect(orderedTimeline['startingDate']).toBe("2020-03-11T07:00:00");
+    expect(Object.keys(orderedTimeline['events'])).toStrictEqual(['11-3-2020', '12-3-2020', '13-3-2020', '14-3-2020']);
 
-    const firstDay = orderedTimeline['events']['17-11-2019'];
-    expect(firstDay['timestamp']).toBe(1573948800);
-    expect(firstDay['label']).toBe('17-11-2019, Sunday');
+    const firstDay = orderedTimeline['events']['11-3-2020'];
+    expect(firstDay['timestamp']).toBe(1583884800);
+    expect(firstDay['label']).toBe('11-3-2020, Wednesday');
     expect(firstDay['events'][0]).toStrictEqual({
-        id: "1",
-        title: "Flight to london",
-        connectionFlight: null,
-        destination: "London",
-        endingDate: 1573992000,
-        location: {"address": "ff", "id": "1", "title": "jfk airplain"},
-        origin: "Tel aviv",
-        startingDate: 1573977600,
-        type: "flightSet"
+        "id": "38",
+        "title": "Flight to Frankfurt",
+        "origin": "Tel aviv",
+        "destination": "Frakfurt",
+        "startingDate": 1583910000,
+        "endingDate": 1583924400,
+        "location": {
+            "id": "255",
+            "title": "Ben Gurion Airport",
+            "address": "Ben Gurion Airport, Terminal 3"
+        },
+        "connectionFlight": null,
+        "type": "flights"
     });
     expect(firstDay['events'][1]).toStrictEqual({
-        id: '1',
-        title: 'Hotel Gibson',
-        location: {
-            id: '2',
-            title: 'Gibson hotel',
-            address: 'Gibson hotel, Ireland'
+        "id": "39",
+        "title": "Flight to USA",
+        "origin": "Frnkfurt",
+        "destination": "New York",
+        "startingDate": 1583935200,
+        "endingDate": 1583917200,
+        "location": {
+            "id": "256",
+            "title": "Frankfurt Airport",
+            "address": "60547 Frankfurt, Germany"
         },
-        startingDate: 1574013600,
-        endingDate: 1574337600,
-        hotelName: 'Gisbon',
-        room: '312',
-        type: 'accommodationSet'
+        "connectionFlight": {
+            "id": "38"
+        },
+        "type": "flights"
     });
 
 });
