@@ -57,7 +57,9 @@ def event_between_conjunction(user_id, event: EventBase):
     if not event_meeting_conjunction:
         return False
 
-    return event_meeting_conjunction.starting_date <= event.starting_date <= event.ending_date
+    mce = event_meeting_conjunction
+
+    return event_meeting_conjunction.starting_date <= event.starting_date <= event_meeting_conjunction.ending_date
 
 
 class Flight(EventBase):

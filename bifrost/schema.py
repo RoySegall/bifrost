@@ -13,9 +13,9 @@ class User(DjangoObjectType):
 
 
 class Query(
+    BifrostEventsGraphql,
     BifrostTimelineGrpahql,
     BifrostLocationGraphql,
-    BifrostEventsGraphql
 ):
 
     user = graphene.List(User)
