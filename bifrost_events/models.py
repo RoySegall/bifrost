@@ -31,13 +31,13 @@ class EventBase(models.Model):
 
 class EventsManager(models.Manager):
 
-    def filter_not_shared(self, user_id, timeline=None):
+    def filter_not_shared(self, user_id, timeline_id=None):
         events = self.all()
 
         filtered_events = []
         for event in events:
 
-            if timeline and event.timeline.id != timeline:
+            if timeline_id and event.timeline.id != timeline_id:
                 continue
 
             if event.timeline.user_id == user_id or \

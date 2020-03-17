@@ -104,26 +104,39 @@ class TestSharedEvents(BaseTestUtils):
             {
                 'type': Flight,
                 'user_id': self.host_user.id,
-                'timeline': None,
+                'timeline_id': None,
                 'expected': [self.flight]
             },
             {
                 'type': Flight,
                 'user_id': self.host_user.id,
-                'timeline': new_timeline,
+                'timeline_id': self.timeline.id,
+                'expected': [self.flight]
+            },
+            {
+                'type': Flight,
+                'user_id': self.host_user.id,
+                'timeline_id': new_timeline,
                 'expected': []
             },
             {
                 'type': GeneralEvent,
                 'user_id': self.host_user.id,
-                'timeline': None,
+                'timeline_id': None,
                 'expected': [self.general_event_in_range,
                              self.general_event_out_of_range]
             },
             {
                 'type': GeneralEvent,
                 'user_id': self.host_user.id,
-                'timeline': new_timeline,
+                'timeline_id': self.timeline.id,
+                'expected': [self.general_event_in_range,
+                             self.general_event_out_of_range]
+            },
+            {
+                'type': GeneralEvent,
+                'user_id': self.host_user.id,
+                'timeline_id': new_timeline,
                 'expected': []
             },
 
@@ -131,25 +144,37 @@ class TestSharedEvents(BaseTestUtils):
             {
                 'type': Flight,
                 'user_id': self.guest_user.id,
-                'timeline': None,
+                'timeline_id': None,
                 'expected': []
             },
             {
                 'type': Flight,
                 'user_id': self.guest_user.id,
-                'timeline': new_timeline,
+                'timeline_id': self.timeline.id,
+                'expected': []
+            },
+            {
+                'type': Flight,
+                'user_id': self.guest_user.id,
+                'timeline_id': new_timeline,
                 'expected': []
             },
             {
                 'type': GeneralEvent,
                 'user_id': self.guest_user.id,
-                'timeline': None,
+                'timeline_id': None,
                 'expected': [self.general_event_in_range]
             },
             {
                 'type': GeneralEvent,
                 'user_id': self.guest_user.id,
-                'timeline': new_timeline,
+                'timeline_id': self.timeline.id,
+                'expected': [self.general_event_in_range]
+            },
+            {
+                'type': GeneralEvent,
+                'user_id': self.guest_user.id,
+                'timeline_id': new_timeline,
                 'expected': []
             },
         ]
@@ -157,7 +182,7 @@ class TestSharedEvents(BaseTestUtils):
         for event in events:
             kwargs = {
                 'user_id': event['user_id'],
-                'timeline': event['timeline'],
+                'timeline_id': event['timeline_id'],
             }
             self.assertEquals(
                 event['type'].objects.filter_not_shared(**kwargs),
