@@ -1,10 +1,9 @@
 from django.test import tag
-
 from bifrost.src.CommonTestUtils import BaseTestUtils
 from bifrost.src.ioc import ServiceContainer
 from datetime import datetime, timedelta
-
-from bifrost_events.models import event_between_conjunction
+from bifrost_events.models import event_between_conjunction, Flight, \
+    GeneralEvent
 
 
 @tag('now')
@@ -51,7 +50,7 @@ class TestSharedEvents(BaseTestUtils):
             'timeline': self.timeline,
             'location': location
         }
-        self.meeting_conjunction = events_service\
+        self.meeting_conjunction = events_service \
             .create_meeting_conjunction(**create_meeting_conjunction_kwargs)
 
         self.general_event_out_of_range = events_service.create_general_event(
@@ -66,7 +65,6 @@ class TestSharedEvents(BaseTestUtils):
         Testing the logic of event sharing from the basic function point of
         view.
         """
-
         # Checking that the events are not between conjunctions for the host
         # user since the host user is does not belong to any meeting
         # conjunction.
@@ -97,7 +95,74 @@ class TestSharedEvents(BaseTestUtils):
         """
         Testing the logic of event sharing from the model point of view.
         """
-        pass
+        # Creating an empty timeline which will help us to verify we got empty
+        # list of events.
+        new_timeline = self.create_timeline(self.host_user)
+
+        events = [
+            # Checking the host user and.
+            {
+                'type': Flight,
+                'user_id': self.host_user.id,
+                'timeline': None,
+                'expected': [self.flight]
+            },
+            {
+                'type': Flight,
+                'user_id': self.host_user.id,
+                'timeline': new_timeline,
+                'expected': []
+            },
+            {
+                'type': GeneralEvent,
+                'user_id': self.host_user.id,
+                'timeline': None,
+                'expected': [self.general_event_in_range,
+                             self.general_event_out_of_range]
+            },
+            {
+                'type': GeneralEvent,
+                'user_id': self.host_user.id,
+                'timeline': new_timeline,
+                'expected': []
+            },
+
+            # Checking guest user.
+            {
+                'type': Flight,
+                'user_id': self.guest_user.id,
+                'timeline': None,
+                'expected': []
+            },
+            {
+                'type': Flight,
+                'user_id': self.guest_user.id,
+                'timeline': new_timeline,
+                'expected': []
+            },
+            {
+                'type': GeneralEvent,
+                'user_id': self.guest_user.id,
+                'timeline': None,
+                'expected': [self.general_event_in_range]
+            },
+            {
+                'type': GeneralEvent,
+                'user_id': self.guest_user.id,
+                'timeline': new_timeline,
+                'expected': []
+            },
+        ]
+
+        for event in events:
+            kwargs = {
+                'user_id': event['user_id'],
+                'timeline': event['timeline'],
+            }
+            self.assertEquals(
+                event['type'].objects.filter_not_shared(**kwargs),
+                event['expected']
+            )
 
     def test_events_sharing_filtering_via_grpahql(self):
         """
