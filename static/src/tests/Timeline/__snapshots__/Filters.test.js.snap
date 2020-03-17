@@ -30,7 +30,7 @@ exports[`Testing the snapshot of the component 1`] = `
     >
       <button
         className="
-            btn-filter pickingcarSet font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
+            btn-filter pickingCars font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
           "
       >
         <span>
@@ -50,7 +50,7 @@ exports[`Testing the snapshot of the component 1`] = `
     >
       <button
         className="
-            btn-filter flightSet font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
+            btn-filter flights font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
           "
       >
         <span>
@@ -70,7 +70,7 @@ exports[`Testing the snapshot of the component 1`] = `
     >
       <button
         className="
-            btn-filter accommodationSet font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
+            btn-filter accommodations font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
           "
       >
         <span>
@@ -90,7 +90,7 @@ exports[`Testing the snapshot of the component 1`] = `
     >
       <button
         className="
-            btn-filter meetingconjunctionSet font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
+            btn-filter meetingConjunctions font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
           "
       >
         <span>
@@ -110,7 +110,7 @@ exports[`Testing the snapshot of the component 1`] = `
     >
       <button
         className="
-            btn-filter lunchSet font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
+            btn-filter lunches font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
           "
       >
         <span>
@@ -130,7 +130,7 @@ exports[`Testing the snapshot of the component 1`] = `
     >
       <button
         className="
-            btn-filter meetingSet font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
+            btn-filter meetings font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
           "
       >
         <span>
@@ -150,7 +150,7 @@ exports[`Testing the snapshot of the component 1`] = `
     >
       <button
         className="
-            btn-filter generaleventSet font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
+            btn-filter generalEvent font-bold pt-2 pb-2 pl-4 pr-4 ml-2 rounded
           "
       >
         <span>

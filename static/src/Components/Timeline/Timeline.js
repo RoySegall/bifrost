@@ -22,105 +22,104 @@ class Timeline extends React.Component {
     const params = {
       graphql: `
         query {
-            timeline(id: ${id}) {
-                id,
-                title,
-                startingDate,
-                endingDate,
-
-                flightSet {
-                    id
-                    title
-                    origin
-                    destination
-                    startingDate
-                    endingDate
-                    location {
-                      id
-                      title,
-                      address
-                    }
-                    
-                    connectionFlight {
-                        id
-                    }
-                },
-                pickingcarSet {
-                    title
-                    id
-                    startingDate
-                    endingDate
-                    location {
-                      id
-                      title,
-                      address
-                    }
-                },
-                accommodationSet {
-                    id
-                    title
-                    location {
-                      id
-                      title,
-                      address
-                    },
-                    startingDate
-                    endingDate
-                    hotelName
-                    room
-                },
-                meetingconjunctionSet {
-                    id
-                    title
-                    startingDate
-                    endingDate
-                    members {
-                      id
-                    }
-                    location {
-                      id
-                      title,
-                      address
-                    }
-                },
-                lunchSet {
-                    id
-                    title
-                    startingDate
-                    endingDate
-                    location {
-                      id
-                      title,
-                      address
-                    }
-                },
-                meetingSet {
-                    id
-                    title
-                    startingDate
-                    endingDate
-                    location {
-                      id
-                      title,
-                      address
-                    }
-                },
-                generaleventSet {
-                    id
-                    title
-                    startingDate
-                    endingDate
-                    location {
-                      id
-                      title,
-                      address
-                    }
-                }
+          flights(timeline: ${id}) {
+            id
+            title
+            origin
+            destination
+            startingDate
+            endingDate
+            location {
+              id
+              title,
+              address
+            }
+                
+            connectionFlight {
+                id
+            }
+          },
+          pickingCars(timeline: ${id}) {
+            title
+            id
+            startingDate
+            endingDate
+            location {
+              id
+              title,
+              address
+            }
+          },
+          accommodations(timeline: ${id}) {
+            id
+            title
+            location {
+              id
+              title,
+              address
             },
+            startingDate
+            endingDate
+            hotelName
+            room
+          },
+          meetingConjunctions(timeline: ${id}) {
+            id
+            title
+            startingDate
+            endingDate
+            members {
+              id
+            }
+            location {
+              id
+              title,
+              address
+            }
+          },
+          lunches(timeline: ${id}) {
+            id
+            title
+            startingDate
+            endingDate
+            location {
+              id
+              title,
+              address
+            }
+          },
+          meetings(timeline: ${id}) {
+            id
+            title
+            startingDate
+            endingDate
+            location {
+              id
+              title,
+              address
+            }
+          },
+          generalEvents(timeline: ${id}) {
+            id
+            title
+            startingDate
+            endingDate
+            location {
+              id
+              title,
+              address
+            }
+          },
+          timeline(id: ${id}) {
+            id,
+            title,
+            startingDate,
+            endingDate,
+          },
         }`
     };
     const response = await request(params)();
-    this.setState({timeline: OrderTimeline(response.data.data.timeline)})
+    this.setState({timeline: OrderTimeline(response.data.data)})
   }
 
   /**
@@ -147,30 +146,35 @@ class Timeline extends React.Component {
 }
 
 /**
- * Ordering the timeline by their  - day in the trip and by their time in the
+ * Ordering the data by their  - day in the trip and by their time in the
  * day which they belongs to.
  *
- * @param timeline
- *  The timeline results we got from the server.
+ * @param data
+ *  The data results we got from the server.
  *
  * @returns {{title: *, startingDate: (*|string), events: Array}}
  *  An or dates by days in the trip.
  *
  * @constructor
  */
-const OrderTimeline = (timeline) => {
-  // Get the endpoint we need to start the timeline.
+const OrderTimeline = (data) => {
+  // Get the endpoint we need to start the data.
   const timelineInfo = {
-    title: timeline.title,
-    startingDate: timeline.startingDate,
+    title: data.timeline.title,
+    startingDate: data.timeline.startingDate,
     events: [],
   };
 
   const days = {};
 
-  ['accommodationSet', 'flightSet', 'meetingconjunctionSet', 'pickingcarSet', 'lunchSet', 'meetingSet', 'generaleventSet']
+  ['accommodations', 'flights', 'meetingConjunctions', 'pickingCars', 'lunches', 'meetings', 'generalEvents']
     .map(type => {
-      timeline[type].map(event => {
+
+      if (data[type] == null) {
+        return;
+      }
+
+      data[type].map(event => {
         const startingDate = convertFromBackendToUtc(event['startingDate']);
         const day = startingDate.format(dateFormat);
 

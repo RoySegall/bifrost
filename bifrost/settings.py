@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'bifrost_events.apps.BifrostEventsConfig',
     'bifrost_location.apps.BifrostLocationConfig',
     'bifrost_tivol.apps.BifrostTivolConfig',
+    'django_filters',
 ]
 
 GRAPHENE = {

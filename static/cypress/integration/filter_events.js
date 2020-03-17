@@ -7,7 +7,7 @@ describe('Events filtering', function() {
 
     cy.xpath('//h3').should('have.length', 4);
 
-    cy.get('.pickingcarSet').click();
+    cy.get('.pickingCars').click();
     cy.contains('Flight to Frankfurt').should('not.be.visible');
 
     cy.xpath('//h3').should('have.length', 1);

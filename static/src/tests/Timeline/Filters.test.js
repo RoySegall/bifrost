@@ -31,20 +31,20 @@ test("Testing the filter changing", () => {
     expect(filters.find('.fal')).toHaveLength(5);
 
     // Click on the button and verify the event was triggered.
-    filters.find('button.pickingcarSet').simulate('click');
-    expect(filters.instance().state.activeFilter).toBe('pickingcarSet');
+    filters.find('button.pickingCars').simulate('click');
+    expect(filters.instance().state.activeFilter).toBe('pickingCars');
     expect(filterCallbackMock).toHaveBeenCalledTimes(1);
 
-    filters.find('button.flightSet').simulate('click');
-    expect(filters.instance().state.activeFilter).toBe('flightSet');
+    filters.find('button.flights').simulate('click');
+    expect(filters.instance().state.activeFilter).toBe('flights');
     expect(filterCallbackMock).toHaveBeenCalledTimes(2);
 
-    filters.find('button.accommodationSet').simulate('click');
-    expect(filters.instance().state.activeFilter).toBe('accommodationSet');
+    filters.find('button.accommodations').simulate('click');
+    expect(filters.instance().state.activeFilter).toBe('accommodations');
     expect(filterCallbackMock).toHaveBeenCalledTimes(3);
 
-    filters.find('button.meetingconjunctionSet').simulate('click');
-    expect(filters.instance().state.activeFilter).toBe('meetingconjunctionSet');
+    filters.find('button.meetingConjunctions').simulate('click');
+    expect(filters.instance().state.activeFilter).toBe('meetingConjunctions');
     expect(filterCallbackMock).toHaveBeenCalledTimes(4);
 
     filters.find('button.all').simulate('click');

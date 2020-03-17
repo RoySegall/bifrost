@@ -22,6 +22,45 @@ class EventBase(models.Model):
         null=True
     )
 
+    def filter_not_shared(self, user_id):
+        if event_between_conjunction(user_id, self):
+            return self
+
+        return None
+
+
+class EventsManager(models.Manager):
+
+    def filter_not_shared(self, user_id, timeline_id=None):
+        events = self.all()
+
+        filtered_events = []
+        for event in events:
+
+            if timeline_id and event.timeline.id != timeline_id:
+                continue
+
+            if event.timeline.user_id == user_id or \
+                    event_between_conjunction(user_id, event):
+                # This is the event which owned by the users. Append it.
+                filtered_events.append(event)
+
+        return filtered_events
+
+
+def event_between_conjunction(user_id, event: EventBase):
+    # Get the meeting conjunction which the user has in the current
+    # timeline of the event.
+    event_meeting_conjunction = MeetingConjunction.objects \
+        .filter(members__in=[user_id], timeline=event.timeline).first()
+
+    if not event_meeting_conjunction:
+        return False
+
+    mce = event_meeting_conjunction
+
+    return mce.starting_date <= event.starting_date <= mce.ending_date
+
 
 class Flight(EventBase):
     origin = models.CharField(max_length=255)
@@ -39,17 +78,20 @@ class Flight(EventBase):
         null=True,
         blank=True
     )
+    objects = EventsManager()
 
 
 class Accommodation(EventBase):
     hotel_name = models.CharField(max_length=255)
     room = models.CharField(max_length=255)
+    objects = EventsManager()
 
 
 class PickingCar(EventBase):
     agency = models.CharField(max_length=255)
     type = models.CharField(max_length=255)
     license_number = models.CharField(max_length=255)
+    objects = EventsManager()
 
 
 class MeetingConjunction(EventBase):
@@ -58,13 +100,13 @@ class MeetingConjunction(EventBase):
 
 class Lunch(EventBase):
     # todo: add support for contacts.
-    pass
+    objects = EventsManager()
 
 
 class Meeting(EventBase):
     # todo: add support for contacts.
-    pass
+    objects = EventsManager()
 
 
 class GeneralEvent(EventBase):
-    pass
+    objects = EventsManager()
