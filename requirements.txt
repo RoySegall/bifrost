@@ -2,7 +2,7 @@ Django==3.0.3
 mysqlclient==1.4.6
 graphene-django==2.8.1
 django-cors-headers==3.2.1
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 django-tivol==0.0.1
 dateparser==0.7.2
 python-http-client==3.2.5
